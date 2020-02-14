@@ -1,0 +1,92 @@
+<mvc:View controllerName="sap.project.farglory.Dashboard.controller.App" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:leaflet="sap.vco.leaflet.controls" 
+	xmlns:fb="sap.ui.comp.filterbar" 
+	xmlns:core="sap.ui.core">
+	<App>
+		<pages>
+			<f:DynamicPage id="dynamicPageId" headerExpanded="true" toggleHeaderOnTitleClick="false" fitContent="false" class="sapUiNoContentPadding myDynamicPage">
+				<f:title>
+					<f:DynamicPageTitle>
+						<f:heading>
+							<Title text="管理仪表盘" />
+						</f:heading>
+						<f:content>
+							<GenericTag text="在建项目数量" status="Success" class="sapUiTinyMargin" design="StatusIconHidden">
+								<ObjectNumber number="{statistic>/Count}" unit="" state="Success" />
+							</GenericTag>
+							<GenericTag text="实际总销售收入" status="Success" class="sapUiTinyMargin" design="StatusIconHidden">
+								<ObjectNumber number="{path:'statistic>/ActualRevenue',formatter:'.formatNumber'}" unit="亿TWD" state="Success" />
+							</GenericTag>
+							<GenericTag text="总销售面积" status="Success" class="sapUiTinyMargin" design="StatusIconHidden">
+								<ObjectNumber number="{path:'statistic>/TotalArea',formatter:'.formatNumber'}" unit="坪" state="Success" />
+							</GenericTag>
+						</f:content>
+						<f:actions>
+							<Button icon="sap-icon://action" type="Transparent" />
+						</f:actions>
+					</f:DynamicPageTitle>
+				</f:title>
+				<f:header>
+					<f:DynamicPageHeader pinnable="false">
+						<f:content>
+							<fb:FilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="true" showFilterConfiguration="false">
+								<fb:filterGroupItems>
+									<fb:FilterGroupItem name="A" label="城市" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+										<fb:control>
+											<Select forceSelection="true" items="{city>/}">
+												<core:Item key="{city>key}" text="{city>text}" />
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem name="B" label="区域" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+										<fb:control>
+											<Select forceSelection="true" items="{area>/}">
+												<core:Item key="{area>key}" text="{area>text}" />
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem name="C" label="项目状态" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+										<fb:control>
+											<Select forceSelection="true" items="{engineeringStatus>/}">
+												<core:Item key="{engineeringStatus>key}" text="{engineeringStatus>text}" />
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem name="D" label="业态" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+										<fb:control>
+											<Select forceSelection="true" items="{ path: '/ProductSuppliers' }">
+												<core:Item key="{key}" text="{name}" />
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+								</fb:filterGroupItems>
+							</fb:FilterBar>
+						</f:content>
+					</f:DynamicPageHeader>
+				</f:header>
+				<f:content>
+					<leaflet:Map id="map" zoom="3" center="[25.03, 121.5]" zoomControl="false" press="onPressMap">
+						<leaflet:layerGroups>
+							<leaflet:LayerGroup layers="{data>/}">
+								<leaflet:CircleMarker press="onPressProject" latLng="{data>Lat},{data>Lon}" radius="{= parseInt(${data>Invest} * 5)}" 
+									style='\{ "stroke": false, "color": "{= ${data>EngineeringStatus} === "正常" ? "#107e3e" : "#e9730c"}", "fillOpacity": 0.5 \}' />
+							</leaflet:LayerGroup >
+						</leaflet:layerGroups>
+						<leaflet:layers>
+							<leaflet:TileLayer url="https://api.tiles.mapbox.com/v4/[s]/[z]/[x]/[y].png?access_token=[accessToken]">
+								<leaflet:customData>
+									<core:CustomData key="maxZoom" value="18" />
+									<core:CustomData key="s" value="mapbox.streets" />
+									<core:CustomData key="accessToken" value="pk.eyJ1Ijoic3RyaW5nMTIyNSIsImEiOiJjanlqbjU3dTQwNWh1M29wcWg2Y2RxM3dxIn0.6oYP1O8MUA0RlLHZwa2JEQ" />
+								</leaflet:customData>
+							</leaflet:TileLayer>
+						</leaflet:layers>
+					</leaflet:Map>
+				</f:content>
+			</f:DynamicPage>
+		</pages>
+	</App>
+</mvc:View>

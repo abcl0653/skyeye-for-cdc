@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:fc="sap.f.cards"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover showHeader="false" contentWidth="25rem" placement="HorizontalPreferredRight">
+		<content>
+			<f:Card>
+				<f:content>
+				</f:content>
+				<f:header>
+					<fc:NumericHeader title="{data>Name}" subtitle="{data>ID} | {data>City} {= ${data>Area} === ${data>City} ? '' : ${data>Area}}" number="{data>ActualRevenue}" scale="亿{data>Currency}" state="Good" details="实际销售收入">
+					<fc:sideIndicators>
+						<fc:NumericSideIndicator title="建筑面积" number="{data>TotalArea}" unit=" 坪" />
+						<fc:NumericSideIndicator title="单坪造价" number="{data>UnitCost}" unit=" {data>Currency}" />
+					</fc:sideIndicators>
+					</fc:NumericHeader>
+				</f:header>
+			</f:Card>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

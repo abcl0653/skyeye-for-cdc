@@ -1,0 +1,9 @@
+/* Enter your custom styles here */
+
+.myDynamicPage .sapFDynamicPageTitle{
+    padding-bottom: 0;
+}
+
+.myDynamicPage .sapFDynamicPageHeader.sapFDynamicPageHeaderWithContent{
+    padding-top: 0;
+}
