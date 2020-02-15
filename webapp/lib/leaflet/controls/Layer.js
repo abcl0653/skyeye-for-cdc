@@ -37,13 +37,13 @@ sap.ui.define([
 			abstract: true
 		},
 
-		constructor: function () {
-			Element.apply(this, arguments);
-			var _origin = this.getProperty("_origin");
-			if (window.L && (_origin === null || typeof _origin === "undefined")) {
-				this._initLayer();
-			}
-		},
+		// constructor: function () {
+		// 	Element.apply(this, arguments);
+		// 	var _origin = this.getProperty("_origin");
+		// 	if (window.L && (_origin === null || typeof _origin === "undefined")) {
+		// 		this._initLayer();
+		// 	}
+		// },
 
 		_getOptions: function () {
 			var oOption = JSON.parse(this.getOptions())

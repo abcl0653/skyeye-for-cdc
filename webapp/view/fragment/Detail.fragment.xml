@@ -3,20 +3,23 @@
 	xmlns:f="sap.f"
 	xmlns:fc="sap.f.cards"
 	xmlns:core="sap.ui.core">
-	<ResponsivePopover showHeader="false" contentWidth="25rem" placement="HorizontalPreferredRight">
+	<ResponsivePopover showHeader="false" contentWidth="15rem" placement="HorizontalPreferredRight">
 		<content>
 			<f:Card>
 				<f:content>
 				</f:content>
 				<f:header>
-					<fc:NumericHeader title="{data>Name}" subtitle="{data>ID} | {data>City} {= ${data>Area} === ${data>City} ? '' : ${data>Area}}" number="{data>ActualRevenue}" scale="亿{data>Currency}" state="Good" details="实际销售收入">
+					<fc:NumericHeader title="{data>Name}" subtitle="负责人：{data>Responsible}" number="{data>Confirmed}" scale="" state="Good" details="确诊病例">
 					<fc:sideIndicators>
-						<fc:NumericSideIndicator title="建筑面积" number="{data>TotalArea}" unit=" 坪" />
-						<fc:NumericSideIndicator title="单坪造价" number="{data>UnitCost}" unit=" {data>Currency}" />
+						<fc:NumericSideIndicator title="疑似病例" number="{data>Unconfirmed}" unit="" />
+						<fc:NumericSideIndicator title="密切接触者" number="{data>Contact}" unit="" />
 					</fc:sideIndicators>
 					</fc:NumericHeader>
 				</f:header>
 			</f:Card>
 		</content>
+		<beginButton>
+			<Button text="查看详情" />
+		</beginButton>
 	</ResponsivePopover>
 </core:FragmentDefinition>

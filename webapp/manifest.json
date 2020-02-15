@@ -1,7 +1,7 @@
 {
 	"_version": "1.12.0",
 	"sap.app": {
-		"id": "sap.project.farglory.Dashboard",
+		"id": "sap.ibso.skyeyeForCdc",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -35,7 +35,7 @@
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
-			"viewName": "sap.project.farglory.Dashboard.view.App",
+			"viewName": "sap.ibso.skyeyeForCdc.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "App"
@@ -56,7 +56,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "sap.project.farglory.Dashboard.i18n.i18n"
+					"bundleName": "sap.ibso.skyeyeForCdc.i18n.i18n"
 				}
 			}
 		},
@@ -70,23 +70,23 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"async": true,
-				"viewPath": "sap.project.farglory.Dashboard.view",
+				"viewPath": "sap.ibso.skyeyeForCdc.view",
 				"controlAggregation": "pages",
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "RouteApp",
-				"pattern": "RouteApp",
-				"target": ["TargetApp"]
+				"name": "Map",
+				"pattern": "",
+				"target": ["Map"]
 			}],
 			"targets": {
-				"TargetApp": {
+				"Map": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewId": "App",
-					"viewName": "App"
+					"viewId": "Map",
+					"viewName": "Map"
 				}
 			}
 		}

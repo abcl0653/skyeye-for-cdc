@@ -1,11 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"sap/project/farglory/Dashboard/model/models"
+	"sap/ibso/skyeyeForCdc/model/models"
 ], function (UIComponent, Device, models) {
 	"use strict";
 
-	return UIComponent.extend("sap.project.farglory.Dashboard.Component", {
+	return UIComponent.extend("sap.ibso.skyeyeForCdc.Component", {
 
 		metadata: {
 			manifest: "json"

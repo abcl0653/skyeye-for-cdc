@@ -1,47 +1,6 @@
-<mvc:View controllerName="sap.project.farglory.Dashboard.controller.App" 
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.App" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
-	xmlns:f="sap.f" 
-	xmlns:leaflet="sap.vco.leaflet.controls" 
-	xmlns:fb="sap.ui.comp.filterbar" 
 	xmlns:core="sap.ui.core">
-	<App id="app">
-		<pages>
-			<Page id="page" enableScrolling="false">
-				<customHeader>
-					<f:ShellBar title="{i18n>appHeaderTitle}" secondTitle="{i18n>appHeaderSecondTitle}" homeIcon="./image/SAP_Logo.png" showNotifications="true" notificationsNumber="{= ${notification>/}.length}" notificationsPressed="onPressNotificationIcon" showMenuButton="true" menuButtonPressed="onLanButtonPress">
-						<f:profile>
-							<f:Avatar initials="U" />
-						</f:profile>
-						<f:menu>
-							<Menu>
-								<MenuItem key="1" text="疫情监控" />
-								<MenuItem key="2" text="网格管理" />
-								<MenuItem key="3" text="病例提报" />
-								<MenuItem key="4" text="物资调配" />
-							</Menu>
-						</f:menu>
-					</f:ShellBar>
-				</customHeader>
-				<content>
-					<leaflet:Map id="map" zoom="3" center="[25.03, 121.5]" zoomControl="false" press="onPressMap">
-						<leaflet:layerGroups>
-							<leaflet:LayerGroup layers="{data>/}">
-								<leaflet:CircleMarker press="onPressProject" latLng="{data>Lat},{data>Lon}" radius="{= parseInt(${data>Invest} * 5)}" style='\{ "stroke": false, "color": "{= ${data>EngineeringStatus} === "正常" ? "#107e3e" : "#e9730c"}", "fillOpacity": 0.5 \}' />
-							</leaflet:LayerGroup >
-						</leaflet:layerGroups>
-						<leaflet:layers>
-							<leaflet:TileLayer url="https://api.tiles.mapbox.com/v4/[s]/[z]/[x]/[y].png?access_token=[accessToken]">
-								<leaflet:customData>
-									<core:CustomData key="maxZoom" value="18" />
-									<core:CustomData key="s" value="mapbox.streets" />
-									<core:CustomData key="accessToken" value="pk.eyJ1Ijoic3RyaW5nMTIyNSIsImEiOiJjanlqbjU3dTQwNWh1M29wcWg2Y2RxM3dxIn0.6oYP1O8MUA0RlLHZwa2JEQ" />
-								</leaflet:customData>
-							</leaflet:TileLayer>
-						</leaflet:layers>
-					</leaflet:Map>
-				</content>
-			</Page>
-		</pages>
-	</App>
+	<App id="app" />
 </mvc:View>
