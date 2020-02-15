@@ -1,0 +1,19 @@
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Supply" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:leaflet="sap.vco.leaflet.controls" 
+	xmlns:fb="sap.ui.comp.filterbar" 
+	xmlns:core="sap.ui.core">
+			<Page id="page" enableScrolling="false">
+				<customHeader>
+					<f:ShellBar title="物资调度" secondTitle="" homeIcon="./image/SAP_Logo.png" showNotifications="true" notificationsNumber="{= ${notification>/}.length}" notificationsPressed="onPressNotificationIcon" showMenuButton="true" menuButtonPressed="onMenuOpen">
+						<f:profile>
+							<f:Avatar initials="U" />
+						</f:profile>
+					</f:ShellBar>
+				</customHeader>
+				<content>
+				</content>
+			</Page>
+</mvc:View>

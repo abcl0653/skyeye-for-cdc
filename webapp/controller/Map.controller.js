@@ -1,16 +1,17 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
+	"./BaseController",
 	"sap/ui/core/format/NumberFormat",
 	"sap/ui/core/Fragment"
-], function (Controller, NumberFormat, Fragment) {
+], function (BaseController, NumberFormat, Fragment) {
 	"use strict";
 
 	var oNumberFormat = NumberFormat.getCurrencyInstance({
 		"currencyCode": false
 	});
 
-	return Controller.extend("sap.ibso.skyeyeForCdc.controller.Map", {
+	return BaseController.extend("sap.ibso.skyeyeForCdc.controller.Map", {
 		onInit: function () {
+			BaseController.prototype.onInit.apply(this,arguments);
 			Fragment.load({
 				name: "sap.ibso.skyeyeForCdc.view.fragment.Detail",
 				controller: this

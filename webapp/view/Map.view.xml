@@ -7,7 +7,7 @@
 	xmlns:core="sap.ui.core">
 			<Page id="page" enableScrolling="false">
 				<customHeader>
-					<f:ShellBar title="疫情监控" secondTitle="" homeIcon="./image/SAP_Logo.png" showNotifications="true" notificationsNumber="{= ${notification>/}.length}" notificationsPressed="onPressNotificationIcon" showMenuButton="true" menuButtonPressed="onLanButtonPress">
+					<f:ShellBar title="疫情监控" secondTitle="" homeIcon="./image/SAP_Logo.png" showNotifications="true" notificationsNumber="{= ${notification>/}.length}" notificationsPressed="onPressNotificationIcon" showMenuButton="true" menuButtonPressed="onMenuOpen">
 						<f:profile>
 							<f:Avatar initials="U" />
 						</f:profile>

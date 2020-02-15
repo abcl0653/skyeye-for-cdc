@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" 
+    xmlns:core="sap.ui.core" >
+    <Menu itemSelected="onMenuItemSelected">
+        <MenuItem key="Map" text="疫情监控" />
+        <MenuItem key="MasterData" text="组织架构" />
+        <MenuItem key="Case" text="案例管控" />
+        <MenuItem key="Supply" text="物资调度"/>
+    </Menu>
+</core:FragmentDefinition>

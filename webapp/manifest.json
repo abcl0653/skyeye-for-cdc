@@ -73,20 +73,46 @@
 				"viewPath": "sap.ibso.skyeyeForCdc.view",
 				"controlAggregation": "pages",
 				"controlId": "app",
-				"clearControlAggregation": false
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": [
+						"Map"
+					]
+				}
 			},
 			"routes": [{
 				"name": "Map",
-				"pattern": "",
+				"pattern": "map",
 				"target": ["Map"]
+			},{
+				"name": "Case",
+				"pattern": "case",
+				"target": ["Case"]
+			},{
+				"name": "MasterData",
+				"pattern": "masterdata",
+				"target": ["MasterData"]
+			},{
+				"name": "Supply",
+				"pattern": "supply",
+				"target": ["Supply"]
 			}],
 			"targets": {
 				"Map": {
 					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "Map",
 					"viewName": "Map"
+				},
+				"Case": {
+					"viewType": "XML",
+					"viewName": "Case"
+				},
+				"MasterData": {
+					"viewType": "XML",
+					"viewName": "MasterData"
+				},
+				"Supply": {
+					"viewType": "XML",
+					"viewName": "Supply"
 				}
 			}
 		}
