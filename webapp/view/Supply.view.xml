@@ -2,18 +2,238 @@
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:f="sap.f" 
+	xmlns:tnt="sap.tnt" 
+	xmlns:l="sap.ui.layout"
 	xmlns:leaflet="sap.vco.leaflet.controls" 
 	xmlns:fb="sap.ui.comp.filterbar" 
 	xmlns:core="sap.ui.core">
-			<Page id="page" enableScrolling="false">
-				<customHeader>
-					<f:ShellBar title="物资调度" secondTitle="" homeIcon="./image/SAP_Logo.png" showNotifications="true" notificationsNumber="{= ${notification>/}.length}" notificationsPressed="onPressNotificationIcon" showMenuButton="true" menuButtonPressed="onMenuOpen">
-						<f:profile>
-							<f:Avatar initials="U" />
-						</f:profile>
-					</f:ShellBar>
-				</customHeader>
-				<content>
-				</content>
-			</Page>
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<ToolbarSpacer width="2rem" />
+				<Button icon="sap-icon://menu2" type="Transparent" press=".onSideNavButtonPress" />
+				<Image src="image/SAP_Logo.png" height="2rem" />
+				<Title text="物资调度" />
+				<tnt:ToolHeaderUtilitySeparator />
+				<ToolbarSpacer />
+				<Button text="用户" type="Transparent" press=".onUserNamePress" />
+				<Button icon="sap-icon://bell" type="Transparent" press=".onNotificationPress" />
+				<Button icon="sap-icon://grid" type="Transparent" press=".onProductSwitchPress" />
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="true" itemSelect=".onItemSelect">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="物资供给" icon="{icon}" key="{key}" />
+					<tnt:NavigationListItem text="物资需求" icon="{icon}" key="{key}" />
+					<tnt:NavigationListItem text="供需调度" icon="{icon}" key="{key}" />
+					<tnt:NavigationListItem text="库存管理" icon="{icon}" key="{key}" />
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList >
+						<tnt:NavigationListItem text="相关文档" icon="" />
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer" initialPage="page2">
+				<pages>
+					<f:DynamicPage id="dynamicPageId" headerExpanded="true" showFooter="true" toggleHeaderOnTitleClick="false" fitContent="false" class="sapUiNoContentPadding myDynamicPage">
+						<f:title>
+							<f:DynamicPageTitle>
+								<f:heading>
+									<Title text="供需调度" />
+								</f:heading>
+								<f:content>
+								</f:content>
+								<f:actions>
+									<!-- <Button icon="sap-icon://add" type="Transparent" /> -->
+								</f:actions>
+							</f:DynamicPageTitle>
+						</f:title>
+						<f:header>
+							<f:DynamicPageHeader pinnable="false">
+								<f:content>
+									<fb:FilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="true" showFilterConfiguration="false">
+										<fb:filterGroupItems>
+											<fb:FilterGroupItem name="A" label="区域" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+												<fb:control>
+													<Select forceSelection="true">
+														<core:Item key="" text="全部" />
+														<core:Item key="" text="上海" />
+														<core:Item key="" text="北京" />
+													</Select>
+												</fb:control>
+											</fb:FilterGroupItem>
+											<fb:FilterGroupItem name="B" label="物品" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+												<fb:control>
+													<Select forceSelection="true">
+														<core:Item key="" text="全部" />
+													</Select>
+												</fb:control>
+											</fb:FilterGroupItem>
+											<!-- <fb:FilterGroupItem name="C" label="案例类型" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+												<fb:control>
+													<Select forceSelection="true">
+														<core:Item key="" text="全部" />
+														<core:Item key="" text="确诊" />
+														<core:Item key="" text="疑似" />
+														<core:Item key="" text="密切接触" />
+													</Select>
+												</fb:control>
+											</fb:FilterGroupItem> -->
+										</fb:filterGroupItems>
+									</fb:FilterBar>
+								</f:content>
+							</f:DynamicPageHeader>
+						</f:header>
+						<f:content>
+							<l:Splitter orientation="Vertical">
+								<l:Splitter>
+									<Table inset="false">
+										<headerToolbar>
+											<Toolbar>
+												<Title text="需求 (1)" />
+												<ToolbarSpacer />
+												<!-- <Button icon="sap-icon://add" type="Transparent" /> -->
+											</Toolbar>
+										</headerToolbar>
+										<columns>
+											<Column >
+												<Text text="主题/编号" />
+											</Column>
+											<Column >
+												<Text text="物品" />
+											</Column>
+											<Column >
+												<Text text="数量" />
+											</Column>
+											<Column >
+												<Text text="来源" />
+											</Column>
+											<Column >
+												<Text text="联系人" />
+											</Column>
+											<Column >
+												<Text text="联系地址" />
+											</Column>
+										</columns>
+										<!-- <items>
+											<ColumnListItem vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="新冠确诊" text="310111000001" />
+													<Text text="某某医院确诊1例确诊病例" />
+													<Text text="上海市浦东新区" />
+													<Text text="传染病" />
+													<Text text="确诊" />
+													<Text text="负责人" />
+												</cells>
+											</ColumnListItem>
+										</items> -->
+									</Table>
+									<Table inset="false">
+										<headerToolbar>
+											<Toolbar>
+												<Title text="供给 (1)" />
+												<ToolbarSpacer />
+												<Button icon="sap-icon://add" type="Transparent" />
+											</Toolbar>
+										</headerToolbar>
+										<columns>
+											<Column >
+												<Text text="主题/编号" />
+											</Column>
+											<Column >
+												<Text text="物品" />
+											</Column>
+											<Column >
+												<Text text="数量" />
+											</Column>
+											<Column >
+												<Text text="来源" />
+											</Column>
+											<Column >
+												<Text text="联系人" />
+											</Column>
+											<Column >
+												<Text text="联系地址" />
+											</Column>
+										</columns>
+										<!-- <items>
+											<ColumnListItem vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="新冠确诊" text="310111000001" />
+													<Text text="某某医院确诊1例确诊病例" />
+													<Text text="上海市浦东新区" />
+													<Text text="传染病" />
+													<Text text="确诊" />
+													<Text text="负责人" />
+												</cells>
+											</ColumnListItem>
+										</items> -->
+									</Table>
+								</l:Splitter>
+								<Table inset="false">
+								<layoutData>
+									<l:SplitterLayoutData size="40%" />
+								</layoutData>
+									<headerToolbar>
+										<Toolbar>
+											<Title text="调度订单" />
+											<ToolbarSpacer />
+											<Button icon="sap-icon://add" type="Transparent" />
+										</Toolbar>
+									</headerToolbar>
+									<columns>
+										<Column >
+											<Text text="需求/编号" />
+										</Column>
+										<Column >
+											<Text text="物品" />
+										</Column>
+										<Column >
+											<Text text="数量" />
+										</Column>
+										<Column >
+											<Text text="供给/编号" />
+										</Column>
+										<Column >
+											<Text text="物品" />
+										</Column>
+										<Column >
+											<Text text="数量" />
+										</Column>
+										<Column >
+											<Text text="调度员" />
+										</Column>
+									</columns>
+									<!-- <items>
+										<ColumnListItem vAlign="Middle">
+											<cells>
+												<ObjectIdentifier title="新冠确诊" text="310111000001" />
+												<Text text="某某医院确诊1例确诊病例" />
+												<Text text="上海市浦东新区" />
+												<Text text="传染病" />
+												<Text text="确诊" />
+												<Text text="负责人" />
+											</cells>
+										</ColumnListItem>
+									</items> -->
+								</Table>
+							</l:Splitter>
+
+						</f:content>
+						<f:footer>
+							<Toolbar>
+								<ToolbarSpacer />
+								<Button text="重置" type="Transparent" />
+								<Button text="保存" type="Accept" />
+							</Toolbar>
+						</f:footer>
+					</f:DynamicPage>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
 </mvc:View>

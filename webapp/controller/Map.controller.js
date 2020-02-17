@@ -11,7 +11,7 @@ sap.ui.define([
 
 	return BaseController.extend("sap.ibso.skyeyeForCdc.controller.Map", {
 		onInit: function () {
-			BaseController.prototype.onInit.apply(this,arguments);
+			BaseController.prototype.onInit.apply(this, arguments);
 			Fragment.load({
 				name: "sap.ibso.skyeyeForCdc.view.fragment.Detail",
 				controller: this
@@ -19,6 +19,38 @@ sap.ui.define([
 				this._oPopover = oPopover;
 				this.getView().addDependent(this._oPopover);
 			}.bind(this));
+			this.getView().setModel(new sap.ui.model.json.JSONModel({
+				tree: [
+					{
+						"text": "上海市",
+						"nodes":
+							[
+								{
+									"text": "浦东新区",
+									"nodes": [
+										{
+											"text": "金桥街道"
+										},
+										{
+											"text": "张江镇",
+											"nodes": [
+												{
+													"text": "汤臣三期"
+												},
+												{
+													"text": "汤臣四期"
+												}
+											]
+										}
+									]
+								},
+								{
+									"text": "黄浦区"
+								}
+							]
+					}
+				]
+			}))
 		},
 
 		onPressProject: function (oEvent) {

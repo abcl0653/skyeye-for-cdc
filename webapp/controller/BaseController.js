@@ -7,10 +7,10 @@ sap.ui.define([
     return Controller.extend("sap.ibso.skyeyeForCdc.controller.BaseController", {
         onInit: function () {
             Fragment.load({
-                name: "sap.ibso.skyeyeForCdc.view.fragment.Menu",
+                name: "sap.ibso.skyeyeForCdc.view.fragment.ProductSwitcher",
                 controller: this
-            }).then(function (oMenu) {
-                this._oMenu = oMenu;
+            }).then(function (oProductSwitcher) {
+                this._oProductSwitcher = oProductSwitcher;
             }.bind(this));
         },
 
@@ -18,14 +18,23 @@ sap.ui.define([
             return sap.ui.core.UIComponent.getRouterFor(this);
         },
 
-        onMenuOpen: function (oEvent) {
-            this._oMenu.openBy(oEvent.getParameter("button"), false);
+        onNotificationPress: function () {
+
         },
-        
-        onMenuItemSelected: function (oEvent) {
-            var oItem = oEvent.getParameter("item");
-            var sKey = oItem.getKey();
+
+        onProductSwitchPress: function (oEvent) {
+            this._oProductSwitcher.openBy(oEvent.getSource(), false);
+        },
+
+        onProductChanged: function (oEvent) {
+            var oItem = oEvent.getParameter("itemPressed");
+            var sKey = oItem.getTarget();
             this.getRouter().navTo(sKey);
+        },
+
+        onSideNavButtonPress: function (oEvent) {
+            var oToolPage = oEvent.getSource().getParent().getParent();
+            oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
         }
     });
 });

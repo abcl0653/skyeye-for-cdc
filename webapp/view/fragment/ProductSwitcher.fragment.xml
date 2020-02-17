@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover placement="Bottom" showHeader="false">
+		<f:ProductSwitch change="onProductChanged">
+			<f:items>
+				<f:ProductSwitchItem src="sap-icon://map-2" title="疫情监控" subTitle="{subTitle}" target="Map" />
+				<f:ProductSwitchItem src="sap-icon://org-chart" title="组织架构" subTitle="{subTitle}" target="MasterData" />
+				<f:ProductSwitchItem src="sap-icon://order-status" title="案例管控" subTitle="{subTitle}" target="Case" />
+				<f:ProductSwitchItem src="sap-icon://shipping-status" title="物资调度" subTitle="{subTitle}" target="Supply" />
+				<f:ProductSwitchItem src="sap-icon://shipping-status" title="信息上报" subTitle="移动端" target="MobileUpload" />
+			</f:items>
+		</f:ProductSwitch>
+	</ResponsivePopover>
+</core:FragmentDefinition>

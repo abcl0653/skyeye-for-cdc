@@ -7,7 +7,7 @@
 /**
  * Initialization Code and shared classes of library sap.vco.leaflet.
  */
-sap.ui.define(["sap/ui/core/library", "sap/ui/dom/includeStylesheet", "sap/ui/dom/includeScript"], // library dependency
+sap.ui.define(["sap/ui/core/library"], // library dependency
 	function (library, includeStylesheet, includeScript) {
 
 		"use strict";

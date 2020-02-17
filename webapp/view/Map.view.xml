@@ -2,42 +2,89 @@
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:f="sap.f" 
+	xmlns:tnt="sap.tnt" 
 	xmlns:leaflet="sap.vco.leaflet.controls" 
-	xmlns:fb="sap.ui.comp.filterbar" 
+	xmlns:fc="sap.f.cards" 
 	xmlns:core="sap.ui.core">
-			<Page id="page" enableScrolling="false">
-				<customHeader>
-					<f:ShellBar title="疫情监控" secondTitle="" homeIcon="./image/SAP_Logo.png" showNotifications="true" notificationsNumber="{= ${notification>/}.length}" notificationsPressed="onPressNotificationIcon" showMenuButton="true" menuButtonPressed="onMenuOpen">
-						<f:profile>
-							<f:Avatar initials="U" />
-						</f:profile>
-						<f:menu>
-							<Menu>
-								<MenuItem key="1" text="疫情监控" />
-								<MenuItem key="2" text="网格管理" />
-								<MenuItem key="3" text="病例提报" />
-								<MenuItem key="4" text="物资调配" />
-							</Menu>
-						</f:menu>
-					</f:ShellBar>
-				</customHeader>
-				<content>
-					<leaflet:Map id="map" zoom="15" center="[31.2, 121.6]" zoomControl="false" press="onPressMap">
-						<leaflet:layerGroups>
-							<leaflet:LayerGroup layers="{data>/}">
-								<leaflet:Polygon press="onPressProject" latLngs="{data>LatLngs}" style='\{ "stroke": true, "color": "{= ${data>Status} === "Good" ? "#107e3e" : "#e9730c"}", "fillOpacity": 0.5 \}' />
-							</leaflet:LayerGroup >
-						</leaflet:layerGroups>
-						<leaflet:layers>
-							<leaflet:TileLayer url="https://api.tiles.mapbox.com/v4/[s]/[z]/[x]/[y].png?access_token=[accessToken]">
-								<leaflet:customData>
-									<core:CustomData key="maxZoom" value="18" />
-									<core:CustomData key="s" value="mapbox.streets" />
-									<core:CustomData key="accessToken" value="pk.eyJ1Ijoic3RyaW5nMTIyNSIsImEiOiJjanlqbjU3dTQwNWh1M29wcWg2Y2RxM3dxIn0.6oYP1O8MUA0RlLHZwa2JEQ" />
-								</leaflet:customData>
-							</leaflet:TileLayer>
-						</leaflet:layers>
-					</leaflet:Map>
-				</content>
-			</Page>
+	<Page id="page" enableScrolling="false">
+		<customHeader>
+			<tnt:ToolHeader>
+				<ToolbarSpacer width="4.5rem" />
+				<Image src="image/SAP_Logo.png" height="2rem" />
+				<Title text="疫情监控" />
+				<tnt:ToolHeaderUtilitySeparator />
+				<ToolbarSpacer />
+				<Button text="用户" type="Transparent" press=".onUserNamePress" />
+				<Button icon="sap-icon://bell" type="Transparent" press=".onNotificationPress" />
+				<Button icon="sap-icon://grid" type="Transparent" press=".onProductSwitchPress" />
+			</tnt:ToolHeader>
+		</customHeader>
+		<content>
+			<leaflet:Map id="map" zoom="15" center="[31.2, 121.6]" zoomControl="false" press="onPressMap">
+				<leaflet:layerGroups>
+					<leaflet:LayerGroup id="AreaRisk" layers="{data>/}">
+						<leaflet:Polygon press="onPressProject" latLngs="{data>LatLngs}" style='\{ "stroke": true, "color": "{= ${data>Status} === "Good" ? "#107e3e" : "#e9730c"}", "fillOpacity": 0.5 \}' />
+					</leaflet:LayerGroup >
+				</leaflet:layerGroups>
+				<leaflet:layers>
+					<leaflet:TileLayer url="https://api.tiles.mapbox.com/v4/[s]/[z]/[x]/[y].png?access_token=[accessToken]">
+						<leaflet:customData>
+							<core:CustomData key="maxZoom" value="18" />
+							<core:CustomData key="s" value="mapbox.streets" />
+							<core:CustomData key="accessToken" value="pk.eyJ1Ijoic3RyaW5nMTIyNSIsImEiOiJjanlqbjU3dTQwNWh1M29wcWg2Y2RxM3dxIn0.6oYP1O8MUA0RlLHZwa2JEQ" />
+						</leaflet:customData>
+					</leaflet:TileLayer>
+				</leaflet:layers>
+				<leaflet:floatingItems>
+					<leaflet:FloatingItem top="1rem" left="1rem">
+						<f:Card class="myCard" width="12rem">
+							<f:header>
+								<fc:Header title="上海市 - 浦东新区" iconSrc="" />
+							</f:header>
+							<f:content>
+								<Tree items="{/tree}" mode="SingleSelectMaster">
+									<StandardTreeItem title="{text}" />
+								</Tree>
+							</f:content>
+						</f:Card>
+					</leaflet:FloatingItem>
+					<leaflet:FloatingItem top="1rem" left="14rem">
+						<f:Card class="myCard" width="15rem">
+							<f:header>
+								<fc:NumericHeader title="管控人数" subtitle="2020年2月1日" number="5" trend="Down" state="Good" details="确诊病例" press="onPressWorkOrderCard">
+									<fc:sideIndicators>
+										<fc:NumericSideIndicator title="疑似病例" number="69" />
+										<fc:NumericSideIndicator title="密切接触者" number="123" />
+									</fc:sideIndicators>
+								</fc:NumericHeader>
+							</f:header>
+							<f:content>
+								<!-- <echarts:Instance class="sapUiTinyMarginTopBottom" id="chart-pie" width="100%" height="10rem">
+								</echarts:Instance> -->
+							</f:content>
+						</f:Card>
+					</leaflet:FloatingItem>
+					<leaflet:FloatingItem bottom="1rem" left="1rem">
+						<!-- <f:Card class="myCard" width="15rem">
+							<f:header>
+								<fc:Header title="图层" iconSrc="sap-icon://map-2" />
+							</f:header>
+							<f:content> -->
+						<List mode="MultiSelect" headerText="图层">
+							<headerToolbar>
+								<Toolbar design="Solid">
+									<core:Icon src="sap-icon://map-2" />
+									<Title text="图层" />
+								</Toolbar>
+							</headerToolbar>
+							<StandardListItem title="区块风险" />
+							<StandardListItem title="病例活动行迹" />
+						</List>
+						<!-- </f:content>
+						</f:Card> -->
+					</leaflet:FloatingItem>
+				</leaflet:floatingItems>
+			</leaflet:Map>
+		</content>
+	</Page>
 </mvc:View>

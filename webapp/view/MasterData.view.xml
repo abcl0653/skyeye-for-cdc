@@ -2,18 +2,86 @@
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:f="sap.f" 
+	xmlns:tnt="sap.tnt" 
+	xmlns:t="sap.ui.table"
 	xmlns:leaflet="sap.vco.leaflet.controls" 
 	xmlns:fb="sap.ui.comp.filterbar" 
 	xmlns:core="sap.ui.core">
-			<Page id="page" enableScrolling="false">
-				<customHeader>
-					<f:ShellBar title="组织架构" secondTitle="" homeIcon="./image/SAP_Logo.png" showNotifications="true" notificationsNumber="{= ${notification>/}.length}" notificationsPressed="onPressNotificationIcon" showMenuButton="true" menuButtonPressed="onMenuOpen">
-						<f:profile>
-							<f:Avatar initials="U" />
-						</f:profile>
-					</f:ShellBar>
-				</customHeader>
-				<content>
-				</content>
-			</Page>
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<ToolbarSpacer width="2rem" />
+				<Button icon="sap-icon://menu2" type="Transparent" press=".onSideNavButtonPress" />
+				<Image src="image/SAP_Logo.png" height="2rem" />
+				<Title text="组织架构" />
+				<tnt:ToolHeaderUtilitySeparator />
+				<ToolbarSpacer />
+				<Button text="用户" type="Transparent" press=".onUserNamePress" />
+				<Button icon="sap-icon://bell" type="Transparent" press=".onNotificationPress" />
+				<Button icon="sap-icon://grid" type="Transparent" press=".onProductSwitchPress" />
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="true" itemSelect=".onItemSelect">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="行政区划" icon="{icon}" key="{key}" />
+					<tnt:NavigationListItem text="医疗机构" icon="{icon}" key="{key}" />
+					<tnt:NavigationListItem text="工作人员" icon="{icon}" key="{key}" />
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList >
+						<tnt:NavigationListItem text="相关文档" icon="" />
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer" initialPage="page2">
+				<pages>
+					<f:DynamicPage id="dynamicPageId" headerExpanded="true" toggleHeaderOnTitleClick="false" fitContent="false" class="sapUiNoContentPadding myDynamicPage">
+						<f:title>
+							<f:DynamicPageTitle>
+								<f:heading>
+									<Title text="行政区划" />
+								</f:heading>
+								<f:content>
+								</f:content>
+								<f:actions>
+									<Button icon="sap-icon://expand" type="Transparent" press="onCollapseAll" />
+									<Button icon="sap-icon://collapse" type="Transparent" press="onCollapseSelection" />
+									<Button icon="sap-icon://add" type="Transparent" press="onCollapseAll" />
+								</f:actions>
+							</f:DynamicPageTitle>
+						</f:title>
+						<f:header>
+						</f:header>
+						<f:content>
+							<t:TreeTable id="TreeTableBasic" rows="{path:'/', parameters: {arrayNames:['nodes']}}" selectionMode="MultiToggle" enableSelectAll="false">
+								<t:columns>
+									<t:Column>
+										<Label text="区划名称" />
+										<t:template>
+											<Text text="{name}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column>
+										<Label text="类型" />
+										<t:template>
+											<Text text="{type}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column>
+										<Label text="负责人" />
+										<t:template>
+											<Text text="{person}" wrapping="false" />
+										</t:template>
+									</t:Column>
+								</t:columns>
+							</t:TreeTable>
+						</f:content>
+					</f:DynamicPage>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
 </mvc:View>

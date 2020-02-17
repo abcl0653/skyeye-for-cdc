@@ -2,18 +2,141 @@
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:f="sap.f" 
+	xmlns:tnt="sap.tnt" 
 	xmlns:leaflet="sap.vco.leaflet.controls" 
 	xmlns:fb="sap.ui.comp.filterbar" 
 	xmlns:core="sap.ui.core">
-			<Page id="page" enableScrolling="false">
-				<customHeader>
-					<f:ShellBar title="案例管控" secondTitle="" homeIcon="./image/SAP_Logo.png" showNotifications="true" notificationsNumber="{= ${notification>/}.length}" notificationsPressed="onPressNotificationIcon" showMenuButton="true" menuButtonPressed="onMenuOpen">
-						<f:profile>
-							<f:Avatar initials="U" />
-						</f:profile>
-					</f:ShellBar>
-				</customHeader>
-				<content>
-				</content>
-			</Page>
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<ToolbarSpacer width="2rem" />
+				<Button icon="sap-icon://menu2" type="Transparent" press=".onSideNavButtonPress" />
+				<Image src="image/SAP_Logo.png" height="2rem" />
+				<Title text="疫情监控" />
+				<tnt:ToolHeaderUtilitySeparator />
+				<ToolbarSpacer />
+				<Button text="用户" type="Transparent" press=".onUserNamePress" />
+				<Button icon="sap-icon://bell" type="Transparent" press=".onNotificationPress" />
+				<Button icon="sap-icon://grid" type="Transparent" press=".onProductSwitchPress" />
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="true" itemSelect=".onItemSelect">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="案例" icon="{icon}" key="{key}" />
+					<tnt:NavigationListItem text="任务" icon="{icon}" key="{key}" />
+					<tnt:NavigationListItem text="人员" icon="{icon}" key="{key}" />
+					<tnt:NavigationListItem text="事件" icon="{icon}" key="{key}" />
+					<tnt:NavigationListItem text="样本" icon="{icon}" key="{key}" />
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList >
+						<tnt:NavigationListItem text="相关文档" icon="" />
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer" initialPage="page2">
+				<pages>
+					<f:DynamicPage id="dynamicPageId" headerExpanded="true" toggleHeaderOnTitleClick="false" fitContent="false" class="sapUiNoContentPadding myDynamicPage">
+						<f:title>
+							<f:DynamicPageTitle>
+								<f:heading>
+									<Title text="案例" />
+								</f:heading>
+								<f:content>
+								</f:content>
+								<f:actions>
+									<Button icon="sap-icon://add" type="Transparent" />
+								</f:actions>
+							</f:DynamicPageTitle>
+						</f:title>
+						<f:header>
+							<f:DynamicPageHeader pinnable="false">
+								<f:content>
+									<fb:FilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="true" showFilterConfiguration="false">
+										<fb:filterGroupItems>
+											<fb:FilterGroupItem name="A" label="区域" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+												<fb:control>
+													<Select forceSelection="true">
+														<core:Item key="" text="全部" />
+														<core:Item key="" text="上海" />
+														<core:Item key="" text="北京" />
+													</Select>
+												</fb:control>
+											</fb:FilterGroupItem>
+											<fb:FilterGroupItem name="B" label="事件类型" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+												<fb:control>
+													<Select forceSelection="true">
+														<core:Item key="" text="全部" />
+														<core:Item key="" text="传染病" />
+														<core:Item key="" text="食物中毒" />
+														<core:Item key="" text="自然灾害" />
+													</Select>
+												</fb:control>
+											</fb:FilterGroupItem>
+											<fb:FilterGroupItem name="C" label="案例类型" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+												<fb:control>
+													<Select forceSelection="true">
+														<core:Item key="" text="全部" />
+														<core:Item key="" text="确诊" />
+														<core:Item key="" text="疑似" />
+														<core:Item key="" text="密切接触" />
+													</Select>
+												</fb:control>
+											</fb:FilterGroupItem>
+										</fb:filterGroupItems>
+									</fb:FilterBar>
+								</f:content>
+							</f:DynamicPageHeader>
+						</f:header>
+						<f:content>
+							<Table inset="false">
+								<!-- <headerToolbar>
+									<Toolbar>
+										<Title text="案例 (1)" />
+										<ToolbarSpacer />
+										<Button icon="sap-icon://add" type="Transparent" />
+									</Toolbar>
+								</headerToolbar> -->
+								<columns>
+									<Column >
+										<Text text="主题/编号" />
+									</Column>
+									<Column >
+										<Text text="描述" />
+									</Column>
+									<Column >
+										<Text text="区域" />
+									</Column>
+									<Column >
+										<Text text="事件类型" />
+									</Column>
+									<Column >
+										<Text text="案例类型" />
+									</Column>
+									<Column >
+										<Text text="负责人" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem vAlign="Middle">
+										<cells>
+											<ObjectIdentifier title="新冠确诊" text="310111000001" />
+											<Text text="某某医院确诊1例确诊病例" />
+											<Text text="上海市浦东新区" />
+											<Text text="传染病" />
+											<Text text="确诊" />
+											<Text text="负责人" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</f:content>
+					</f:DynamicPage>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
 </mvc:View>

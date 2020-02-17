@@ -45,7 +45,9 @@
 			"libs": {
 				"sap.ui.layout": {},
 				"sap.ui.core": {},
-				"sap.m": {}
+				"sap.m": {},
+				"sap.f": {},
+				"sap.tnt": {}
 			}
 		},
 		"contentDensities": {
@@ -96,6 +98,10 @@
 				"name": "Supply",
 				"pattern": "supply",
 				"target": ["Supply"]
+			},{
+				"name": "MobileUpload",
+				"pattern": "mobile",
+				"target": ["MobileUpload"]
 			}],
 			"targets": {
 				"Map": {
@@ -113,6 +119,10 @@
 				"Supply": {
 					"viewType": "XML",
 					"viewName": "Supply"
+				},
+				"MobileUpload": {
+					"viewType": "XML",
+					"viewName": "MobileUpload"
 				}
 			}
 		}
