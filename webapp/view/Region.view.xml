@@ -1,0 +1,49 @@
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Region" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:t="sap.ui.table" 
+	xmlns:core="sap.ui.core">
+	<f:DynamicPage id="dynamicPageId" headerExpanded="true" toggleHeaderOnTitleClick="false" fitContent="false" class="sapUiNoContentPadding myDynamicPage">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="行政区划" />
+				</f:heading>
+				<f:content>
+				</f:content>
+				<f:actions>
+					<Button icon="sap-icon://expand" type="Transparent" press="onCollapseAll" />
+					<Button icon="sap-icon://collapse" type="Transparent" press="onCollapseSelection" />
+					<Button icon="sap-icon://add" type="Transparent" press="onCollapseAll" />
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+		</f:header>
+		<f:content>
+			<t:TreeTable id="TreeTableBasic" rows="{path:'/', parameters: {arrayNames:['nodes']}}" selectionMode="MultiToggle" enableSelectAll="false">
+				<t:columns>
+					<t:Column>
+						<Label text="区划名称" />
+						<t:template>
+							<Text text="{name}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="类型" />
+						<t:template>
+							<Text text="{type}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="负责人" />
+						<t:template>
+							<Text text="{person}" wrapping="false" />
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:TreeTable>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

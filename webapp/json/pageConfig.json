@@ -1,0 +1,98 @@
+[
+    {
+        "Id": "Monitoring",
+        "Title": "疫情监控",
+        "Subtitle": "",
+        "Icon": "sap-icon://map-2"
+    },
+    {
+        "Id": "Case",
+        "Title": "案例管理",
+        "Subtitle": "",
+        "Icon": "sap-icon://order-status",
+        "Content": [
+            {
+                "key": "Case",
+                "text": "案例管理",
+                "icon": ""
+            },
+            {
+                "key": "Task",
+                "text": "任务管理",
+                "icon": ""
+            },
+            {
+                "key": "Person",
+                "text": "人员管理",
+                "icon": ""
+            },
+            {
+                "key": "Event",
+                "text": "事件管理",
+                "icon": ""
+            },
+            {
+                "key": "Sample",
+                "text": "样本管理",
+                "icon": ""
+            }
+        ]
+    },
+    {
+        "Id": "Region",
+        "Title": "组织架构",
+        "Subtitle": "",
+        "Icon": "sap-icon://org-chart",
+        "Content": [
+            {
+                "key": "Region",
+                "text": "行政区划",
+                "icon": ""
+            },
+            {
+                "key": "Hospital",
+                "text": "医疗机构",
+                "icon": ""
+            },
+            {
+                "key": "Staff",
+                "text": "工作人员",
+                "icon": ""
+            }
+        ]
+    },
+    {
+        "Id": "Supply",
+        "Title": "物资调度",
+        "Subtitle": "",
+        "Icon": "sap-icon://shipping-status",
+        "Content": [
+            {
+                "key": "Supply",
+                "text": "物资供给",
+                "icon": ""
+            },
+            {
+                "key": "Requirement",
+                "text": "物资需求",
+                "icon": ""
+            },
+            {
+                "key": "Arrangement",
+                "text": "供需调度",
+                "icon": ""
+            },
+            {
+                "key": "Storage",
+                "text": "库存管理",
+                "icon": ""
+            }
+        ]
+    },
+    {
+        "Id": "MobileUpload",
+        "Title": "信息上报",
+        "Subtitle": "",
+        "Icon": "sap-icon://iphone"
+    }
+]

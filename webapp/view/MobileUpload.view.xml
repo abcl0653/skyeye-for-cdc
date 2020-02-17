@@ -1,40 +1,20 @@
-<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.MasterData" 
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.MobileUpload" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
-	xmlns:f="sap.f" 
-	xmlns:tnt="sap.tnt" 
-	xmlns:form="sap.ui.layout.form"
-	xmlns:leaflet="sap.vco.leaflet.controls" 
-	xmlns:fb="sap.ui.comp.filterbar" 
+	xmlns:form="sap.ui.layout.form" 
 	xmlns:core="sap.ui.core">
-	<Page id="page" enableScrolling="false">
-		<customHeader>
-			<tnt:ToolHeader>
-				<ToolbarSpacer width="4.5rem" visible="{= !${device>/system/phone}}" />
-				<Image src="image/SAP_Logo.png" height="2rem" />
-				<Title text="信息上报" />
-				<tnt:ToolHeaderUtilitySeparator />
-				<ToolbarSpacer />
-				<Button text="用户" type="Transparent" press=".onUserNamePress" />
-				<Button icon="sap-icon://bell" type="Transparent" press=".onNotificationPress" />
-				<Button icon="sap-icon://grid" type="Transparent" press=".onProductSwitchPress" visible="{= !${device>/system/phone}}" />
-			</tnt:ToolHeader>
-		</customHeader>
-		<content>
-			<form:SimpleForm layout="ResponsiveGridLayout" labelSpanS="4" editable="true" singleContainerFullSize="false">
-				<Label text="主题" required="true" />
-				<Input value="" />
-				<Label text="事件类型" required="true" />
-				<Select >
-					<core:Item key="" text="" />
-				</Select>
-				<Label text="案例类型" required="true" />
-				<Select>
-					<core:Item key="" text="" />
-				</Select>
-				<Label text="描述" />
-				<TextArea width="100%" rows="3" value="{data>/remarks}" />
-			</form:SimpleForm>
-		</content>
-	</Page>
+	<form:SimpleForm layout="ResponsiveGridLayout" labelSpanS="4" editable="true" singleContainerFullSize="false">
+		<Label text="主题" required="true" />
+		<Input value="" />
+		<Label text="事件类型" required="true" />
+		<Select >
+			<core:Item key="" text="" />
+		</Select>
+		<Label text="案例类型" required="true" />
+		<Select>
+			<core:Item key="" text="" />
+		</Select>
+		<Label text="描述" />
+		<TextArea width="100%" rows="3" value="{block>/remarks}" />
+	</form:SimpleForm>
 </mvc:View>

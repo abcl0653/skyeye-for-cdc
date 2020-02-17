@@ -218,6 +218,7 @@ sap.ui.define([
 			oRm.writeAttribute("tabindex", 0);
 			oRm.addStyle("width", oControl.getWidth());
 			oRm.addStyle("height", oControl.getHeight());
+			oRm.addStyle("position", "relative");
 			oRm.writeStyles();
 			oRm.write(">");
 			oRm.write("<span class='geo-description' style='display: none'");

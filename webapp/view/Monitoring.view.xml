@@ -1,0 +1,176 @@
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Monitoring" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:leaflet="sap.vco.leaflet.controls" 
+	xmlns:echarts="sap.vco.echarts.controls" 
+	xmlns:fc="sap.f.cards" 
+	xmlns:core="sap.ui.core">
+	<l:Splitter>
+		<l:FixFlex fixFirst="false">
+			<l:layoutData>
+				<l:SplitterLayoutData size="15rem" resizable="false" />
+			</l:layoutData>
+			<l:flexContent>
+				<Tree items="{path:'orgUnit>/', parameters: { numberOfExpandedLevels: 4 }}" mode="SingleSelectMaster">
+					<StandardTreeItem title="{orgUnit>text}" />
+				</Tree>
+			</l:flexContent>
+			<l:fixContent>
+				<List>
+					<InputListItem label="区块风险层级">
+						<Select selectedKey="4" >
+							<core:Item key="1" text="市" />
+							<core:Item key="2" text="区" />
+							<core:Item key="3" text="街道" />
+							<core:Item key="4" text="社区" />
+						</Select>
+					</InputListItem>
+					<InputListItem label="层级跟随">
+						<Switch />
+					</InputListItem>
+				</List>
+			</l:fixContent>
+		</l:FixFlex>
+		<leaflet:Map id="map" zoom="15" center="[31.2, 121.6]" zoomControl="false" press="onPressMap">
+			<leaflet:layerGroups>
+				<leaflet:LayerGroup id="AreaRisk" layers="{block>/}">
+					<leaflet:Polygon press="onPressProject" latLngs="{block>LatLngs}" style='\{ "stroke": true, "color": "{= ${block>Status} === "Good" ? "#107e3e" : "#e9730c"}", "fillOpacity": 0.5 \}' />
+				</leaflet:LayerGroup >
+			</leaflet:layerGroups>
+			<leaflet:layers>
+				<leaflet:TileLayer url="https://api.tiles.mapbox.com/v4/[s]/[z]/[x]/[y].png?access_token=[accessToken]">
+					<leaflet:customData>
+						<core:CustomData key="maxZoom" value="18" />
+						<core:CustomData key="s" value="mapbox.streets" />
+						<core:CustomData key="accessToken" value="pk.eyJ1Ijoic3RyaW5nMTIyNSIsImEiOiJjanlqbjU3dTQwNWh1M29wcWg2Y2RxM3dxIn0.6oYP1O8MUA0RlLHZwa2JEQ" />
+					</leaflet:customData>
+				</leaflet:TileLayer>
+			</leaflet:layers>
+			<leaflet:floatingItems>
+				<leaflet:FloatingItem top="1rem" left="1rem">
+					<f:Card class="myCard" width="13rem">
+						<f:layoutData>
+							<f:GridContainerItemLayoutData columns="2" />
+						</f:layoutData>
+						<f:header>
+							<fc:Header title="任务执行情况" subtitle="2020年2月1日" iconSrc="sap-icon://activities" />
+						</f:header>
+						<f:content>
+							<List>
+								<ObjectListItem title="已完成任务" number="106" highlight="Success"></ObjectListItem>
+								<ObjectListItem title="待完成任务" number="16" highlight="Warning"></ObjectListItem>
+								<ObjectListItem title="已下发通知" number="32" highlight="Information"></ObjectListItem>
+							</List>
+						</f:content>
+					</f:Card>
+				</leaflet:FloatingItem>
+				<leaflet:FloatingItem top="1rem" left="15rem">
+					<f:Card class="myCard" width="15rem">
+						<f:header>
+							<fc:NumericHeader title="管控人数" subtitle="2020年2月1日" number="5" trend="Down" state="Good" details="确诊病例" press="onPressWorkOrderCard">
+								<fc:sideIndicators>
+									<fc:NumericSideIndicator title="疑似病例" number="69" />
+									<fc:NumericSideIndicator title="密切接触者" number="123" />
+								</fc:sideIndicators>
+							</fc:NumericHeader>
+						</f:header>
+						<f:content>
+							<!-- <echarts:Instance class="sapUiTinyMarginTopBottom" id="chart-pie" width="100%" height="10rem">
+								</echarts:Instance> -->
+						</f:content>
+					</f:Card>
+				</leaflet:FloatingItem>
+				<leaflet:FloatingItem top="1rem" right="1rem">
+					<List mode="MultiSelect" headerText="图层">
+						<headerToolbar>
+							<Toolbar design="Solid">
+							<ToolbarSpacer width="0.5rem" />
+								<core:Icon src="sap-icon://map-2" />
+								<Text text="图层" />
+							</Toolbar>
+						</headerToolbar>
+						<StandardListItem title="区块风险" />
+						<StandardListItem title="病例活动行迹" />
+						<StandardListItem title="医疗机构" />
+					</List>
+				</leaflet:FloatingItem>
+				<leaflet:FloatingItem id="equipmentDetailContainer" bottom="1rem" left="1rem" right="1rem" visible="true">
+					<HBox width="100%" height="100%" justifyContent="Center" fitContainer="true">
+						<HeaderContainer id="detailContainer" class="myHeaderContainer floatingPanel">
+							<content>
+								<HBox>
+									<VBox class="myCarDetailTile">
+										<HBox alignItems="Center">
+											<VBox class="sapUiSmallMarginBeginEnd">
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+												<Title text="{carList>id}" titleStyle="H2" class="sapUiSmallMarginTop" />
+												<Title text="{carList>model}" />
+											</VBox>
+											<Button type="Transparent" icon="sap-icon://display" tooltip="Check Detail" press="onPressEquipmentDetailCard" />
+											<Button type="Transparent" icon="sap-icon://add-equipment" tooltip="New Work Order" press="onCreateNewWorkOrder" />
+										</HBox>
+										<Image src="{carList>modelImgUrl}" class="sapUiTinyMarginTop sapUiSmallMarginBegin" densityAware="false" width="15rem" />
+										<HBox class="sapUiSmallMarginBegin sapUiTinyMarginTop">
+											<VBox>
+												<Text width="9rem" class="sapUiSmallMarginEnd" text="{i18n>location}" />
+												<HBox width="7rem">
+													<core:Icon src="sap-icon://map" color="#031E48" class="sapUiTinyMarginEnd" />
+													<Link text="{path:'carList>location',formatter:'.formatLocation'}" press="onLocateCarPosition" />
+												</HBox>
+											</VBox>
+											<VBox>
+												<Text class="sapUiSmallMarginEnd" text="{i18n>totalODO}" />
+												<ObjectNumber number="{= parseInt(${carList>odo})}" unit="km" />
+											</VBox>
+										</HBox>
+									</VBox>
+									<!-- <si:StatusIndicator id="indicator0" width="5rem" value="{= parseInt(${carList>soc})}" class="sapUiSmallMargin sapUiMediumMarginTop" showLabel="true" labelPosition="Bottom">
+										<si:ShapeGroup>
+											<si:CustomShape id="batteryShape" strokeColor="#111" strokeWidth="0.5" />
+										</si:ShapeGroup>
+										<si:propertyThresholds>
+											<si:PropertyThreshold fillColor="Critical" toValue="60" />
+											<si:PropertyThreshold fillColor="Error" toValue="30" />
+											<si:PropertyThreshold fillColor="Good" toValue="100" />
+										</si:propertyThresholds>
+									</si:StatusIndicator> -->
+								</HBox>
+								<HBox alignItems="Center" height="14rem" class="myCarDetailTile">
+									<!-- <echarts:Instance id="chartSpeed" width="11rem" height="10rem" option="{model:'carList',path:'speed',formatter:'.formatSpeedOption'}">
+									</echarts:Instance>
+									<echarts:Instance id="chartCurrent" width="11rem" height="10rem" option="{model:'carList',path:'current',formatter:'.formatCurrentOption'}">
+									</echarts:Instance>
+									<echarts:Instance id="chartVoltage" width="11rem" height="10rem" option="{model:'carList',path:'voltage',formatter:'.formatVoltageOption'}">
+									</echarts:Instance> -->
+								</HBox>
+								<HBox width="35rem" alignItems="Center" height="14rem" class="myCarDetailTile">
+									<VBox>
+										<TileContent footer="{i18n>temperature}">
+											<content>
+												<NumericContent value="{= (${carList>currentTemp}).toFixed(1)}" scale="℃" valueColor="{= ${carList>currentTemp} > 40 ? 'Critical' : 'Good'}" withMargin="true" icon="sap-icon://temperature" />
+											</content>
+										</TileContent>
+										<TileContent footer="{i18n>runningTime}">
+											<content>
+												<NumericContent value="{= parseInt(${carList>tripTime})}" scale="min" withMargin="true" icon="sap-icon://past" />
+											</content>
+										</TileContent>
+									</VBox>
+									<!-- <echarts:Instance id="chart" width="100%" height="15rem" dataset="{carList>tempLog}">
+										<echarts:layoutData>
+											<FlexItemData growFactor="1" />
+										</echarts:layoutData>
+									</echarts:Instance> -->
+								</HBox>
+							</content>
+						</HeaderContainer>
+					</HBox>
+				</leaflet:FloatingItem>
+			</leaflet:floatingItems>
+		</leaflet:Map>
+	</l:Splitter>
+</mvc:View>

@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("sap.ibso.skyeyeForCdc.controller.MasterData", {
+	return BaseController.extend("sap.ibso.skyeyeForCdc.controller.Region", {
 		onInit: function () {
 			BaseController.prototype.onInit.apply(this,arguments);
 			this.getView().setModel(new sap.ui.model.json.JSONModel([{

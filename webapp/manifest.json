@@ -78,22 +78,22 @@
 				"clearControlAggregation": false,
 				"bypassed": {
 					"target": [
-						"Map"
+						"Monitoring"
 					]
 				}
 			},
 			"routes": [{
-				"name": "Map",
-				"pattern": "map",
-				"target": ["Map"]
+				"name": "Monitoring",
+				"pattern": "monitoring",
+				"target": ["Monitoring"]
 			},{
 				"name": "Case",
 				"pattern": "case",
 				"target": ["Case"]
 			},{
-				"name": "MasterData",
-				"pattern": "masterdata",
-				"target": ["MasterData"]
+				"name": "Region",
+				"pattern": "region",
+				"target": ["Region"]
 			},{
 				"name": "Supply",
 				"pattern": "supply",
@@ -104,25 +104,30 @@
 				"target": ["MobileUpload"]
 			}],
 			"targets": {
-				"Map": {
+				"Monitoring": {
 					"viewType": "XML",
-					"viewName": "Map"
+					"viewName": "Monitoring",
+					"title":"Monitoring"
 				},
 				"Case": {
 					"viewType": "XML",
-					"viewName": "Case"
+					"viewName": "Case",
+					"title":"Case"
 				},
-				"MasterData": {
+				"Region": {
 					"viewType": "XML",
-					"viewName": "MasterData"
+					"viewName": "Region",
+					"title":"Region"
 				},
 				"Supply": {
 					"viewType": "XML",
-					"viewName": "Supply"
+					"viewName": "Supply",
+					"title":"Supply"
 				},
 				"MobileUpload": {
 					"viewType": "XML",
-					"viewName": "MobileUpload"
+					"viewName": "MobileUpload",
+					"title":"MobileUpload"
 				}
 			}
 		}

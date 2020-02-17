@@ -1,6 +1,25 @@
 <mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.App" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
+	xmlns:tnt="sap.tnt" 
 	xmlns:core="sap.ui.core">
-	<App id="app" defaultTransitionName="fade"/>
+	<tnt:ToolPage id="toolPage" class="sapUiSizeCompact">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<ToolbarSpacer width="{= ${pageConfig>Content} ? '2rem' : '4.5rem'}" visible="{= !${device>/system/phone}}" />
+				<Button icon="sap-icon://menu2" type="Transparent" press=".onSideNavButtonPress" visible="{= Boolean(${pageConfig>Content})}" />
+				<Image src="image/SAP_Logo.png" height="2rem" />
+				<Title text="{pageConfig>Title}" />
+				<tnt:ToolHeaderUtilitySeparator />
+				<ToolbarSpacer />
+				<Button text="用户姓名" type="Transparent" press=".onUserNamePress" />
+				<Button icon="sap-icon://bell" type="Transparent" press=".onNotificationPress" />
+				<Button icon="sap-icon://grid" type="Transparent" press=".onProductSwitchPress" />
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:mainContents>
+			<NavContainer id="app">
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
 </mvc:View>
