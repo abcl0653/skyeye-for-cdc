@@ -95,6 +95,7 @@ sap.ui.define([
 				}
 			}
 		},
+
 		constructor: function () {
 			Control.apply(this, arguments);
 			if (window.L) {
@@ -103,22 +104,13 @@ sap.ui.define([
 				sap.ui.getCore().getEventBus().subscribe("sap.vco.leaflet", "libLoaded", this._initLeaftMap, this);
 			}
 		},
+
 		destroy: function () {
-			var map = this.getProperty("_origin");
-			if (map) {
-				map.dispose();
+			var oMap = this.getProperty("_origin");
+			if (oMap) {
+				oMap.dispose();
 			}
 			Control.prototype.destroy.apply(this, arguments);
-		},
-		getLayerById: function (id) {
-			var aLayers = this.getLayers();
-			var oLayer;
-			if (id) {
-				aLayers.forEach(function (x) {
-					oLayer = (x.getId() === id) ? x : oLayer;
-				});
-			}
-			return oLayer;
 		},
 
 		getOrigin: function () {
@@ -127,7 +119,7 @@ sap.ui.define([
 
 		_initLeaftMap: function (callback) {
 			var that = this;
-			var $container = $("<div class='geo-container'/>").css({
+			var $container = $("<div class='leaflet-container'/>").css({
 				width: "100%",
 				height: "100%"
 			});
@@ -186,24 +178,6 @@ sap.ui.define([
 			this._render();
 		},
 
-		_setZoomControlTootip: function (map) {
-			var rouseBundle = sap.ui.getCore().getLibraryResourceBundle("sap.vco.leaflet");
-			var zoomControl = map.zoomControl;
-			if (zoomControl) {
-				zoomControl._zoomInButton.title = rouseBundle.getText("ZOOM_IN");
-				zoomControl._zoomOutButton.title = rouseBundle.getText("ZOOM_OUT");
-			}
-		},
-
-		setHeight: function (height) {
-			var map = this.getProperty("_origin");
-			if (map) {
-				this.$().outerHeight(height);
-				map.invalidateSize();
-			}
-			return this.setProperty("height", height, true);
-		},
-
 		renderer: function (oRm, oControl) {
 			oRm.write("<div");
 			oRm.writeControlData(oControl);
@@ -226,25 +200,11 @@ sap.ui.define([
 			oRm.write(">");
 			oRm.write(oControl.getDescription());
 			oRm.write("</span>");
-			// oRm.write('<section id="' + oControl.getId() + '-cont" style="position: absolute;z-index: 1001;"');
-			// oRm.write('>');
 			var aContent = oControl.getFloatingItems();
 			var l = aContent.length;
 			for (var i = 0; i < l; i++) {
 				oRm.renderControl(aContent[i]);
-				// oRm.write('<div');
-				// oRm.addStyle("position", "absolute");
-				// oRm.addStyle("z-index", "1001");
-				// oRm.addStyle("left", aContent[i].getLeft());
-				// oRm.addStyle("right", aContent[i].getRight());
-				// oRm.addStyle("top", aContent[i].getTop());
-				// oRm.addStyle("bottom", aContent[i].getBottom());
-				// oRm.writeStyles();
-				// oRm.write('>');
-				// oRm.renderControl(aContent[i].getContent());
-				// oRm.write("</div>");
 			}
-			// oRm.write("</section>");
 			oRm.write("</div>");
 		},
 
@@ -255,13 +215,43 @@ sap.ui.define([
 		_render: function () {
 			var map = this.getProperty("_origin");
 			var aChildren = this.$().children();
-			if (map && aChildren.length > 0 && aChildren[aChildren.length - 1].className.indexOf("leaflet-container") === -1) {
+			// if (map && aChildren.length > 0 && aChildren[aChildren.length - 1].className.indexOf("leaflet-container") === -1) {
+			if (map && this.getDomRef()) {
 				this.$().append($(map.getContainer()));
 				sap.ui.core.ResizeHandler.register(this.getDomRef(), function () {
 					map.invalidateSize();
 				});
 				map.invalidateSize();
 			}
+		},
+
+		_setZoomControlTootip: function (map) {
+			var rouseBundle = sap.ui.getCore().getLibraryResourceBundle("sap.vco.leaflet");
+			var zoomControl = map.zoomControl;
+			if (zoomControl) {
+				zoomControl._zoomInButton.title = rouseBundle.getText("ZOOM_IN");
+				zoomControl._zoomOutButton.title = rouseBundle.getText("ZOOM_OUT");
+			}
+		},
+
+		setHeight: function (height) {
+			var map = this.getProperty("_origin");
+			if (map) {
+				this.$().outerHeight(height);
+				map.invalidateSize();
+			}
+			return this.setProperty("height", height, true);
+		},
+
+		getLayerById: function (id) {
+			var aLayers = this.getLayers();
+			var oLayer;
+			if (id) {
+				aLayers.forEach(function (x) {
+					oLayer = (x.getId() === id) ? x : oLayer;
+				});
+			}
+			return oLayer;
 		},
 
 		addLayer: function (layer) {

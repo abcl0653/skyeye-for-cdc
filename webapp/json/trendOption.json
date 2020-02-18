@@ -1,0 +1,17 @@
+{
+    "xAxis": {
+        "type": "category"
+    },
+    "yAxis": {
+        "type": "value"
+    },
+    "series": [
+        {
+            "type": "line",
+            "encode": {
+                "x": "date",
+                "y": "confirmed"
+            }
+        }
+    ]
+}

@@ -5,6 +5,8 @@
 	xmlns:l="sap.ui.layout" 
 	xmlns:leaflet="sap.vco.leaflet.controls" 
 	xmlns:echarts="sap.vco.echarts.controls" 
+	xmlns:ng="sap.suite.ui.commons.networkgraph" 
+	xmlns:ng.layout="sap.suite.ui.commons.networkgraph.layout" 
 	xmlns:fc="sap.f.cards" 
 	xmlns:core="sap.ui.core">
 	<l:Splitter>
@@ -20,7 +22,7 @@
 			<l:fixContent>
 				<List>
 					<InputListItem label="区块风险层级">
-						<Select selectedKey="4" >
+						<Select selectedKey="4">
 							<core:Item key="1" text="市" />
 							<core:Item key="2" text="区" />
 							<core:Item key="3" text="街道" />
@@ -77,24 +79,26 @@
 							</fc:NumericHeader>
 						</f:header>
 						<f:content>
-							<!-- <echarts:Instance class="sapUiTinyMarginTopBottom" id="chart-pie" width="100%" height="10rem">
-								</echarts:Instance> -->
+							<echarts:Instance class="sapUiTinyMarginTopBottom" id="chart-trend" option="{trendOption>/}" dataset="{trend>/}" width="100%" height="5rem">
+							</echarts:Instance>
 						</f:content>
 					</f:Card>
 				</leaflet:FloatingItem>
 				<leaflet:FloatingItem top="1rem" right="1rem">
-					<List mode="MultiSelect" headerText="图层">
+					<Panel width="8rem" class="floatingPanel sapUiNoContentPadding">
 						<headerToolbar>
 							<Toolbar design="Solid">
-							<ToolbarSpacer width="0.5rem" />
+								<ToolbarSpacer width="0.5rem" />
 								<core:Icon src="sap-icon://map-2" />
 								<Text text="图层" />
 							</Toolbar>
 						</headerToolbar>
-						<StandardListItem title="区块风险" />
-						<StandardListItem title="病例活动行迹" />
-						<StandardListItem title="医疗机构" />
-					</List>
+						<VBox>
+							<CheckBox text="区块风险" selected="true" />
+							<CheckBox text="医疗机构" selected="true" />
+							<CheckBox text="病例活动行迹" selected="true" />
+						</VBox>
+					</Panel>
 				</leaflet:FloatingItem>
 				<leaflet:FloatingItem id="equipmentDetailContainer" bottom="1rem" left="1rem" right="1rem" visible="true">
 					<HBox width="100%" height="100%" justifyContent="Center" fitContainer="true">
@@ -107,65 +111,59 @@
 												<layoutData>
 													<FlexItemData growFactor="1" />
 												</layoutData>
-												<Title text="{carList>id}" titleStyle="H2" class="sapUiSmallMarginTop" />
-												<Title text="{carList>model}" />
+												<Title text="{case>Name}" titleStyle="H2" class="sapUiSmallMarginTop" />
+												<ObjectStatus text="{case>Type} - {case>Status}" state="{case>State}" class="sapUiSmallMarginTop" />
 											</VBox>
 											<Button type="Transparent" icon="sap-icon://display" tooltip="Check Detail" press="onPressEquipmentDetailCard" />
-											<Button type="Transparent" icon="sap-icon://add-equipment" tooltip="New Work Order" press="onCreateNewWorkOrder" />
+											<Button type="Transparent" icon="sap-icon://activities" tooltip="New Task" press="onCreateNewWorkOrder" />
 										</HBox>
-										<Image src="{carList>modelImgUrl}" class="sapUiTinyMarginTop sapUiSmallMarginBegin" densityAware="false" width="15rem" />
+										<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTop">
+											<VBox>
+												<Text width="9rem" class="sapUiSmallMarginEnd" text="确诊日期" />
+												<Text text="{case>ConfirmedDate}" />
+											</VBox>
+											<VBox>
+												<Text class="sapUiSmallMarginEnd" text="发病日期" />
+												<Text text="{case>SymptomDate}" />
+											</VBox>
+										</HBox>
 										<HBox class="sapUiSmallMarginBegin sapUiTinyMarginTop">
 											<VBox>
-												<Text width="9rem" class="sapUiSmallMarginEnd" text="{i18n>location}" />
-												<HBox width="7rem">
-													<core:Icon src="sap-icon://map" color="#031E48" class="sapUiTinyMarginEnd" />
-													<Link text="{path:'carList>location',formatter:'.formatLocation'}" press="onLocateCarPosition" />
-												</HBox>
+												<Text width="9rem" class="sapUiSmallMarginEnd" text="所属区块" />
+												<Link text="{case>Region}" />
 											</VBox>
 											<VBox>
-												<Text class="sapUiSmallMarginEnd" text="{i18n>totalODO}" />
-												<ObjectNumber number="{= parseInt(${carList>odo})}" unit="km" />
+												<Text class="sapUiSmallMarginEnd" text="收治机构" />
+												<Link text="{case>Hospital}" />
 											</VBox>
 										</HBox>
 									</VBox>
-									<!-- <si:StatusIndicator id="indicator0" width="5rem" value="{= parseInt(${carList>soc})}" class="sapUiSmallMargin sapUiMediumMarginTop" showLabel="true" labelPosition="Bottom">
-										<si:ShapeGroup>
-											<si:CustomShape id="batteryShape" strokeColor="#111" strokeWidth="0.5" />
-										</si:ShapeGroup>
-										<si:propertyThresholds>
-											<si:PropertyThreshold fillColor="Critical" toValue="60" />
-											<si:PropertyThreshold fillColor="Error" toValue="30" />
-											<si:PropertyThreshold fillColor="Good" toValue="100" />
-										</si:propertyThresholds>
-									</si:StatusIndicator> -->
 								</HBox>
 								<HBox alignItems="Center" height="14rem" class="myCarDetailTile">
-									<!-- <echarts:Instance id="chartSpeed" width="11rem" height="10rem" option="{model:'carList',path:'speed',formatter:'.formatSpeedOption'}">
-									</echarts:Instance>
-									<echarts:Instance id="chartCurrent" width="11rem" height="10rem" option="{model:'carList',path:'current',formatter:'.formatCurrentOption'}">
-									</echarts:Instance>
-									<echarts:Instance id="chartVoltage" width="11rem" height="10rem" option="{model:'carList',path:'voltage',formatter:'.formatVoltageOption'}">
-									</echarts:Instance> -->
+								<!-- <Image src="image/networkSample.png" width="50rem" height="14rem" /> -->
+									<ng:Graph enableWheelZoom="false" nodes="{case>Trace/Nodes}" lines="{case>Trace/Lines}" width="50rem" height="14rem" >
+										<ng:layoutAlgorithm>
+											<ng.layout:ForceDirectedLayout optimalDistanceConstant="0.31" maxIterations="200" maxTime="500" initialTemperature="200" coolDownStep="1" staticNodes="[0,1,2,3,4,5,6]">
+											</ng.layout:ForceDirectedLayout>
+										</ng:layoutAlgorithm>
+										<ng:nodes>
+											<ng:Node key="{case>Key}" title="{case>Title}" icon="{case>Icon}" attributes="{path:'case>Attributes', templateShareable:true}" shape="{case>Shape}" status="{case>Status}" x="{= ${case>Key} * 200}" y="0">
+												<ng:attributes>
+													<ng:ElementAttribute label="{case>Label}" value="{case>Value}" />
+												</ng:attributes>
+											</ng:Node>
+										</ng:nodes>
+										<ng:lines>
+											<ng:Line from="{case>From}" to="{case>To}" status="{case>Status}">
+											</ng:Line>
+										</ng:lines>
+									</ng:Graph>
 								</HBox>
-								<HBox width="35rem" alignItems="Center" height="14rem" class="myCarDetailTile">
-									<VBox>
-										<TileContent footer="{i18n>temperature}">
-											<content>
-												<NumericContent value="{= (${carList>currentTemp}).toFixed(1)}" scale="℃" valueColor="{= ${carList>currentTemp} > 40 ? 'Critical' : 'Good'}" withMargin="true" icon="sap-icon://temperature" />
-											</content>
-										</TileContent>
-										<TileContent footer="{i18n>runningTime}">
-											<content>
-												<NumericContent value="{= parseInt(${carList>tripTime})}" scale="min" withMargin="true" icon="sap-icon://past" />
-											</content>
-										</TileContent>
-									</VBox>
-									<!-- <echarts:Instance id="chart" width="100%" height="15rem" dataset="{carList>tempLog}">
-										<echarts:layoutData>
-											<FlexItemData growFactor="1" />
-										</echarts:layoutData>
-									</echarts:Instance> -->
-								</HBox>
+								<Panel headerText="密切接触者" width="15rem" height="14rem" class="myCarDetailTile sapUiNoContentPadding">
+									<List items="{case>Contacts}">
+										<StandardListItem title="{case>Name}" info="{case>Type} - {case>Status}" infoState="{case>State}" />
+									</List>
+								</Panel>
 							</content>
 						</HeaderContainer>
 					</HBox>

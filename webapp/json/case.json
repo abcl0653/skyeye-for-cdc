@@ -1,0 +1,174 @@
+[
+    {
+        "Name": "病例1",
+        "Type": "确诊病例",
+        "Status": "已收治",
+        "State": "Success",
+        "ConfirmedDate": "2020-01-05",
+        "SymptomDate": "2020-01-01",
+        "Region": "汤臣三期",
+        "Hospital": "曙光东院",
+        "Contacts": [
+            {
+                "Name": "病例2",
+                "Type": "确诊病例",
+                "Status": "已收治",
+                "State": "Success"
+            },
+            {
+                "Name": "家人1",
+                "Type": "疑似病例",
+                "Status": "已隔离",
+                "State": "Warning"
+            },
+            {
+                "Name": "亲戚1",
+                "Type": "密切接触者",
+                "Status": "寻找中",
+                "State": "Error"
+            }
+        ],
+        "Trace": {
+            "Nodes": [
+                {
+                    "Key": 0,
+                    "Title": "12-30",
+                    "Status": "Error",
+                    "Icon": "sap-icon://key-user-settings",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 1,
+                    "Title": "12-31",
+                    "Status": "Error",
+                    "Icon": "sap-icon://key-user-settings",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 2,
+                    "Title": "01-01",
+                    "Status": "Error",
+                    "Icon": "sap-icon://key-user-settings",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 3,
+                    "Title": "01-02",
+                    "Status": "Error",
+                    "Icon": "sap-icon://key-user-settings",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 4,
+                    "Title": "01-03",
+                    "Status": "Error",
+                    "Icon": "sap-icon://key-user-settings",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 5,
+                    "Title": "01-04",
+                    "Status": "Error",
+                    "Icon": "sap-icon://key-user-settings",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 6,
+                    "Title": "01-05",
+                    "Status": "Success",
+                    "Icon": "sap-icon://key-user-settings",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                }
+            ],
+            "Lines": [
+                {
+                    "From": 0,
+                    "To": 1
+                },
+                {
+                    "From": 1,
+                    "To": 2
+                },
+                {
+                    "From": 2,
+                    "To": 3
+                },
+                {
+                    "From": 3,
+                    "To": 4
+                },
+                {
+                    "From": 4,
+                    "To": 5
+                },
+                {
+                    "From": 5,
+                    "To": 6
+                }
+            ]
+        }
+    }
+]

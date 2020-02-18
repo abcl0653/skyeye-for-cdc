@@ -22,6 +22,14 @@ sap.ui.define([
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/orgUnit.json"),"orgUnit");
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/block.json"), "block");
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/hospital.json"), "hospital");
+			this.getView().setModel(new sap.ui.model.json.JSONModel("json/case.json"), "case");
+
+			this.getView().setModel(new sap.ui.model.json.JSONModel("json/trend.json"),"trend");
+			this.getView().setModel(new sap.ui.model.json.JSONModel("json/trendOption.json"),"trendOption");
+
+			this.getView().setModel(new sap.ui.model.json.JSONModel("json/graphTest.json"));
+
+			this.getView().byId("detailContainer").bindElement("case>/0");
 		},
 
 		onPressProject: function (oEvent) {

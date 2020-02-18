@@ -9,7 +9,7 @@
 }
 
 .floatingPanel{
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.9);
     box-shadow: 0 0 0 0.0625rem rgba(0,0,0,0.1), 0 0.125rem 0.5rem 0 rgba(0,0,0,0.1);
     border-radius: 0.25rem;
     transition: bottom 1 ease 1;

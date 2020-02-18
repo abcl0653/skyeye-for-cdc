@@ -64,11 +64,43 @@ sap.ui.define([
 			}
 		},
 
+		constructor: function () {
+			Control.apply(this, arguments);
+			if (window.echarts) {
+				this._initEChart();
+			} else {
+				sap.ui.getCore().getEventBus().subscribe("sap.vco.echarts", "libLoaded", this._initEChart, this);
+			}
+		},
+
 		destroy: function () {
-			if (this._origin) {
-				this._origin.dispose();
+			var oChart = this.getProperty("_origin");
+			if (oChart) {
+				oChart.dispose();
 			}
 			Control.prototype.destroy.apply(this, arguments);
+		},
+
+		getOrigin: function () {
+			return this.getProperty("_origin");
+		},
+
+		_initEChart: function () {
+
+			var $container = $("<div class='echarts-container'/>").css({
+				width: "100%",
+				height: "100%"
+			});
+			var chart = echarts.init($container.get(0))
+			this.setProperty("_origin", chart, true);
+
+			var option = this.getOption();
+			if (option) {
+				this.setOption(option);
+			}
+
+			this._render();
+			this.fireAfterEchartInit();
 		},
 
 		renderer: function (oRm, oControl) {
@@ -83,44 +115,26 @@ sap.ui.define([
 			oRm.write("</div>");
 		},
 
-		getOrigin: function () {
-			return this.getProperty("_origin");
-		},
-
-		_initEChart: function () {
-
-			var frame = this.$()[0];
-			var chart = echarts.init(frame);
-			this.setProperty("_origin", chart, true);
-
-			var option = this.getOption();
-			if (option) {
-				this.setOption(option);
-			}
-
+		onAfterRendering: function () {
 			this._render();
-			this.fireAfterEchartInit();
 		},
-
 		_render: function () {
 			var chart = this.getProperty("_origin");
-			if (chart) {
+			if (chart && this.getDomRef()) {
 				this.$().append($(chart.getDom()));
 				sap.ui.core.ResizeHandler.register(this.getDomRef(), function () {
 					chart.resize();
 				});
 				chart.resize();
-				if (this.getBinding("dataset")) {
-					chart.setOption({ dataset: { source: this.getBinding("dataset").oList } });
+				var oBinding = this.getBinding("dataset");
+				if (oBinding && oBinding.length) {
+					chart.setOption({ dataset: { source: oBinding.oList } });
 				}
-			} else {
-				this._initEChart();
+				// } else {
+				// 	this._initEChart();
 			}
 		},
 
-		onAfterRendering: function () {
-			this._render();
-		},
 
 		updateDataset: function () {
 			var chart = this.getProperty("_origin");
