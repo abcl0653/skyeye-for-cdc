@@ -1,0 +1,35 @@
+[
+  {
+    "ID": "3101201231",
+    "Name": "汤臣三期",
+    "Responsible":"负责人",
+    "Confirmed":0,
+    "Unconfirmed":1,
+    "Contact":5,
+    "Level":"4",
+    "LatLngs": "[[31.2, 121.6], [31.21, 121.6], [31.21, 121.61], [31.2, 121.61]]",
+    "Status": "Good"
+  },
+  {
+    "ID": "3101201232",
+    "Name": "汤臣四期",
+    "Responsible":"负责人",
+    "Confirmed":2,
+    "Unconfirmed":1,
+    "Contact":12,
+    "Level":"4",
+    "LatLngs": "[[31.2, 121.61], [31.21, 121.61], [31.21, 121.62], [31.2, 121.62]]",
+    "Status": "Warning"
+  },
+  {
+    "ID": "31012012",
+    "Name": "汤臣街道",
+    "Responsible":"负责人",
+    "Confirmed":2,
+    "Unconfirmed":1,
+    "Contact":12,
+    "Level":"3",
+    "LatLngs": "[[31.2, 121.6], [31.21, 121.6], [31.21, 121.62], [31.2, 121.62]]",
+    "Status": "Warning"
+  }
+]
