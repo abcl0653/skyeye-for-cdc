@@ -1,21 +1,33 @@
 [
     {
         "text": "上海市",
+        "confirmed": 12,
+        "status":"Warning",
         "nodes": [
             {
                 "text": "浦东新区",
+                "confirmed": 12,
+                "status":"Warning",
                 "nodes": [
                     {
-                        "text": "金桥街道"
+                        "text": "金桥街道",
+                        "confirmed": 0,
+                        "status":"Success"
                     },
                     {
                         "text": "张江镇",
+                        "confirmed": 12,
+                        "status":"Warning",
                         "nodes": [
                             {
-                                "text": "汤臣三期"
+                                "text": "汤臣三期",
+                                "confirmed": 0,
+                                "status":"Success"
                             },
                             {
-                                "text": "汤臣四期"
+                                "text": "汤臣四期",
+                                "confirmed": 12,
+                                "status":"Warning"
                             }
                         ]
                     }

@@ -43,7 +43,7 @@ sap.ui.define(["./Path"], function (Path) {
 			this.setProperty("latLngs", latLngs, true);
 		},
 
-		_initLayer: function () {
+		_init: function () {
 			var aLatLngs = this.getLatLngs();
 			var oOption = this._getOptions();
 

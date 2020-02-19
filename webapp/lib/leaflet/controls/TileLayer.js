@@ -27,7 +27,7 @@ sap.ui.define(["./GridLayer"], function (GridLayer) {
 			this.setProperty("url", url, true);
 		},
 
-		_initLayer: function () {
+		_init: function () {
 			var sUrl = this.getUrl();
 			sUrl = sUrl.replace(/\[/g,"{").replace(/\]/g,"}");
 			var oOption = this._getOptions();

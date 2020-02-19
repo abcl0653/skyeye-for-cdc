@@ -8,14 +8,6 @@
 sap.ui.define(["./Path"], function (Path) {
 	"use strict";
 
-	var formatLatLng = function (input) {
-		if (typeof input === "string") {
-			return input.split(",");
-		} else {
-			return input;
-		}
-	};
-
 	return Path.extend('sap.vco.leaflet.controls.CircleMarker', {
 
 		metadata: {
@@ -32,18 +24,26 @@ sap.ui.define(["./Path"], function (Path) {
 			}
 		},
 
+		_formatLatLng: function (input) {
+			if (typeof input === "string") {
+				return input.split(",");
+			} else {
+				return input;
+			}
+		},
+
 		setRadius: function (radius) {
-			var oCircleMarker = this.getProperty("_origin");
-			if (oCircleMarker) {
-				oCircleMarker.setRadius(radius);
+			var oOrigin = this.getProperty("_origin");
+			if (oOrigin) {
+				oOrigin.setRadius(radius);
 			}
 			this.setProperty("radius", radius, true);
 		},
 
 		setLatLng: function (latLng) {
-			var oCircleMarker = this.getProperty("_origin");
-			if (oCircleMarker) {
-				oCircleMarker.setLatLng(formatLatLng(latLng));
+			var oOrigin = this.getProperty("_origin");
+			if (oOrigin) {
+				oOrigin.setLatLng(this._formatLatLng(latLng));
 			}
 			this.setProperty("latLng", latLng, true);
 		},
@@ -53,12 +53,12 @@ sap.ui.define(["./Path"], function (Path) {
 			return Object.assign(oOption, { radius: this.getRadius() });
 		},
 
-		_initLayer: function () {
+		_init: function () {
 			var oLatLng = this.getLatLng();
 			var oOption = this._getOptions();
 
 			var oOrigin = this.getProperty("_origin");
-			oOrigin = L.circleMarker(formatLatLng(oLatLng), oOption);
+			oOrigin = L.circleMarker(this._formatLatLng(oLatLng), oOption);
 			this.setProperty("_origin", oOrigin);
 			this._bindEvents();
 		}

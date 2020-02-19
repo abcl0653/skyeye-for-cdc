@@ -4,9 +4,12 @@
         "Type": "确诊病例",
         "Status": "已收治",
         "State": "Success",
-        "ConfirmedDate": "2020-01-05",
+        "InfectedDate":"2019-12-27",
         "SymptomDate": "2020-01-01",
+        "SeparatedDate": "2020-01-03",
+        "ConfirmedDate": "2020-01-05",
         "Region": "汤臣三期",
+        "LatLng":"31.205, 121.615",
         "Hospital": "曙光东院",
         "Contacts": [
             {
@@ -28,7 +31,7 @@
                 "State": "Error"
             }
         ],
-        "Trace": {
+        "ContactTrace": {
             "Nodes": [
                 {
                     "Key": 0,
@@ -97,7 +100,7 @@
                 {
                     "Key": 4,
                     "Title": "01-03",
-                    "Status": "Error",
+                    "Status": "Warning",
                     "Icon": "sap-icon://key-user-settings",
                     "Attributes": [
                         {
@@ -113,7 +116,7 @@
                 {
                     "Key": 5,
                     "Title": "01-04",
-                    "Status": "Error",
+                    "Status": "Warning",
                     "Icon": "sap-icon://key-user-settings",
                     "Attributes": [
                         {
@@ -130,6 +133,38 @@
                     "Key": 6,
                     "Title": "01-05",
                     "Status": "Success",
+                    "Icon": "sap-icon://key-user-settings",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 7,
+                    "Title": "家人1",
+                    "Status": "Success",
+                    "Icon": "sap-icon://key-user-settings",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 8,
+                    "Title": "亲戚1",
+                    "Status": "Warning",
                     "Icon": "sap-icon://key-user-settings",
                     "Attributes": [
                         {
@@ -167,8 +202,49 @@
                 {
                     "From": 5,
                     "To": 6
+                },
+                {
+                    "From": 1,
+                    "To": 7
+                },
+                {
+                    "From": 2,
+                    "To": 7
+                },
+                {
+                    "From": 3,
+                    "To": 7
+                },
+                {
+                    "From": 4,
+                    "To": 7
+                },
+                {
+                    "From": 3,
+                    "To": 8
+                },
+                {
+                    "From": 7,
+                    "To": 8
                 }
             ]
-        }
+        },
+        "Trace":[
+            {
+                "Name":"居住地",
+                "Date":"2020-01-12",
+                "LatLng":"31.205, 121.615"
+            },
+            {
+                "Name":"某公园",
+                "Date":"2020-01-13",
+                "LatLng":"31.197, 121.615"
+            },
+            {
+                "Name":"某菜场",
+                "Date":"2020-01-12",
+                "LatLng":"31.195, 121.61"
+            }
+        ]
     }
 ]

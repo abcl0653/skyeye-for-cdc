@@ -14,7 +14,7 @@ sap.ui.define(["./Polyline"], function (Polyline) {
 			library: "sap.vco.leaflet"
 		},
 
-		_initLayer: function () {
+		_init: function () {
 			var aLatLngs = this.getLatLngs();
 			var oOption = this._getOptions();
 

@@ -11,7 +11,12 @@ sap.ui.define(["./Layer"], function (Layer) {
 
 		metadata: {
 			library: "sap.vco.leaflet",
-			defaultAggregation : "layers",
+			defaultAggregation: "layers",
+			properties: {
+				zIndex: {
+					type: "int"
+				}
+			},
 			aggregations: {
 				layers: {
 					type: "sap.vco.leaflet.controls.Layer",
@@ -38,7 +43,26 @@ sap.ui.define(["./Layer"], function (Layer) {
 			return this.removeAggregation("layers", layer, true);
 		},
 
-		_initLayer: function () {
+		setZIndex: function (zIndex) {
+			var oOrigin = this.getProperty("_origin");
+			if (oOrigin) {
+				oOrigin.setZIndex(zIndex);
+			}
+			this.setProperty("zIndex", zIndex, true);
+		},
+
+		setVisible: function (bVisible) {
+			var oOrigin = this.getProperty("_origin");
+			if (oOrigin) {
+				if (bVisible) {
+					oOrigin.addTo(this.getParent().getOrigin());
+				} else {
+					oOrigin.remove();
+				}
+			}
+		},
+
+		_init: function () {
 			var aLayers = this.getLayers();
 			var aOriginLayers = [];
 			aLayers.forEach(function (x) {

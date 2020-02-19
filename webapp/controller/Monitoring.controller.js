@@ -29,12 +29,47 @@ sap.ui.define([
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/graphTest.json"));
 
-			this.getView().byId("detailContainer").bindElement("case>/0");
+			this.getView().setModel(new sap.ui.model.json.JSONModel({
+				AreaRiskVisible:true,
+				CaseVisible:true,
+				CaseTraceVisible:true,
+				HospitalVisible:true,
+				AreaRiskLevel:"4",
+				AutoLevel:false
+			}),"pageConfig");
+
+			// this.getView().byId("caseDetailContainer").bindElement("case>/0");
+
+			// this.getView().byId("fdl").setStaticNodes([0,1,2,3,4,5,6]);
+			this.onLevelChange();
+		},
+
+		onGraphReady:function(oEvent){
+			var oGraph = oEvent.getSource();
+			setTimeout(function(){
+				oGraph._fitToScreen();
+			},0);
+			
 		},
 
 		onPressProject: function (oEvent) {
 			this._oBlockDetailPopover.bindElement("block>" + oEvent.getSource().getBindingContext("block").getPath());
 			this._oBlockDetailPopover.openBy(oEvent.getSource());
+		},
+
+		onPressCase: function (oEvent) {
+			var oDetailContainer = this.getView().byId("caseDetailContainer");
+			oDetailContainer.bindElement("case>" + oEvent.getSource().getBindingContext("case").getPath());
+			oDetailContainer.setVisible(true);
+		},
+
+		onPressMap: function (oEvent) {
+			this.getView().byId("caseDetailContainer").setVisible(false);
+		},
+
+		onLevelChange:function(oEvent){
+			var sLevel = this.getView().byId("levelSelect").getSelectedKey();
+			this.getView().byId("areaRisk").getBinding("layers").filter(new sap.ui.model.Filter("Level", "EQ", sLevel));
 		},
 
 		formatNumber: function (sValue) {

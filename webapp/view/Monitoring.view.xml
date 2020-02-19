@@ -16,29 +16,40 @@
 			</l:layoutData>
 			<l:flexContent>
 				<Tree items="{path:'orgUnit>/', parameters: { numberOfExpandedLevels: 4 }}" mode="SingleSelectMaster">
-					<StandardTreeItem title="{orgUnit>text}" />
+					<StandardTreeItem title="{orgUnit>text}" counter="{orgUnit>confirmed}" highlight="{orgUnit>status}" />
 				</Tree>
 			</l:flexContent>
 			<l:fixContent>
 				<List>
 					<InputListItem label="区块风险层级">
-						<Select selectedKey="4">
+						<Select id="levelSelect" selectedKey="{pageConfig>/AreaRiskLevel}" change="onLevelChange">
 							<core:Item key="1" text="市" />
 							<core:Item key="2" text="区" />
 							<core:Item key="3" text="街道" />
 							<core:Item key="4" text="社区" />
 						</Select>
 					</InputListItem>
-					<InputListItem label="层级跟随">
-						<Switch />
+					<InputListItem label="层级地图跟随">
+						<Switch state="{pageConfig>/AutoLevel}" />
 					</InputListItem>
 				</List>
 			</l:fixContent>
 		</l:FixFlex>
 		<leaflet:Map id="map" zoom="15" center="[31.2, 121.6]" zoomControl="false" press="onPressMap">
 			<leaflet:layerGroups>
-				<leaflet:LayerGroup id="AreaRisk" layers="{block>/}">
-					<leaflet:Polygon press="onPressProject" latLngs="{block>LatLngs}" style='\{ "stroke": true, "color": "{= ${block>Status} === "Good" ? "#107e3e" : "#e9730c"}", "fillOpacity": 0.5 \}' />
+				<leaflet:LayerGroup id="areaRisk" layers="{block>/}" visible="{pageConfig>/AreaRiskVisible}">
+					<leaflet:Polygon press="onPressProject" latLngs="{block>LatLngs}" style='\{ "stroke": true, "color": "{= ${block>Status} === "Good" ? "#107e3e" : "#e9730c"}", "opacity": 0.3, "fillOpacity": 0.2 \}' />
+				</leaflet:LayerGroup >
+				<leaflet:LayerGroup id="hospital" layers="{hospital>/}" visible="{pageConfig>/HospitalVisible}">
+					<leaflet:Polygon press="onPressProject" latLngs="{hospital>LatLngs}" style='\{ "stroke": true, "color": "{= ${hospital>Status} === "Good" ? "#107e3e" : "#e9730c"}", "opacity": 0.3, "fillOpacity": 0.2 \}' />
+				</leaflet:LayerGroup >
+				<leaflet:LayerGroup layers="{path:'case>/'}" zIndex="450" visible="{pageConfig>/CaseVisible}">
+					<leaflet:LayerGroup>
+						<leaflet:Marker press="onPressCase" latLng="{case>LatLng}" />
+						<leaflet:LayerGroup layers="{path:'case>Trace',templateShareable:true}" visible="{pageConfig>/CaseTraceVisible}">
+							<leaflet:CircleMarker press="onPressCase" radius="30" style='\{ "stroke": true, "color": "#bb0000", "opacity": 0.5 \}' latLng="{case>LatLng}" />
+						</leaflet:LayerGroup >
+					</leaflet:LayerGroup >
 				</leaflet:LayerGroup >
 			</leaflet:layerGroups>
 			<leaflet:layers>
@@ -94,15 +105,16 @@
 							</Toolbar>
 						</headerToolbar>
 						<VBox>
-							<CheckBox text="区块风险" selected="true" />
-							<CheckBox text="医疗机构" selected="true" />
-							<CheckBox text="病例活动行迹" selected="true" />
+							<CheckBox text="区块风险" selected="{pageConfig>/AreaRiskVisible}" />
+							<CheckBox text="医疗机构" selected="{pageConfig>/HospitalVisible}" />
+							<CheckBox text="病例" selected="{pageConfig>/CaseVisible}" />
+							<CheckBox text="病例活动行迹" selected="{pageConfig>/CaseTraceVisible}" />
 						</VBox>
 					</Panel>
 				</leaflet:FloatingItem>
-				<leaflet:FloatingItem id="equipmentDetailContainer" bottom="1rem" left="1rem" right="1rem" visible="true">
+				<leaflet:FloatingItem id="caseDetailContainer" bottom="1rem" left="1rem" right="1rem" visible="false">
 					<HBox width="100%" height="100%" justifyContent="Center" fitContainer="true">
-						<HeaderContainer id="detailContainer" class="myHeaderContainer floatingPanel">
+						<HeaderContainer class="myHeaderContainer floatingPanel">
 							<content>
 								<HBox>
 									<VBox class="myCarDetailTile">
@@ -119,12 +131,22 @@
 										</HBox>
 										<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTop">
 											<VBox>
-												<Text width="9rem" class="sapUiSmallMarginEnd" text="确诊日期" />
-												<Text text="{case>ConfirmedDate}" />
+												<Text width="9rem" class="sapUiSmallMarginEnd" text="感染日期" />
+												<Text text="{case>InfectedDate}" />
 											</VBox>
 											<VBox>
 												<Text class="sapUiSmallMarginEnd" text="发病日期" />
 												<Text text="{case>SymptomDate}" />
+											</VBox>
+										</HBox>
+										<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTop">
+											<VBox>
+												<Text width="9rem" class="sapUiSmallMarginEnd" text="隔离日期" />
+												<Text text="{case>SeparatedDate}" />
+											</VBox>
+											<VBox>
+												<Text class="sapUiSmallMarginEnd" text="确诊日期" />
+												<Text text="{case>ConfirmedDate}" />
 											</VBox>
 										</HBox>
 										<HBox class="sapUiSmallMarginBegin sapUiTinyMarginTop">
@@ -139,15 +161,15 @@
 										</HBox>
 									</VBox>
 								</HBox>
-								<HBox alignItems="Center" height="14rem" class="myCarDetailTile">
-								<!-- <Image src="image/networkSample.png" width="50rem" height="14rem" /> -->
-									<ng:Graph enableWheelZoom="false" nodes="{case>Trace/Nodes}" lines="{case>Trace/Lines}" width="50rem" height="14rem" >
+								<HBox alignItems="Center" class="myCarDetailTile">
+									<!-- <Image src="image/networkSample.png" width="50rem" height="14rem" /> -->
+									<ng:Graph id="graph" enableWheelZoom="false" nodes="{case>ContactTrace/Nodes}" lines="{case>ContactTrace/Lines}" width="50rem" height="17rem" graphReady="onGraphReady">
 										<ng:layoutAlgorithm>
-											<ng.layout:ForceDirectedLayout optimalDistanceConstant="0.31" maxIterations="200" maxTime="500" initialTemperature="200" coolDownStep="1" staticNodes="[0,1,2,3,4,5,6]">
+											<ng.layout:ForceDirectedLayout id="fdl" optimalDistanceConstant="0.31" maxIterations="200" maxTime="500" initialTemperature="200" coolDownStep="1" staticNodes="[0,0,1,2,3,4,5,6,100]">
 											</ng.layout:ForceDirectedLayout>
 										</ng:layoutAlgorithm>
 										<ng:nodes>
-											<ng:Node key="{case>Key}" title="{case>Title}" icon="{case>Icon}" attributes="{path:'case>Attributes', templateShareable:true}" shape="{case>Shape}" status="{case>Status}" x="{= ${case>Key} * 200}" y="0">
+											<ng:Node key="{case>Key}" title="{case>Title}" icon="{case>Icon}" attributes="{path:'case>Attributes', templateShareable:true}" shape="{case>Shape}" status="{case>Status}" x="{= Number(${case>Key}) * 100}" y="0">
 												<ng:attributes>
 													<ng:ElementAttribute label="{case>Label}" value="{case>Value}" />
 												</ng:attributes>
@@ -159,7 +181,7 @@
 										</ng:lines>
 									</ng:Graph>
 								</HBox>
-								<Panel headerText="密切接触者" width="15rem" height="14rem" class="myCarDetailTile sapUiNoContentPadding">
+								<Panel headerText="密切接触者" width="15rem" height="17rem" class="myCarDetailTile sapUiNoContentPadding">
 									<List items="{case>Contacts}">
 										<StandardListItem title="{case>Name}" info="{case>Type} - {case>Status}" infoState="{case>State}" />
 									</List>

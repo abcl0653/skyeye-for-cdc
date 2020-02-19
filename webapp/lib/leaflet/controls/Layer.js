@@ -18,6 +18,10 @@ sap.ui.define([
 					type: "string",
 					defaultValue: "{}"
 				},
+				visible: {
+					type: "boolean",
+					defaultValue: "True"
+				},
 				_origin: {
 					type: "object",
 					visibility: "hidden"
@@ -41,7 +45,7 @@ sap.ui.define([
 		// 	Element.apply(this, arguments);
 		// 	var _origin = this.getProperty("_origin");
 		// 	if (window.L && (_origin === null || typeof _origin === "undefined")) {
-		// 		this._initLayer();
+		// 		this._init();
 		// 	}
 		// },
 
@@ -56,17 +60,17 @@ sap.ui.define([
 
 		setOptions: function (option) {
 			this.setProperty("options", option, true);
-			this._initLayer();
+			this._init();
 		},
 
 		getOrigin: function () {
 			if (!this.getProperty("_origin")) {
-				this._initLayer();
+				this._init();
 			}
 			return this.getProperty("_origin");
 		},
 
-		_initLayer: function () { }
+		_init: function () { }
 
 	});
 });

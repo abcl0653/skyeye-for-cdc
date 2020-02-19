@@ -24,17 +24,17 @@ sap.ui.define(["./Layer"], function (Layer) {
 		},
 
 		setOpacity: function (opacity) {
-			var oGridLayer = this.getProperty("_origin");
-			if (oGridLayer) {
-				oGridLayer.setOpacity(opacity);
+			var oOrigin = this.getProperty("_origin");
+			if (oOrigin) {
+				oOrigin.setOpacity(opacity);
 			}
 			this.setProperty("opacity", opacity, true);
 		},
 
 		setZIndex: function (zIndex) {
-			var oGridLayer = this.getProperty("_origin");
-			if (oGridLayer) {
-				oGridLayer.setZIndex(zIndex);
+			var oOrigin = this.getProperty("_origin");
+			if (oOrigin) {
+				oOrigin.setZIndex(zIndex);
 			}
 			this.setProperty("zIndex", zIndex, true);
 		},
@@ -46,7 +46,7 @@ sap.ui.define(["./Layer"], function (Layer) {
 			return oOption;
 		},
 
-		_initLayer: function () { 
+		_init: function () { 
 			var oOption = this._getOptions();
 			var oOrigin = this.getProperty("_origin");
 			oOrigin = L.gridLayer(oOption);
