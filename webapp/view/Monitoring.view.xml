@@ -15,9 +15,11 @@
 				<l:SplitterLayoutData size="15rem" resizable="false" />
 			</l:layoutData>
 			<l:flexContent>
-				<Tree items="{path:'orgUnit>/', parameters: { numberOfExpandedLevels: 4 }}" mode="SingleSelectMaster">
-					<StandardTreeItem title="{orgUnit>text}" counter="{orgUnit>confirmed}" highlight="{orgUnit>status}" />
-				</Tree>
+				<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
+					<Tree items="{path:'orgUnit>/', parameters: { numberOfExpandedLevels: 4 }}" mode="SingleSelectMaster">
+						<StandardTreeItem title="{orgUnit>text}" counter="{orgUnit>confirmed}" highlight="{orgUnit>status}" />
+					</Tree>
+				</ScrollContainer>
 			</l:flexContent>
 			<l:fixContent>
 				<List>
@@ -27,6 +29,7 @@
 							<core:Item key="2" text="区" />
 							<core:Item key="3" text="街道" />
 							<core:Item key="4" text="社区" />
+							<core:Item key="5" text="楼栋" />
 						</Select>
 					</InputListItem>
 					<InputListItem label="层级地图跟随">
@@ -107,7 +110,7 @@
 						<VBox>
 							<CheckBox text="区块风险" selected="{pageConfig>/BlockRiskVisible}" />
 							<CheckBox text="医疗机构" selected="{pageConfig>/HospitalVisible}" />
-							<CheckBox text="病例" selected="{pageConfig>/CaseVisible}" select="onChangeCaseVisible"/>
+							<CheckBox text="病例" selected="{pageConfig>/CaseVisible}" select="onChangeCaseVisible" />
 							<CheckBox text="病例活动行迹" selected="{pageConfig>/CaseTraceVisible}" enabled="{pageConfig>/CaseVisible}" />
 						</VBox>
 					</Panel>

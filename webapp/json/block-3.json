@@ -6,7 +6,7 @@
         "Confirmed": 3,
         "Uncomfirmed": 1,
         "Contact": 6,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 30.877457224793584,
@@ -1838,7 +1838,7 @@
         "Confirmed": 5,
         "Uncomfirmed": 5,
         "Contact": 28,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 30.9234742008459,
@@ -3890,7 +3890,7 @@
         "Confirmed": 1,
         "Uncomfirmed": 8,
         "Contact": 6,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 30.877457224793584,
@@ -6610,7 +6610,7 @@
         "Confirmed": 0,
         "Uncomfirmed": 4,
         "Contact": 4,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 30.995711196222896,
@@ -8602,7 +8602,7 @@
         "Confirmed": 5,
         "Uncomfirmed": 8,
         "Contact": 18,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.011616191170376,
@@ -10610,7 +10610,7 @@
         "Confirmed": 0,
         "Uncomfirmed": 8,
         "Contact": 3,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 30.985735208931157,
@@ -15858,7 +15858,7 @@
         "Confirmed": 8,
         "Uncomfirmed": 5,
         "Contact": 8,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.06936218174505,
@@ -20754,7 +20754,7 @@
         "Confirmed": 6,
         "Uncomfirmed": 4,
         "Contact": 29,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.07660318651839,
@@ -24474,7 +24474,7 @@
         "Confirmed": 0,
         "Uncomfirmed": 1,
         "Contact": 5,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.084140204189723,
@@ -32262,7 +32262,7 @@
         "Confirmed": 3,
         "Uncomfirmed": 3,
         "Contact": 3,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.08638119671203,
@@ -35534,7 +35534,7 @@
         "Confirmed": 9,
         "Uncomfirmed": 1,
         "Contact": 3,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.082167191837122,
@@ -38418,7 +38418,7 @@
         "Confirmed": 2,
         "Uncomfirmed": 6,
         "Contact": 7,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.123519176867212,
@@ -41070,7 +41070,7 @@
         "Confirmed": 9,
         "Uncomfirmed": 3,
         "Contact": 0,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.112425199267083,
@@ -46802,7 +46802,7 @@
         "Confirmed": 9,
         "Uncomfirmed": 1,
         "Contact": 0,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.137358199194317,
@@ -47378,7 +47378,7 @@
         "Confirmed": 2,
         "Uncomfirmed": 6,
         "Contact": 26,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.12970818252618,
@@ -49810,7 +49810,7 @@
         "Confirmed": 5,
         "Uncomfirmed": 1,
         "Contact": 27,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.159366190957073,
@@ -56470,7 +56470,7 @@
         "Confirmed": 6,
         "Uncomfirmed": 4,
         "Contact": 13,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.150213203636255,
@@ -63878,7 +63878,7 @@
         "Confirmed": 0,
         "Uncomfirmed": 6,
         "Contact": 28,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.180277196347237,
@@ -64390,7 +64390,7 @@
         "Confirmed": 0,
         "Uncomfirmed": 6,
         "Contact": 24,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.19350519026644,
@@ -64866,7 +64866,7 @@
         "Confirmed": 1,
         "Uncomfirmed": 8,
         "Contact": 1,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.17131119216803,
@@ -68910,7 +68910,7 @@
         "Confirmed": 6,
         "Uncomfirmed": 1,
         "Contact": 18,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.199165188032453,
@@ -69830,7 +69830,7 @@
         "Confirmed": 4,
         "Uncomfirmed": 9,
         "Contact": 13,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.155958179695286,
@@ -76798,7 +76798,7 @@
         "Confirmed": 3,
         "Uncomfirmed": 9,
         "Contact": 25,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.20734918557511,
@@ -78158,7 +78158,7 @@
         "Confirmed": 0,
         "Uncomfirmed": 1,
         "Contact": 17,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.227559172772995,
@@ -83786,7 +83786,7 @@
         "Confirmed": 9,
         "Uncomfirmed": 0,
         "Contact": 6,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.225407181521014,
@@ -84542,7 +84542,7 @@
         "Confirmed": 0,
         "Uncomfirmed": 5,
         "Contact": 22,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.189783187044892,
@@ -85914,7 +85914,7 @@
         "Confirmed": 7,
         "Uncomfirmed": 0,
         "Contact": 5,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.24434617892089,
@@ -86498,7 +86498,7 @@
         "Confirmed": 1,
         "Uncomfirmed": 8,
         "Contact": 4,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.249124174033263,
@@ -87590,7 +87590,7 @@
         "Confirmed": 1,
         "Uncomfirmed": 4,
         "Contact": 9,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.24841916024589,
@@ -93534,7 +93534,7 @@
         "Confirmed": 1,
         "Uncomfirmed": 0,
         "Contact": 29,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.257317169955577,
@@ -94670,7 +94670,7 @@
         "Confirmed": 0,
         "Uncomfirmed": 0,
         "Contact": 27,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.24917315536012,
@@ -99654,7 +99654,7 @@
         "Confirmed": 5,
         "Uncomfirmed": 0,
         "Contact": 18,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.243126169123336,
@@ -108222,7 +108222,7 @@
         "Confirmed": 3,
         "Uncomfirmed": 5,
         "Contact": 2,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.27312416421859,
@@ -108642,7 +108642,7 @@
         "Confirmed": 4,
         "Uncomfirmed": 9,
         "Contact": 3,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.258614165446904,
@@ -108986,7 +108986,7 @@
         "Confirmed": 7,
         "Uncomfirmed": 3,
         "Contact": 16,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.31901014071596,
@@ -118698,7 +118698,7 @@
         "Confirmed": 8,
         "Uncomfirmed": 2,
         "Contact": 27,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.332332152277917,
@@ -120854,7 +120854,7 @@
         "Confirmed": 0,
         "Uncomfirmed": 5,
         "Contact": 9,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.364959140676493,
@@ -127014,7 +127014,7 @@
         "Confirmed": 8,
         "Uncomfirmed": 9,
         "Contact": 19,
-        "Level": "2",
+        "Level": "3",
         "LatLngs": [
             [
                 31.39136614437084,

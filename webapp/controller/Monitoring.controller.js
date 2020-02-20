@@ -26,9 +26,14 @@ sap.ui.define([
 				this._oHospitalDetailPopover = oPopover;
 				this.getView().addDependent(this._oHospitalDetailPopover);
 			}.bind(this));
+			
+			var oBlockModel = new sap.ui.model.json.JSONModel();
+			oBlockModel.loadData("json/block-3.json",null,false,"GET",true);
+			oBlockModel.loadData("json/block-4.json",null,false,"GET",true);
+			oBlockModel.loadData("json/block-5.json",null,false,"GET",true);
+			this.getView().setModel(oBlockModel, "block");
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/orgUnit.json"),"orgUnit");
-			this.getView().setModel(new sap.ui.model.json.JSONModel("json/block.json"), "block");
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/hospital.json"), "hospital");
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/case.json"), "case");
 
