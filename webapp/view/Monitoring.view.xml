@@ -38,17 +38,21 @@
 				</List>
 			</l:fixContent>
 		</l:FixFlex>
-		<leaflet:Map id="map" zoom="15" center="[31.2, 121.6]" zoomControl="false" press="onPressMap">
+		<leaflet:Map id="map" zoom="14" center="[31.19, 121.6]" zoomControl="false" press="onPressMap">
 			<leaflet:layerGroups>
 				<leaflet:LayerGroup id="blockRisk" layers="{block>/}" visible="{pageConfig>/BlockRiskVisible}">
 					<leaflet:Polygon press="onPressBlock" latLngs="{block>LatLngs}" style='\{ "stroke": true, "color": "{= ${block>Status} === "Good" ? "#107e3e" : "#e9730c"}", "opacity": 0.3, "fillOpacity": 0.2 \}' />
 				</leaflet:LayerGroup >
 				<leaflet:LayerGroup id="hospital" layers="{hospital>/}" visible="{pageConfig>/HospitalVisible}">
-					<leaflet:Marker press="onPressHospital" latLng="{hospital>LatLng}" />
+					<leaflet:Marker press="onPressHospital" latLng="{hospital>LatLng}">
+						<leaflet:Icon options='\{"iconUrl":"image/hospital.png", "iconSize": [50, 50]\}' />
+					</leaflet:Marker>
 				</leaflet:LayerGroup >
 				<leaflet:LayerGroup layers="{path:'case>/'}" zIndex="450" visible="{pageConfig>/CaseVisible}">
 					<leaflet:LayerGroup>
-						<leaflet:Marker press="onPressCase" latLng="{case>LatLng}" />
+						<leaflet:Marker press="onPressCase" latLng="{case>LatLng}">
+							<leaflet:Icon options='\{"iconUrl":"image/case.png", "iconSize": [50, 50]\}' />
+						</leaflet:Marker>
 						<leaflet:LayerGroup layers="{path:'case>Trace',templateShareable:true}" visible="{pageConfig>/CaseTraceVisible}">
 							<leaflet:CircleMarker press="onPressCase" radius="30" style='\{ "stroke": true, "color": "#bb0000", "opacity": 0.5, "bubblingMouseEvents":false \}' latLng="{case>LatLng}" />
 						</leaflet:LayerGroup >
@@ -71,7 +75,7 @@
 							<f:GridContainerItemLayoutData columns="2" />
 						</f:layoutData>
 						<f:header>
-							<fc:Header title="任务执行情况" subtitle="2020年2月1日" iconSrc="sap-icon://activities" />
+							<fc:Header title="{pageConfig>/Date} {pageConfig>/Time}" subtitle="{pageConfig>/Year} {pageConfig>/WeekDay}" iconSrc="sap-icon://activities" />
 						</f:header>
 						<f:content>
 							<List>
@@ -85,7 +89,7 @@
 				<leaflet:FloatingItem top="1rem" left="15rem">
 					<f:Card class="myCard" width="15rem">
 						<f:header>
-							<fc:NumericHeader title="管控人数" subtitle="2020年2月1日" number="5" trend="Down" state="Good" details="确诊病例" press="onPressWorkOrderCard">
+							<fc:NumericHeader title="新冠肺炎" subtitle="上海市 | 浦东新区 | 张江镇" number="13" trend="Up" state="Critical" details="确诊病例" press="onPressWorkOrderCard">
 								<fc:sideIndicators>
 									<fc:NumericSideIndicator title="疑似病例" number="69" />
 									<fc:NumericSideIndicator title="密切接触者" number="123" />

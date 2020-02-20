@@ -47,8 +47,12 @@ sap.ui.define([
 				CaseVisible:true,
 				CaseTraceVisible:true,
 				HospitalVisible:true,
-				BlockRiskLevel:"4",
-				AutoLevel:false
+				BlockRiskLevel:"3",
+				AutoLevel:false,
+				Date:"2月11日",
+				Time: "12:00",
+				Year:"2020年",
+				WeekDay:"星期二"
 			}),"pageConfig");
 
 			// this.getView().byId("caseDetailContainer").bindElement("case>/0");

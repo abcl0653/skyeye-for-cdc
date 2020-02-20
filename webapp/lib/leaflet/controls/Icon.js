@@ -60,9 +60,15 @@ sap.ui.define([
 		_init: function () {
 			var oOption = this._getOptions();
 			var oOrigin = this.getProperty("_origin");
-			oOrigin = L.icon(oOption);
-			this.setProperty("_origin",oOrigin);
-		 }
+			if (oOption.html) {
+				oOrigin = L.divIcon(oOption);
+			} else if(oOption.iconUrl){
+				oOrigin = L.icon(oOption);
+			}else{
+				oOrigin = new L.Icon.Default();
+			}
+			this.setProperty("_origin", oOrigin);
+		}
 
 	});
 });

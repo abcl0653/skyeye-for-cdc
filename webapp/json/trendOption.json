@@ -1,13 +1,32 @@
 {
+    "grid": {
+        "top": 10,
+        "bottom":20
+    },
     "xAxis": {
-        "type": "category"
+        "type": "category",
+        "axisLabel": {
+            "showMaxLabel": true,
+            "showMinLabel": true
+        },
+        "axisTick": {
+            "alignWithLabel": true
+        }
     },
     "yAxis": {
-        "type": "value"
+        "show":false,
+        "type": "value",
+        "splitNumber": 1,
+        "axisLine": {
+            "show": false
+        }
     },
     "series": [
         {
             "type": "line",
+            "label":{
+                "show":true
+            },
             "encode": {
                 "x": "date",
                 "y": "confirmed"

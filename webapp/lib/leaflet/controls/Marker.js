@@ -11,6 +11,7 @@ sap.ui.define(["./InteractiveLayer"], function (InteractiveLayer) {
 
 		metadata: {
 			library: "sap.vco.leaflet",
+			defaultAggregation: "icon",
 			properties: {
 				latLng: {
 					type: "string",
@@ -24,11 +25,11 @@ sap.ui.define(["./InteractiveLayer"], function (InteractiveLayer) {
 					type: "float",
 					defaultValue: 1.0
 				},
-				aggregations: {
-					icon: {
-						type: "sap.vco.leaflet.controls.Icon",
-						multiple: false
-					}
+			},
+			aggregations: {
+				icon: {
+					type: "sap.vco.leaflet.controls.Icon",
+					multiple: false
 				}
 			}
 		},
@@ -78,8 +79,8 @@ sap.ui.define(["./InteractiveLayer"], function (InteractiveLayer) {
 			oOption.opacity = this.getOpacity();
 			oOption.zIndexOffset = this.getZIndexOffset();
 			var oIcon = this.getAggregation("icon");
-			if(oIcon){
-				oOption.icon = oIcon;
+			if (oIcon) {
+				oOption.icon = oIcon.getOrigin();
 			}
 			return oOption;
 		},
