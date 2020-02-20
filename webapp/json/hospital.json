@@ -1,1 +1,25 @@
-[]
+[
+    {
+      "ID": "3101201231",
+      "Name": "曙光医院",
+      "Responsible":"负责人",
+      "Confirmed":0,
+      "Unconfirmed":1,
+      "Contact":5,
+      "Capacity":100,
+      "Type":"三级甲等",
+      "LatLng": "31.1884,121.5894",
+      "Status": "Good"
+    },{
+      "ID": "3101201231",
+      "Name": "浦东新区张江社区卫生服务中心",
+      "Responsible":"负责人",
+      "Confirmed":0,
+      "Unconfirmed":1,
+      "Contact":5,
+      "Capacity":100,
+      "Type":"一级甲等",
+      "LatLng": "31.1995,121.6223",
+      "Status": "Good"
+    }
+  ]

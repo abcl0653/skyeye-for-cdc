@@ -9,10 +9,10 @@
 				<f:content>
 				</f:content>
 				<f:header>
-					<fc:NumericHeader title="{block>Name}" subtitle="负责人：{block>Responsible}" number="{block>Confirmed}" scale="" state="Good" details="确诊病例">
+					<fc:NumericHeader title="{hospital>Name}" subtitle="负责人：{hospital>Responsible}" number="{hospital>Confirmed}" scale="" state="Good" details="确诊病例">
 					<fc:sideIndicators>
-						<fc:NumericSideIndicator title="疑似病例" number="{block>Unconfirmed}" unit="" />
-						<fc:NumericSideIndicator title="密切接触者" number="{block>Contact}" unit="" />
+						<fc:NumericSideIndicator title="疑似病例" number="{hospital>Unconfirmed}" unit="" />
+						<fc:NumericSideIndicator title="密切接触者" number="{hospital>Contact}" unit="" />
 					</fc:sideIndicators>
 					</fc:NumericHeader>
 				</f:header>

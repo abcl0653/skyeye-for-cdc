@@ -22,7 +22,7 @@
 			<l:fixContent>
 				<List>
 					<InputListItem label="区块风险层级">
-						<Select id="levelSelect" selectedKey="{pageConfig>/AreaRiskLevel}" change="onLevelChange">
+						<Select id="levelSelect" selectedKey="{pageConfig>/BlockRiskLevel}" change="onChangeLevel">
 							<core:Item key="1" text="市" />
 							<core:Item key="2" text="区" />
 							<core:Item key="3" text="街道" />
@@ -37,17 +37,17 @@
 		</l:FixFlex>
 		<leaflet:Map id="map" zoom="15" center="[31.2, 121.6]" zoomControl="false" press="onPressMap">
 			<leaflet:layerGroups>
-				<leaflet:LayerGroup id="areaRisk" layers="{block>/}" visible="{pageConfig>/AreaRiskVisible}">
-					<leaflet:Polygon press="onPressProject" latLngs="{block>LatLngs}" style='\{ "stroke": true, "color": "{= ${block>Status} === "Good" ? "#107e3e" : "#e9730c"}", "opacity": 0.3, "fillOpacity": 0.2 \}' />
+				<leaflet:LayerGroup id="blockRisk" layers="{block>/}" visible="{pageConfig>/BlockRiskVisible}">
+					<leaflet:Polygon press="onPressBlock" latLngs="{block>LatLngs}" style='\{ "stroke": true, "color": "{= ${block>Status} === "Good" ? "#107e3e" : "#e9730c"}", "opacity": 0.3, "fillOpacity": 0.2 \}' />
 				</leaflet:LayerGroup >
 				<leaflet:LayerGroup id="hospital" layers="{hospital>/}" visible="{pageConfig>/HospitalVisible}">
-					<leaflet:Polygon press="onPressProject" latLngs="{hospital>LatLngs}" style='\{ "stroke": true, "color": "{= ${hospital>Status} === "Good" ? "#107e3e" : "#e9730c"}", "opacity": 0.3, "fillOpacity": 0.2 \}' />
+					<leaflet:Marker press="onPressHospital" latLng="{hospital>LatLng}" />
 				</leaflet:LayerGroup >
 				<leaflet:LayerGroup layers="{path:'case>/'}" zIndex="450" visible="{pageConfig>/CaseVisible}">
 					<leaflet:LayerGroup>
 						<leaflet:Marker press="onPressCase" latLng="{case>LatLng}" />
 						<leaflet:LayerGroup layers="{path:'case>Trace',templateShareable:true}" visible="{pageConfig>/CaseTraceVisible}">
-							<leaflet:CircleMarker press="onPressCase" radius="30" style='\{ "stroke": true, "color": "#bb0000", "opacity": 0.5 \}' latLng="{case>LatLng}" />
+							<leaflet:CircleMarker press="onPressCase" radius="30" style='\{ "stroke": true, "color": "#bb0000", "opacity": 0.5, "bubblingMouseEvents":false \}' latLng="{case>LatLng}" />
 						</leaflet:LayerGroup >
 					</leaflet:LayerGroup >
 				</leaflet:LayerGroup >
@@ -105,10 +105,10 @@
 							</Toolbar>
 						</headerToolbar>
 						<VBox>
-							<CheckBox text="区块风险" selected="{pageConfig>/AreaRiskVisible}" />
+							<CheckBox text="区块风险" selected="{pageConfig>/BlockRiskVisible}" />
 							<CheckBox text="医疗机构" selected="{pageConfig>/HospitalVisible}" />
-							<CheckBox text="病例" selected="{pageConfig>/CaseVisible}" />
-							<CheckBox text="病例活动行迹" selected="{pageConfig>/CaseTraceVisible}" />
+							<CheckBox text="病例" selected="{pageConfig>/CaseVisible}" select="onChangeCaseVisible"/>
+							<CheckBox text="病例活动行迹" selected="{pageConfig>/CaseTraceVisible}" enabled="{pageConfig>/CaseVisible}" />
 						</VBox>
 					</Panel>
 				</leaflet:FloatingItem>
