@@ -78,16 +78,16 @@
 							<fc:Header title="{pageConfig>/Date} {pageConfig>/Time}" subtitle="{pageConfig>/Year} {pageConfig>/WeekDay}" iconSrc="sap-icon://activities" />
 						</f:header>
 						<f:content>
-							<List>
-								<ObjectListItem title="已完成任务" number="106" highlight="Success"></ObjectListItem>
-								<ObjectListItem title="待完成任务" number="16" highlight="Warning"></ObjectListItem>
-								<ObjectListItem title="已下发通知" number="32" highlight="Information"></ObjectListItem>
+							<List itemPress="onPressTask">
+								<ObjectListItem title="已完成任务" number="106" highlight="Success" type="Navigation" />
+								<ObjectListItem title="待完成任务" number="16" highlight="Warning" type="Navigation" />
+								<ObjectListItem title="已下发通知" number="32" highlight="Information" type="Navigation" />
 							</List>
 						</f:content>
 					</f:Card>
 				</leaflet:FloatingItem>
 				<leaflet:FloatingItem top="1rem" left="15rem">
-					<f:Card class="myCard" width="15rem">
+					<f:Card class="myCard" width="20rem">
 						<f:header>
 							<fc:NumericHeader title="新冠肺炎" subtitle="上海市 | 浦东新区 | 张江镇" number="13" trend="Up" state="Critical" details="确诊病例" press="onPressWorkOrderCard">
 								<fc:sideIndicators>
@@ -97,8 +97,14 @@
 							</fc:NumericHeader>
 						</f:header>
 						<f:content>
-							<echarts:Instance class="sapUiTinyMarginTopBottom" id="chart-trend" option="{trendOption>/}" dataset="{trend>/}" width="100%" height="5rem">
-							</echarts:Instance>
+							<VBox width="100%">
+								<echarts:Instance class="sapUiTinyMarginTopBottom" id="chart-trend" option="{trendOption>/}" dataset="{trend>/}" width="100%" height="7rem">
+								</echarts:Instance>
+								<HBox justifyContent="SpaceAround">
+									<Button text="切换事件类型" width="100%" type="Transparent" />
+									<Button text="趋势详细分析" width="100%" type="Transparent" />
+								</HBox>
+							</VBox>
 						</f:content>
 					</f:Card>
 				</leaflet:FloatingItem>
@@ -113,10 +119,20 @@
 						</headerToolbar>
 						<VBox>
 							<CheckBox text="区块风险" selected="{pageConfig>/BlockRiskVisible}" />
+							<CheckBox text="特殊区块标注" selected="{pageConfig>/SpecialRiskVisible}" enabled="{= ${pageConfig>/BlockRiskVisible} &amp;&amp; (${pageConfig>/BlockRiskLevel} === '5')}" />
 							<CheckBox text="医疗机构" selected="{pageConfig>/HospitalVisible}" />
 							<CheckBox text="病例" selected="{pageConfig>/CaseVisible}" select="onChangeCaseVisible" />
 							<CheckBox text="病例活动行迹" selected="{pageConfig>/CaseTraceVisible}" enabled="{pageConfig>/CaseVisible}" />
 						</VBox>
+					</Panel>
+				</leaflet:FloatingItem>
+				<leaflet:FloatingItem top="1rem" right="10rem">
+					<Panel width="17rem" height="6rem" headerText="区块风险预测" class="floatingPanel sapUiNoContentPadding">
+						<HBox>
+							<Text text="当前" width="2.5rem" textAlign="Center" class="sapUiTinyMargin" />
+							<Slider min="0" max="5" enableTickmarks="true" width="10rem" />
+							<Text text="5天后" width="2.5rem" textAlign="Center" class="sapUiTinyMarginTop" />
+						</HBox>
 					</Panel>
 				</leaflet:FloatingItem>
 				<leaflet:FloatingItem id="caseDetailContainer" bottom="1rem" left="1rem" right="1rem" visible="false">

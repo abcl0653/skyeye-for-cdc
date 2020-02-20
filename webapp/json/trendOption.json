@@ -1,7 +1,7 @@
 {
     "grid": {
         "top": 10,
-        "bottom":20
+        "bottom": 20
     },
     "xAxis": {
         "type": "category",
@@ -14,7 +14,7 @@
         }
     },
     "yAxis": {
-        "show":false,
+        "show": false,
         "type": "value",
         "splitNumber": 1,
         "axisLine": {
@@ -23,13 +23,28 @@
     },
     "series": [
         {
+            "name": "confirmed",
             "type": "line",
-            "label":{
-                "show":true
+            "label": {
+                "show": true
             },
             "encode": {
                 "x": "date",
                 "y": "confirmed"
+            }
+        },
+        {
+            "name": "predict",
+            "type": "line",
+            "lineStyle": {
+                "type": "dashed"
+            },
+            "label": {
+                "show": true
+            },
+            "encode": {
+                "x": "date",
+                "y": "predict"
             }
         }
     ]

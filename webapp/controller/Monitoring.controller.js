@@ -12,25 +12,31 @@ sap.ui.define([
 	return BaseController.extend("sap.ibso.skyeyeForCdc.controller.Monitoring", {
 		onInit: function () {
 			Fragment.load({
-				name: "sap.ibso.skyeyeForCdc.view.fragment.BlockDetail",
+				name: "sap.ibso.skyeyeForCdc.view.fragment.Block",
 				controller: this
 			}).then(function (oPopover) {
-				this._oBlockDetailPopover = oPopover;
-				this.getView().addDependent(this._oBlockDetailPopover);
+				this._oBlockPopover = oPopover;
+				this.getView().addDependent(this._oBlockPopover);
 			}.bind(this));
 
 			Fragment.load({
-				name: "sap.ibso.skyeyeForCdc.view.fragment.HospitalDetail",
+				name: "sap.ibso.skyeyeForCdc.view.fragment.Hospital",
 				controller: this
 			}).then(function (oPopover) {
-				this._oHospitalDetailPopover = oPopover;
-				this.getView().addDependent(this._oHospitalDetailPopover);
+				this._oHospitalPopover = oPopover;
+				this.getView().addDependent(this._oHospitalPopover);
+			}.bind(this));
+
+			Fragment.load({
+				name: "sap.ibso.skyeyeForCdc.view.fragment.Task",
+				controller: this
+			}).then(function (oDialog) {
+				this._oTaskDialog = oDialog;
+				this.getView().addDependent(this._oTaskDialog);
 			}.bind(this));
 			
 			var oBlockModel = new sap.ui.model.json.JSONModel();
-			oBlockModel.loadData("json/block-3.json",null,false,"GET",true);
-			oBlockModel.loadData("json/block-4.json",null,false,"GET",true);
-			oBlockModel.loadData("json/block-5.json",null,false,"GET",true);
+			this.loadBlockData(oBlockModel);
 			this.getView().setModel(oBlockModel, "block");
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/orgUnit.json"),"orgUnit");
@@ -44,6 +50,7 @@ sap.ui.define([
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel({
 				BlockRiskVisible:true,
+				SpecialRiskVisible:false,
 				CaseVisible:true,
 				CaseTraceVisible:true,
 				HospitalVisible:true,
@@ -61,6 +68,17 @@ sap.ui.define([
 			this.onChangeLevel();
 		},
 
+		loadBlockData:function(oBlockModel){
+			var aData = [];
+			oBlockModel.loadData("json/block-3.json",null,false);
+			aData = aData.concat(oBlockModel.getData());
+			oBlockModel.loadData("json/block-4.json",null,false);
+			aData = aData.concat(oBlockModel.getData());
+			oBlockModel.loadData("json/block-5.json",null,false);
+			aData = aData.concat(oBlockModel.getData());
+			oBlockModel.setData(aData);
+		},
+
 		onGraphReady:function(oEvent){
 			var oGraph = oEvent.getSource();
 			setTimeout(function(){
@@ -70,13 +88,13 @@ sap.ui.define([
 		},
 
 		onPressBlock: function (oEvent) {
-			this._oBlockDetailPopover.bindElement("block>" + oEvent.getSource().getBindingContext("block").getPath());
-			this._oBlockDetailPopover.openBy(oEvent.getSource());
+			this._oBlockPopover.bindElement("block>" + oEvent.getSource().getBindingContext("block").getPath());
+			this._oBlockPopover.openBy(oEvent.getSource());
 		},
 
 		onPressHospital: function (oEvent) {
-			this._oHospitalDetailPopover.bindElement("hospital>" + oEvent.getSource().getBindingContext("hospital").getPath());
-			this._oHospitalDetailPopover.openBy(oEvent.getSource());
+			this._oHospitalPopover.bindElement("hospital>" + oEvent.getSource().getBindingContext("hospital").getPath());
+			this._oHospitalPopover.openBy(oEvent.getSource());
 		},
 
 		onPressCase: function (oEvent) {
@@ -87,6 +105,14 @@ sap.ui.define([
 
 		onPressMap: function (oEvent) {
 			this.getView().byId("caseDetailContainer").setVisible(false);
+		},
+
+		onPressTask: function(){
+			this._oTaskDialog.open();
+		},
+		
+		onCloseDialog: function(oEvent){
+			oEvent.getSource().getParent().close();
 		},
 
 		onChangeLevel:function(oEvent){

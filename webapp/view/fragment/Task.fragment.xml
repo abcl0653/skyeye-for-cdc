@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:fc="sap.f.cards" 
+	xmlns:core="sap.ui.core">
+	<Dialog title="任务" >
+		<content>
+			<IconTabBar select="handleIconTabBarSelect" class="sapUiNoContentPadding">
+				<items>
+					<IconTabFilter showAll="true" count="3" text="任务" key="All" />
+					<IconTabSeparator />
+					<IconTabFilter icon="sap-icon://begin" iconColor="Positive" count="106" text="已完成" key="Done" />
+					<IconTabFilter icon="sap-icon://compare" iconColor="Critical" count="16" text="待完成" key="InProcess" />
+					<IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="5" text="未分配" key="NotAssign" />
+					<IconTabFilter icon="sap-icon://inventory" iconColor="Neutral" count="32" text="通知" key="Info" />
+				</items>
+				<content>
+					<Table >
+						<columns>
+							<Column >
+								<Text text="主题/编号" />
+							</Column>
+							<Column >
+								<Text text="描述" />
+							</Column>
+							<Column >
+								<Text text="区域" />
+							</Column>
+							<Column >
+								<Text text="事件类型" />
+							</Column>
+							<Column >
+								<Text text="案例类型" />
+							</Column>
+							<Column >
+								<Text text="负责人" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle">
+								<cells>
+									<ObjectIdentifier title="新冠确诊" text="310111000001" />
+									<Text text="某某医院确诊1例确诊病例" />
+									<Text text="上海市浦东新区" />
+									<Text text="传染病" />
+									<Text text="确诊" />
+									<Text text="负责人" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</IconTabBar>
+		</content>
+		<beginButton>
+			<Button text="关闭" press="onCloseDialog" />
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>
