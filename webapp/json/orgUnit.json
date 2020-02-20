@@ -2,34 +2,277 @@
     {
         "text": "上海市",
         "confirmed": 12,
-        "status":"Warning",
+        "status": "Warning",
         "nodes": [
             {
+                "ID": 310115,
                 "text": "浦东新区",
                 "confirmed": 12,
-                "status":"Warning",
+                "status": "Warning",
                 "nodes": [
                     {
-                        "text": "金桥街道",
+                        "ID": "310115004",
+                        "text": "潍坊新村街道",
                         "confirmed": 0,
-                        "status":"Success"
+                        "status": "Warning"
                     },
                     {
+                        "ID": "310115005",
+                        "text": "陆家嘴街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115007",
+                        "text": "周家渡街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115008",
+                        "text": "塘桥街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115009",
+                        "text": "上钢新村街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115010",
+                        "text": "南码头路街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115011",
+                        "text": "沪东新村街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115012",
+                        "text": "金杨新村街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115013",
+                        "text": "洋泾街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115014",
+                        "text": "浦兴路街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115015",
+                        "text": "东明路街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115016",
+                        "text": "花木街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115017",
+                        "text": "申港街道",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115103",
+                        "text": "川沙新镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115104",
+                        "text": "高桥镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115105",
+                        "text": "北蔡镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115110",
+                        "text": "合庆镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115114",
+                        "text": "唐镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115117",
+                        "text": "曹路镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115120",
+                        "text": "金桥镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115121",
+                        "text": "高行镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115123",
+                        "text": "高东镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115125",
                         "text": "张江镇",
-                        "confirmed": 12,
-                        "status":"Warning",
-                        "nodes": [
-                            {
-                                "text": "汤臣三期",
-                                "confirmed": 0,
-                                "status":"Success"
-                            },
-                            {
-                                "text": "汤臣四期",
-                                "confirmed": 12,
-                                "status":"Warning"
-                            }
-                        ]
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115130",
+                        "text": "三林镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115131",
+                        "text": "惠南镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115132",
+                        "text": "周浦镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115133",
+                        "text": "新场镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115134",
+                        "text": "大团镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115135",
+                        "text": "芦潮港镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115136",
+                        "text": "康桥镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115137",
+                        "text": "航头镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115138",
+                        "text": "六灶镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115139",
+                        "text": "祝桥镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115140",
+                        "text": "泥城镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115141",
+                        "text": "宣桥镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115142",
+                        "text": "书院镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115143",
+                        "text": "万祥镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115144",
+                        "text": "老港镇",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115401",
+                        "text": "芦潮港农场",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115402",
+                        "text": "东海农场",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115403",
+                        "text": "朝阳农场",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115501",
+                        "text": "外高桥保税区",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115502",
+                        "text": "金桥出口加工区",
+                        "confirmed": 0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115503",
+                        "text": "张江高科技园区",
+                        "confirmed": 0,
+                        "status": "Warning"
                     }
                 ]
             },
