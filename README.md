@@ -45,3 +45,11 @@ You could open the demo page [here](https://string1225.github.io/skyeye-for-cdc/
     npm run build:mta
     npm run deploy:cf # This script include mbt build and cf deploy
     ```
+
+## Test the Services
+
+1. Get the orgUnit tree
+
+```url
+https://i039497trial-dev-dcp-ui.cfapps.eu10.hana.ondemand.com/master/Grids(310000)?$select=ID,name&$expand=children($select=ID,name;$expand=children($select=ID,name;$expand=children($select=ID,name)))
+```
