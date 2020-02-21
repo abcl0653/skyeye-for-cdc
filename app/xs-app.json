@@ -1,10 +1,10 @@
 {
-    "welcomeFile": "/",
+    "welcomeFile": "webapp/",
     "authenticationMethod": "none",
     "routes": [{
-        "source": "^/(.*)$",
+        "source": "^/webapp/(.*)$",
         "target": "$1",
-        "localDir": "/"
+        "localDir": "webapp/"
     },
     {
         "source": "^(.*)$",
