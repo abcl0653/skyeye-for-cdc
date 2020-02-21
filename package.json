@@ -1,5 +1,5 @@
 {
-  "name": "Farglory-Dashboard",
+  "name": "skyeyedcp",
   "version": "0.0.1",
   "description": "",
   "private": true,
@@ -7,11 +7,15 @@
     "@ui5/cli": "1.13.0",
     "@sap/ui5-builder-webide-extension": "1.0.9",
     "sqlite3": "^4.1.1",
-    "@sap/cds": "^3.20.0"
+    "@sap/cds": "^3.20.0",
+    "express": "^4.17.1"
   },
   "scripts": {
-    "build": "ui5 build --include-task=generateManifestBundle generateCachebusterInfo",
-    "start": "ui5 serve -o index.html"
+    "build": "cds build/all --clean",
+    "start": "cds run",
+    "deploy:cds": "cds deploy",
+    "build:mta": "cds build/all && cds deploy && mbt build -p=cf",
+    "deploy:cf": "npm run build:mta && cf push mta_archives/${npm_package_name}_${npm_package_version}.mtar"
   },
   "ui5": {
     "dependencies": [
@@ -28,11 +32,15 @@
         ],
         "credentials": {
           "database": "db/cdc.db"
+        },
+        "[production]": {
+          "kind": "hana"
         }
       }
     }
   },
   "dependencies": {
-    "csv": "^5.3.1"
+    "csv": "^5.3.1",
+    "hdb": "^0.17.1"
   }
 }

@@ -2,7 +2,7 @@ namespace cdc;
 using {User, managed, cuid } from '@sap/cds/common';
 
 entity Grids : managed {
-    key ID: Integer;
+    key ID: Integer64;
     parent: Association to Grids;
     hierlevel: Integer;
     name: String(20);
@@ -11,6 +11,7 @@ entity Grids : managed {
     managerTelephone: String(20);
     centerPoint: LargeString; //Geojson format
     polygon: LargeString; //Geojson format
+    children: Association to many Grids on children.parent = $self
 
 }
 
