@@ -26,13 +26,13 @@ You could open the demo page [here](https://string1225.github.io/skyeye-for-cdc/
     npm install
     ```
 
-1. Start a local server and run the application (http://localhost:8080/index.html)
+1. Start a local server and run the application (<http://localhost:8080/index.html)>
 
     ```sh
     npm start
     ```
 
-    Alternatively, if you want to start a local server(http://localhost:4004) via cds
+    Alternatively, if you want to start a local server(<http://localhost:4004)> via cds
 
     ```bash
     cds deploy

@@ -15,14 +15,31 @@ modules:
     path: srv
     parameters:
       memory: 512M
+
       disk-quota: 256M
     provides:
-      - name: srv_api
+      - name: srv-binding # required by UI consumer
         properties:
-          url: ${default-url}
+          srv-url: ${default-url}
     requires:
       - name: dcp-db-hdi-container
+  ###### UI Module ######
+  - name: dcp-ui
+    type: nodejs
+    path: app
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: srv-binding
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: true
+          name: srv-binding
+          url: ~{srv-url}
 resources:
+  # 'service-plan' can be configured via 'cds.requires.<name>.vcap.plan'
   - name: dcp-db-hdi-container
     type: com.sap.xs.hdi-container
     properties:

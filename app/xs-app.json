@@ -1,0 +1,13 @@
+{
+    "welcomeFile": "/",
+    "authenticationMethod": "none",
+    "routes": [{
+        "source": "^/(.*)$",
+        "target": "$1",
+        "localDir": "/"
+    },
+    {
+        "source": "^(.*)$",
+        "destination": "srv-binding"
+    }]
+}
