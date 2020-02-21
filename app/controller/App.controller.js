@@ -27,7 +27,13 @@ sap.ui.define([
 				var sId = oEvent.getParameter("title");
 				var aConfig = this.getView().getModel("pageConfig").getData();
 				var index = aConfig.findIndex(function (x) {
-					return x.Id === sId;
+					if (x.Content) {
+						var j = x.Content.findIndex(function (y) { return y.key === sId });
+						return x.Id === sId || j > 0;
+					} else {
+
+						return x.Id === sId;
+					}
 				});
 				this.getView().bindElement("pageConfig>/" + index);
 				if (aConfig[index].Content) {
