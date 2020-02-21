@@ -49,7 +49,7 @@ sap.ui.define([
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/graphTest.json"));
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel({
-				BlockRiskVisible:true,
+				BlockRiskVisible:false,
 				SpecialRiskVisible:false,
 				CaseVisible:true,
 				CaseTraceVisible:true,
@@ -90,6 +90,10 @@ sap.ui.define([
 		onPressBlock: function (oEvent) {
 			this._oBlockPopover.bindElement("block>" + oEvent.getSource().getBindingContext("block").getPath());
 			this._oBlockPopover.openBy(oEvent.getSource());
+		},
+
+		onPressBlockDetail:function(){
+			this.getRouter().navTo("Block");
 		},
 
 		onPressHospital: function (oEvent) {

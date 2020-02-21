@@ -3,7 +3,7 @@
 	xmlns:fc="sap.f.cards" 
 	xmlns:form="sap.ui.layout.form" 
 	xmlns:core="sap.ui.core">
-	<ResponsivePopover showHeader="false" contentWidth="15rem" placement="HorizontalPreferredRight">
+	<ResponsivePopover showHeader="false" contentWidth="20rem" placement="HorizontalPreferredRight">
 		<content>
 			<f:Card>
 				<f:content>
@@ -11,24 +11,33 @@
 				<f:header>
 					<fc:NumericHeader title="{block>Name}" subtitle="负责人：{block>Responsible}" number="{block>Confirmed}" scale="" state="Good" details="确诊病例">
 						<fc:sideIndicators>
-							<fc:NumericSideIndicator title="疑似病例" number="{block>Unconfirmed}" unit="" />
+							<fc:NumericSideIndicator title="疑似病例" number="0" unit="" />
 							<fc:NumericSideIndicator title="密切接触者" number="{block>Contact}" unit="" />
 						</fc:sideIndicators>
 					</fc:NumericHeader>
 				</f:header>
 				<f:content>
-					<form:SimpleForm layout="ResponsiveGridLayout" labelSpanS="4" editable="true" singleContainerFullSize="false">
-						<Label text="总人数" />
-						<Text text="100" />
-						<Label text="总户数" />
-						<Text text="100" />
-						
+					<form:SimpleForm class="mySimpleForm" layout="ResponsiveGridLayout" singleContainerFullSize="false" breakpointM="300" columnsM="2" labelSpanM="12" adjustLabelSpan="false">
+						<core:Title visible="false" />
+						<Label text="总人口/户数" />
+						<Text text="1000/400" />
+						<Label text="本地常住人口/户数" />
+						<Text text="900/350" />
+						<Label text="外来人口/户数" />
+						<Text text="100/50" />
+						<core:Title  visible="false"/>
+						<Label text="昨日出入人次" />
+						<Text text="500" />
+						<Label text="异常人次" />
+						<Text text="10" />
+						<Label text="志愿者人数" />
+						<Text text="10" />
 					</form:SimpleForm>
 				</f:content>
 			</f:Card>
 		</content>
 		<beginButton>
-			<Button text="查看详情" />
+			<Button text="查看详情" press="onPressBlockDetail" />
 		</beginButton>
 	</ResponsivePopover>
 </core:FragmentDefinition>

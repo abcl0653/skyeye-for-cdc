@@ -17,7 +17,12 @@
 			<l:flexContent>
 				<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
 					<Tree items="{path:'orgUnit>/', parameters: { numberOfExpandedLevels: 4 }}" mode="SingleSelectMaster">
-						<StandardTreeItem title="{orgUnit>text}" counter="{orgUnit>confirmed}" highlight="{orgUnit>status}" />
+						<!-- <StandardTreeItem title="{orgUnit>text}" counter="{orgUnit>confirmed}" highlight="{orgUnit>status}" /> -->
+						<CustomTreeItem highlight="{orgUnit>status}">
+						<HBox justifyContent="SpaceBetween" width="100%">
+						<Text text="{orgUnit>text}" />
+						<Text text="{orgUnit>confirmed}/{orgUnit>suspects}" /></HBox>
+						</CustomTreeItem>
 					</Tree>
 				</ScrollContainer>
 			</l:flexContent>
@@ -53,7 +58,7 @@
 						<leaflet:Marker press="onPressCase" latLng="{case>LatLng}">
 							<leaflet:Icon options='\{"iconUrl":"image/case.png", "iconSize": [50, 50]\}' />
 						</leaflet:Marker>
-						<leaflet:LayerGroup layers="{path:'case>Trace',templateShareable:true}" visible="{pageConfig>/CaseTraceVisible}">
+						<leaflet:LayerGroup layers="{path:'case>Trace',templateShareable:true}" zIndex="480"  visible="{pageConfig>/CaseTraceVisible}">
 							<leaflet:CircleMarker press="onPressCase" radius="30" style='\{ "stroke": true, "color": "#bb0000", "opacity": 0.5, "bubblingMouseEvents":false \}' latLng="{case>LatLng}" />
 						</leaflet:LayerGroup >
 					</leaflet:LayerGroup >

@@ -22,6 +22,11 @@
                 "icon": ""
             },
             {
+                "key": "Block",
+                "text": "网格管理",
+                "icon": ""
+            },
+            {
                 "key": "Person",
                 "text": "人员管理",
                 "icon": ""
