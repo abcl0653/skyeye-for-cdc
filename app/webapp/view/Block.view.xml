@@ -2,6 +2,7 @@
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:f="sap.f" 
+	xmlns:uxap="sap.uxap" 
 	xmlns:form="sap.ui.layout.form" 
 	xmlns:fb="sap.ui.comp.filterbar" 
 	xmlns:mc="sap.suite.ui.microchart" 
@@ -11,6 +12,10 @@
 			<f:DynamicPageTitle>
 				<f:heading>
 					<Title text="上海市/浦东新区/张江镇/汤臣社区" />
+					
+					<Breadcrumbs currentLocationText="汤臣社区" class="riskText">
+						<Link text="上海市浦东新区张江镇" press="onPressBlockList" />
+					</Breadcrumbs>
 				</f:heading>
 				<f:content>
 				</f:content>
@@ -41,7 +46,7 @@
 									<Label text="防疫物资" />
 									<Text text="正常" />
 									<Label text="防疫任务" />
-									<Link text="5/6" emphasized="true" press="onPressTask" />
+									<Link text="15/19" emphasized="true" press="onPressTask" />
 									<Label text="下属网格" />
 									<Text text="19" />
 								</form:SimpleForm>

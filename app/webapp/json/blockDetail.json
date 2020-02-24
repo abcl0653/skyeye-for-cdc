@@ -15,7 +15,8 @@
         "CountOfPeople":"53/20",
         "Responsible":"王某某",
         "ResponsiblePhone":"18633133333",
-        "Remark":"高龄老人居多"
+        "Remark":"高龄老人居多",
+        "RiskLevel":"低"
     },
     {
         "Id":"310115125001002",
@@ -33,7 +34,8 @@
         "CountOfPeople":"43/14",
         "Responsible":"李四",
         "ResponsiblePhone":"18633133333",
-        "Remark":""
+        "Remark":"",
+        "RiskLevel":"低"
     },
     {
         "Id":"310115125001003",
@@ -69,7 +71,8 @@
         "CountOfPeople":"33/20",
         "Responsible":"王某某",
         "ResponsiblePhone":"18633133344",
-        "Remark":""
+        "Remark":"",
+        "RiskLevel":"低"
     },
     {
         "Id":"310115125001005",
@@ -87,6 +90,7 @@
         "CountOfPeople":"53/20",
         "Responsible":"张三",
         "ResponsiblePhone":"18633134331",
-        "Remark":""
+        "Remark":"",
+        "RiskLevel":"低"
     }
 ]

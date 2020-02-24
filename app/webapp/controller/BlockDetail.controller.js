@@ -6,6 +6,7 @@ sap.ui.define([
 	return BaseController.extend("sap.ibso.skyeyeForCdc.controller.BlockDetail", {
 		onInit: function () {
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/blockDetail.json"),"blockDetail");
+			this.getView().setModel(new sap.ui.model.json.JSONModel("json/task.json"),"task");
 
 			this.getView().bindElement("blockDetail>/0")
 		},
