@@ -10,6 +10,9 @@ sap.ui.define([
 		onPressItem:function(oEvent){
 			var sId = oEvent.getParameter("listItem").getBindingContext("blockDetail").getObject().Id;
 			this.getRouter().navTo("BlockDetail",{Id:sId});
+		},
+		onPressEvent:function(oEvent){
+			this.getRouter().navTo("Event");
 		}
 	});
 });

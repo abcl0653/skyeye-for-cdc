@@ -90,35 +90,28 @@
 					<Column >
 						<Text text="地址" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true">
 						<Text text="人数" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true">
 						<Text text="人口来源" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true">
 						<Text text="居住状态" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true">
 						<Text text="受影响状态" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true">
 						<Text text="当前管控级别" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true">
 						<Text text="每日外出人次" />
 					</Column>
 					<Column >
 						<Text text="负责人" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true">
 						<Text text="备注" />
 					</Column>
 				</columns>
@@ -134,6 +127,7 @@
 							<Text text="{blockDetail>Outgoing}" />
 							<Text text="{blockDetail>Responsible}" />
 							<Text text="{blockDetail>Remark}" />
+							<Link text="" press="onPressEvent"/>
 						</cells>
 					</ColumnListItem>
 				</items>
