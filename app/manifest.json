@@ -93,8 +93,12 @@
 				"target": ["Case"]
 			},{
 				"name": "Block",
-				"pattern": "block",
+				"pattern": "block/list",
 				"target": ["Block"]
+			},{
+				"name": "BlockDetail",
+				"pattern": "block/detail",
+				"target": ["BlockDetail"]
 			},{
 				"name": "Region",
 				"pattern": "region",
@@ -122,6 +126,11 @@
 				"Block": {
 					"viewType": "XML",
 					"viewName": "Block",
+					"title":"Block"
+				},
+				"BlockDetail": {
+					"viewType": "XML",
+					"viewName": "BlockDetail",
 					"title":"Block"
 				},
 				"Region": {

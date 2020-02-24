@@ -85,7 +85,7 @@
 			</f:DynamicPageHeader>
 		</f:header>
 		<f:content>
-			<Table items="{people>/}" itemPress="onPressItem">
+			<Table items="{people>/}">
 				<columns>
 					<Column >
 						<Text text="地址" />

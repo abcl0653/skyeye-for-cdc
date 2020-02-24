@@ -223,19 +223,19 @@
                                 "ID":"310115125005",
                                 "text":"药谷社区",
                                 "confirmed":0,
-                                "status":"Good"
+                                "status":"Success"
                             },
                             {
                                 "ID":"310115125006",
                                 "text":"张江镇社区",
                                 "confirmed":0,
-                                "status":"Good"
+                                "status":"Success"
                             },
                             {
                                 "ID":"310115125007",
                                 "text":"高斯路北",
                                 "confirmed":0,
-                                "status":"Good"
+                                "status":"Success"
                             }
                         ]
                     },

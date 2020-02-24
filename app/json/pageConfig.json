@@ -7,7 +7,7 @@
     },
     {
         "Id": "Case",
-        "Title": "案例管理",
+        "Title": "疾控管理",
         "Subtitle": "",
         "Icon": "sap-icon://order-status",
         "Content": [
