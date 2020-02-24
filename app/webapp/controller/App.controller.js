@@ -1,25 +1,13 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
+	"./BaseController",
 	"sap/ui/core/Fragment"
-], function (Controller, Fragment) {
+], function (BaseController, Fragment) {
 	"use strict";
 
-	return Controller.extend("sap.ibso.skyeyeForCdc.controller.App", {
+	return BaseController.extend("sap.ibso.skyeyeForCdc.controller.App", {
 		onInit: function () {
 			var oPageConfigModel = new sap.ui.model.json.JSONModel();
 			oPageConfigModel.loadData("json/pageConfig.json", null, false);
-
-			// var oPageConfig = oPageConfigModel.getData();
-			// this._oConfig = {};
-			// oPageConfigModel.forEach(function(x){
-			// 	if(x.Content){
-			// 		x.Content.forEach(function(y){
-			// 			this._oConfig[y.Id] = x.Id;
-			// 		}.bind(this));
-			// 	}else{
-			// 		this._oConfig[x.Id] = x.Id;
-			// 	}
-			// }.bind(this));
 
 			this.getView().setModel(oPageConfigModel, "pageConfig");
 
@@ -36,7 +24,7 @@ sap.ui.define([
 					}
 				});
 				this.getView().bindElement("pageConfig>/" + index);
-				if (aConfig[index].Content) {
+				if (index > 0 && aConfig[index].Content) {
 					this._oNavigationList.destroyItems();
 					aConfig[index].Content.forEach(function (x) {
 						this._oNavigationList.addItem(new sap.tnt.NavigationListItem(x));
@@ -85,8 +73,13 @@ sap.ui.define([
 			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
 		},
 
-		onSideNavigationSelected: function () {
-
+		onSideNavigationSelected: function (oEvent) {
+			var oItem = oEvent.getParameter("item");
+			var sKey = oItem.getKey();
+			this.getRouter().navTo(sKey);
+			if (this.getOwnerComponent().getModel("device").getProperty("/system/phone")) {
+				this.getView().byId("toolPage").setSideExpanded(false);
+			}
 		}
 	});
 });

@@ -1,0 +1,14 @@
+[{
+    "Title":"新冠确诊",
+    "Id":"310111000001",
+    "Description":"某某医院确诊1例确诊病例",
+    "City":"上海市浦东新区",
+    "District":"浦东新区",
+    "Town":"张江镇",
+    "Estate":"汤臣三期",
+    "Address":"晨晖路233弄2号203室",
+    "Type":"传染病",
+    "CaseType":"确诊",
+    "Status":"已完成",
+    "Responsible":"负责人"
+}]

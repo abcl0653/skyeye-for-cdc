@@ -19,16 +19,17 @@
 					<Tree items="{path:'orgUnit>/', parameters: { numberOfExpandedLevels: 4 }}" mode="SingleSelectMaster">
 						<!-- <StandardTreeItem title="{orgUnit>text}" counter="{orgUnit>confirmed}" highlight="{orgUnit>status}" /> -->
 						<CustomTreeItem highlight="{orgUnit>status}">
-						<HBox justifyContent="SpaceBetween" width="100%">
-						<Text text="{orgUnit>text}" />
-						<Text text="{orgUnit>confirmed}/{orgUnit>suspects}" /></HBox>
+							<HBox justifyContent="SpaceBetween" width="100%">
+								<Text text="{orgUnit>text}" />
+								<Text text="{orgUnit>confirmed}/{orgUnit>suspects}" />
+							</HBox>
 						</CustomTreeItem>
 					</Tree>
 				</ScrollContainer>
 			</l:flexContent>
 			<l:fixContent>
 				<List>
-					<InputListItem label="区块风险层级">
+					<InputListItem label="网格风险层级">
 						<Select id="levelSelect" selectedKey="{pageConfig>/BlockRiskLevel}" change="onChangeLevel">
 							<core:Item key="1" text="市" />
 							<core:Item key="2" text="区" />
@@ -58,7 +59,7 @@
 						<leaflet:Marker press="onPressCase" latLng="{case>LatLng}">
 							<leaflet:Icon options='\{"iconUrl":"image/case.png", "iconSize": [50, 50]\}' />
 						</leaflet:Marker>
-						<leaflet:LayerGroup layers="{path:'case>Trace',templateShareable:true}" zIndex="480"  visible="{pageConfig>/CaseTraceVisible}">
+						<leaflet:LayerGroup layers="{path:'case>Trace',templateShareable:true}" zIndex="480" visible="{pageConfig>/CaseTraceVisible}">
 							<leaflet:CircleMarker press="onPressCase" radius="30" style='\{ "stroke": true, "color": "#bb0000", "opacity": 0.5, "bubblingMouseEvents":false \}' latLng="{case>LatLng}" />
 						</leaflet:LayerGroup >
 					</leaflet:LayerGroup >
@@ -83,11 +84,16 @@
 							<fc:Header title="{pageConfig>/Date} {pageConfig>/Time}" subtitle="{pageConfig>/Year} {pageConfig>/WeekDay}" iconSrc="sap-icon://activities" />
 						</f:header>
 						<f:content>
-							<List itemPress="onPressTask">
-								<ObjectListItem title="已完成任务" number="106" highlight="Success" type="Navigation" />
-								<ObjectListItem title="待完成任务" number="16" highlight="Warning" type="Navigation" />
-								<ObjectListItem title="已下发通知" number="32" highlight="Information" type="Navigation" />
-							</List>
+							<VBox width="100%">
+								<List itemPress="onPressTask">
+									<ObjectListItem title="已完成任务" number="106" highlight="Success" type="Navigation" />
+									<ObjectListItem title="待完成任务" number="16" highlight="Warning" type="Navigation" />
+									<ObjectListItem title="已下发通知" number="32" highlight="Information" type="Navigation" />
+								</List>
+								<HBox justifyContent="SpaceAround">
+									<Button text="新建任务" width="100%" type="Transparent" />
+								</HBox>
+							</VBox>
 						</f:content>
 					</f:Card>
 				</leaflet:FloatingItem>
@@ -123,8 +129,8 @@
 							</Toolbar>
 						</headerToolbar>
 						<VBox>
-							<CheckBox text="区块风险" selected="{pageConfig>/BlockRiskVisible}" />
-							<CheckBox text="特殊区块标注" selected="{pageConfig>/SpecialRiskVisible}" enabled="{= ${pageConfig>/BlockRiskVisible} &amp;&amp; (${pageConfig>/BlockRiskLevel} === '5')}" />
+							<CheckBox text="网格风险" selected="{pageConfig>/BlockRiskVisible}" />
+							<CheckBox text="特殊网格标注" selected="{pageConfig>/SpecialRiskVisible}" enabled="{= ${pageConfig>/BlockRiskVisible} &amp;&amp; (${pageConfig>/BlockRiskLevel} === '5')}" />
 							<CheckBox text="医疗机构" selected="{pageConfig>/HospitalVisible}" />
 							<CheckBox text="病例" selected="{pageConfig>/CaseVisible}" select="onChangeCaseVisible" />
 							<CheckBox text="病例活动行迹" selected="{pageConfig>/CaseTraceVisible}" enabled="{pageConfig>/CaseVisible}" />
@@ -132,7 +138,7 @@
 					</Panel>
 				</leaflet:FloatingItem>
 				<leaflet:FloatingItem top="1rem" right="10rem">
-					<Panel width="17rem" height="6rem" headerText="区块风险预测" class="floatingPanel sapUiNoContentPadding">
+					<Panel width="17rem" height="6rem" headerText="网格风险预测" class="floatingPanel sapUiNoContentPadding">
 						<HBox>
 							<Text text="当前" width="2.5rem" textAlign="Center" class="sapUiTinyMargin" />
 							<Slider min="0" max="5" enableTickmarks="true" width="10rem" />

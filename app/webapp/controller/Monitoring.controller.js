@@ -114,6 +114,11 @@ sap.ui.define([
 		onPressTask: function(){
 			this._oTaskDialog.open();
 		},
+
+		onPressTaskDetail: function(){
+			this.getRouter().navTo("TaskDetail");
+			this._oTaskDialog.close();
+		},
 		
 		onCloseDialog: function(oEvent){
 			oEvent.getSource().getParent().close();

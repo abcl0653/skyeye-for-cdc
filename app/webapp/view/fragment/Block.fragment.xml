@@ -36,6 +36,9 @@
 				</f:content>
 			</f:Card>
 		</content>
+		<endButton>
+			<Button text="关闭" press="onCloseDialog" visible="{device>/system/phone}"/>
+		</endButton>
 		<beginButton>
 			<Button text="查看详情" press="onPressBlockDetail" />
 		</beginButton>

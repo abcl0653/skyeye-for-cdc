@@ -1,4 +1,4 @@
-<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Block" 
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Staff" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:f="sap.f" 
@@ -85,7 +85,7 @@
 			</f:DynamicPageHeader>
 		</f:header>
 		<f:content>
-			<Table items="{blockDetail>/}" itemPress="onPressItem">
+			<Table items="{staff>/}" itemPress="onPressItem">
 				<columns>
 					<Column >
 						<Text text="地址" />
@@ -125,15 +125,15 @@
 				<items>
 					<ColumnListItem vAlign="Middle" type="Navigation">
 						<cells>
-							<ObjectIdentifier title="{blockDetail>Address}" text="{blockDetail>City} {blockDetail>District} {blockDetail>Town} {blockDetail>Estate}" />
-							<ObjectNumber number="{blockDetail>CountOfPeople}" unit="人" />
-							<Text text="{blockDetail>Residence}" />
-							<Text text="{blockDetail>Status}" />
-							<Text text="{blockDetail>Affectness}" />
-							<Text text="{blockDetail>ManagementLevel}" />
-							<Text text="{blockDetail>Outgoing}" />
-							<Text text="{blockDetail>Responsible}" />
-							<Text text="{blockDetail>Remark}" />
+							<ObjectIdentifier title="{staff>Address}" text="{staff>City} {staff>District} {staff>Town} {staff>Estate}" />
+							<ObjectNumber number="{staff>CountOfPeople}" unit="人" />
+							<Text text="{staff>Residence}" />
+							<Text text="{staff>Status}" />
+							<Text text="{staff>Affectness}" />
+							<Text text="{staff>ManagementLevel}" />
+							<Text text="{staff>Outgoing}" />
+							<Text text="{staff>Responsible}" />
+							<Text text="{staff>Remark}" />
 						</cells>
 					</ColumnListItem>
 				</items>

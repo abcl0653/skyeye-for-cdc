@@ -1,4 +1,4 @@
-<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.BlockDetail" 
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.StaffDetail" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns:m="sap.m" 
 	xmlns="sap.uxap" 
@@ -7,10 +7,10 @@
 	xmlns:core="sap.ui.core">
 	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" >
 		<headerTitle>
-			<ObjectPageHeader objectTitle="{blockDetail>Address}" objectSubtitle="{blockDetail>Id}" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
+			<ObjectPageHeader objectTitle="{staff>Address}" objectSubtitle="{staff>Id}" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
 				<breadcrumbs>
-					<m:Breadcrumbs currentLocationText="区块">
-						<m:Link text="区块列表" press="onPressBlockList" />
+					<m:Breadcrumbs currentLocationText="工作人员">
+						<m:Link text="工作人员列表" press="onPressStaffList" />
 					</m:Breadcrumbs>
 				</breadcrumbs>
 				<breadCrumbsLinks>

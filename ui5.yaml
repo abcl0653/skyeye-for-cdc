@@ -6,7 +6,7 @@ resources:
   configuration:
     propertiesFileSourceEncoding: UTF-8
     paths:
-      webapp: app
+      webapp: app/webapp
 builder:
   customTasks:
     - name: webide-extension-task-updateNeoApp

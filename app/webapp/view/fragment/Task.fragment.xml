@@ -14,7 +14,7 @@
 					<IconTabFilter icon="sap-icon://inventory" iconColor="Neutral" count="32" text="通知" key="Info" />
 				</items>
 				<content>
-					<Table >
+					<Table itemPress="onPressTaskDetail">
 						<columns>
 							<Column >
 								<Text text="主题/编号" />
@@ -36,7 +36,7 @@
 							</Column>
 						</columns>
 						<items>
-							<ColumnListItem vAlign="Middle">
+							<ColumnListItem vAlign="Middle" type="Navigation">
 								<cells>
 									<ObjectIdentifier title="新冠确诊" text="310111000001" />
 									<Text text="某某医院确诊1例确诊病例" />

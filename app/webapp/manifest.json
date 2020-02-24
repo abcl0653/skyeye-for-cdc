@@ -79,18 +79,30 @@
 				"clearControlAggregation": false,
 				"bypassed": {
 					"target": [
-						"Monitoring"
+						"Error"
 					]
 				}
 			},
 			"routes": [{
+				"name": "Error",
+				"pattern": "error",
+				"target": ["Error"]
+			},{
+				"name": "Home",
+				"pattern": "home",
+				"target": ["Home"]
+			},{
 				"name": "Monitoring",
 				"pattern": "monitoring",
 				"target": ["Monitoring"]
 			},{
 				"name": "Case",
-				"pattern": "case",
+				"pattern": "case/list",
 				"target": ["Case"]
+			},{
+				"name": "CaseDetail",
+				"pattern": "case/detail",
+				"target": ["CaseDetail"]
 			},{
 				"name": "Block",
 				"pattern": "block/list",
@@ -99,6 +111,22 @@
 				"name": "BlockDetail",
 				"pattern": "block/detail",
 				"target": ["BlockDetail"]
+			},{
+				"name": "Task",
+				"pattern": "task/list",
+				"target": ["Task"]
+			},{
+				"name": "TaskDetail",
+				"pattern": "task/detail",
+				"target": ["TaskDetail"]
+			},{
+				"name": "Staff",
+				"pattern": "staff/list",
+				"target": ["Staff"]
+			},{
+				"name": "StaffDetail",
+				"pattern": "staff/detail",
+				"target": ["StaffDetail"]
 			},{
 				"name": "Region",
 				"pattern": "region",
@@ -113,6 +141,16 @@
 				"target": ["MobileUpload"]
 			}],
 			"targets": {
+				"Home": {
+					"viewType": "XML",
+					"viewName": "Home",
+					"title":"Home"
+				},
+				"Error": {
+					"viewType": "XML",
+					"viewName": "Error",
+					"title":"Error"
+				},
 				"Monitoring": {
 					"viewType": "XML",
 					"viewName": "Monitoring",
@@ -121,6 +159,11 @@
 				"Case": {
 					"viewType": "XML",
 					"viewName": "Case",
+					"title":"Case"
+				},
+				"CaseDetail": {
+					"viewType": "XML",
+					"viewName": "CaseDetail",
 					"title":"Case"
 				},
 				"Block": {
@@ -132,6 +175,26 @@
 					"viewType": "XML",
 					"viewName": "BlockDetail",
 					"title":"Block"
+				},
+				"Task": {
+					"viewType": "XML",
+					"viewName": "Task",
+					"title":"Task"
+				},
+				"TaskDetail": {
+					"viewType": "XML",
+					"viewName": "TaskDetail",
+					"title":"Task"
+				},
+				"Staff": {
+					"viewType": "XML",
+					"viewName": "Staff",
+					"title":"Staff"
+				},
+				"StaffDetail": {
+					"viewType": "XML",
+					"viewName": "StaffDetail",
+					"title":"Staff"
 				},
 				"Region": {
 					"viewType": "XML",

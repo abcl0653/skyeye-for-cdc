@@ -1,4 +1,4 @@
-<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Block" 
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Task" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:f="sap.f" 
@@ -60,23 +60,19 @@
 								</List>
 							</ScrollContainer>
 						</VBox>
-						<VBox width="20rem">
-							<Label text="人口来源" />
-							<mc:InteractiveDonutChart selectionChanged="onSelectionChanged">
-								<mc:segments>
-									<mc:InteractiveDonutChartSegment label="本地常住人口" value="40.0" displayedValue="40.0%" />
-									<mc:InteractiveDonutChartSegment label="外来常住人口" value="21.5" displayedValue="21.5%" />
-									<mc:InteractiveDonutChartSegment label="其他人口" value="38.5" displayedValue="38.5%" />
-								</mc:segments>
-							</mc:InteractiveDonutChart>
+						<VBox width="8rem">
+							<Label text="时间范围" />
+							<DatePicker />
+							<Text text="~" />
+							<DatePicker />
 						</VBox>
 						<VBox width="20rem">
-							<Label text="居住状态" />
+							<Label text="事件类型" />
 							<mc:InteractiveDonutChart selectionChanged="onSelectionChanged">
 								<mc:segments>
-									<mc:InteractiveDonutChartSegment label="居家/本地就医" value="40.0" displayedValue="40.0%" />
-									<mc:InteractiveDonutChartSegment label="长期外出" value="21.5" displayedValue="21.5%" />
-									<mc:InteractiveDonutChartSegment label="未知" value="38.5" displayedValue="38.5%" />
+									<mc:InteractiveDonutChartSegment label="传染病" value="40.0" displayedValue="40.0%" />
+									<mc:InteractiveDonutChartSegment label="食物中毒" value="21.5" displayedValue="21.5%" />
+									<mc:InteractiveDonutChartSegment label="其他" value="38.5" displayedValue="38.5%" />
 								</mc:segments>
 							</mc:InteractiveDonutChart>
 						</VBox>
@@ -85,55 +81,36 @@
 			</f:DynamicPageHeader>
 		</f:header>
 		<f:content>
-			<Table items="{blockDetail>/}" itemPress="onPressItem">
+			<Table itemPress="onPressItem" items="{task>/}">
 				<columns>
 					<Column >
-						<Text text="地址" />
+						<Text text="主题/编号" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
-						<Text text="人数" />
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="描述" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
-						<Text text="人口来源" />
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="区域" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
-						<Text text="居住状态" />
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="事件类型" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
-						<Text text="受影响状态" />
-					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
-						<Text text="当前管控级别" />
-					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
-						<Text text="每日外出人次" />
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="案例类型" />
 					</Column>
 					<Column >
 						<Text text="负责人" />
-					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
-						<Text text="备注" />
 					</Column>
 				</columns>
 				<items>
 					<ColumnListItem vAlign="Middle" type="Navigation">
 						<cells>
-							<ObjectIdentifier title="{blockDetail>Address}" text="{blockDetail>City} {blockDetail>District} {blockDetail>Town} {blockDetail>Estate}" />
-							<ObjectNumber number="{blockDetail>CountOfPeople}" unit="人" />
-							<Text text="{blockDetail>Residence}" />
-							<Text text="{blockDetail>Status}" />
-							<Text text="{blockDetail>Affectness}" />
-							<Text text="{blockDetail>ManagementLevel}" />
-							<Text text="{blockDetail>Outgoing}" />
-							<Text text="{blockDetail>Responsible}" />
-							<Text text="{blockDetail>Remark}" />
+							<ObjectIdentifier title="{task>Title}" text="{task>Id}" />
+							<Text text="{task>Title}" />
+							<Text text="{task>Title}" />
+							<Text text="{task>Title}" />
+							<Text text="{task>Title}" />
+							<Text text="{task>Title}" />
 						</cells>
 					</ColumnListItem>
 				</items>

@@ -1,4 +1,4 @@
-<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.BlockDetail" 
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.TaskDetail" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns:m="sap.m" 
 	xmlns="sap.uxap" 
@@ -7,10 +7,10 @@
 	xmlns:core="sap.ui.core">
 	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" >
 		<headerTitle>
-			<ObjectPageHeader objectTitle="{blockDetail>Address}" objectSubtitle="{blockDetail>Id}" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
+			<ObjectPageHeader objectTitle="{task>Title}" objectSubtitle="上海市" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
 				<breadcrumbs>
-					<m:Breadcrumbs currentLocationText="区块">
-						<m:Link text="区块列表" press="onPressBlockList" />
+					<m:Breadcrumbs currentLocationText="任务">
+						<m:Link text="任务列表" press="onPressTaskList" />
 					</m:Breadcrumbs>
 				</breadcrumbs>
 				<breadCrumbsLinks>
@@ -25,6 +25,11 @@
 				<m:Link text="+33 6 4512 5158" />
 				<m:Link text="DeniseSmith@sap.com" />
 			</l:VerticalLayout>
+
+			<l:HorizontalLayout>
+				<m:Image src="./test-resources/sap/uxap/images/linkedin.png" />
+				<m:Image src="./test-resources/sap/uxap/images/Twitter.png" />
+			</l:HorizontalLayout>
 
 			<l:VerticalLayout>
 				<m:Label text="Hello! I am Tim and I use UxAP" />

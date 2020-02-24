@@ -1,5 +1,11 @@
 [
     {
+        "Id": "Home",
+        "Title": "主页",
+        "Subtitle": "",
+        "Icon": "sap-icon://home"
+    },
+    {
         "Id": "Monitoring",
         "Title": "疫情监控",
         "Subtitle": "",
@@ -27,8 +33,8 @@
                 "icon": ""
             },
             {
-                "key": "Person",
-                "text": "人员管理",
+                "key": "Staff",
+                "text": "工作人员管理",
                 "icon": ""
             },
             {

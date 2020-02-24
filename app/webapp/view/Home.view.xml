@@ -1,0 +1,8 @@
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Home" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:t="sap.ui.table" 
+	xmlns:core="sap.ui.core">
+	<Page title="launchpad"></Page>
+</mvc:View>
