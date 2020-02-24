@@ -9,8 +9,8 @@
 		<headerTitle>
 			<ObjectPageHeader objectTitle="{blockDetail>Address}" objectSubtitle="{blockDetail>Id}" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
 				<breadcrumbs>
-					<m:Breadcrumbs currentLocationText="区块">
-						<m:Link text="区块列表" press="onPressBlockList" />
+					<m:Breadcrumbs currentLocationText="网格">
+						<m:Link text="网格列表" press="onPressBlockList" />
 					</m:Breadcrumbs>
 				</breadcrumbs>
 				<breadCrumbsLinks>

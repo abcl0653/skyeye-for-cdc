@@ -12,7 +12,7 @@
 				<Title text="{pageConfig>Title}" />
 				<tnt:ToolHeaderUtilitySeparator />
 				<ToolbarSpacer />
-				<Button text="用户姓名" type="Transparent" press=".onUserNamePress" />
+				<Button text="汤臣社区负责人:张某某" type="Transparent" press=".onUserNamePress" />
 				<Button icon="sap-icon://bell" type="Transparent" press=".onNotificationPress" />
 				<Button icon="sap-icon://grid" type="Transparent" press=".onProductSwitchPress" />
 			</tnt:ToolHeader>
