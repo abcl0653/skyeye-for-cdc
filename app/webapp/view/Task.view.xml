@@ -81,6 +81,9 @@
 					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
 						<Text text="描述" />
 					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="任务类型" />
+					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="所属楼栋" />
 					</Column>
@@ -105,6 +108,7 @@
 						<cells>
 							<ObjectIdentifier title="{task>Title}" text="{task>Id}" />
 							<Text text="{task>Description}" />
+							<Text text="{task>Type}" />
 							<Link text="{task>Block}" />
 							<ObjectIdentifier title="{task>Responsible}" text="{task>ResponsiblePhone}" />
 							<Text text="{task>Priority}" />
