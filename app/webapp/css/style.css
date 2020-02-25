@@ -38,7 +38,7 @@
     display: none;
 }
 
-.sapUiSizeCompact .myObjectPageLayout.sapUxAPObjectPageLayout-Std-Phone .sapUxAPBlockContainer{
+.myObjectPageLayout.sapUxAPObjectPageLayout-Std-Phone .sapUxAPBlockContainer{
     padding: 1rem 0rem 2rem 1rem;
 }
 
