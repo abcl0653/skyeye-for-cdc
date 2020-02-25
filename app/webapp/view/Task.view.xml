@@ -14,6 +14,7 @@
 				<f:content>
 				</f:content>
 				<f:actions>
+					<Button icon="sap-icon://add" press="onAddTask" type="Transparent" />
 				</f:actions>
 			</f:DynamicPageTitle>
 		</f:title>
@@ -24,33 +25,34 @@
 						<VBox width="20rem" >
 							<Label text="今日任务:"/>
 							<Text text="5" class="taskNumber"/>
+
 						</VBox>
 						<VBox width="20rem">
-				        <Label text="筛选条件"/>
-						<fb:FilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="true" showFilterConfiguration="false">
-							
-						<fb:filterGroupItems>
-							<fb:FilterGroupItem name="A" label="优先级" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
-								<fb:control>
-									<Select forceSelection="true">
-										<core:Item key="" text="高" />
-										<core:Item key="" text="中" />
-										<core:Item key="" text="低" />
-									</Select>
-								</fb:control>
-							</fb:FilterGroupItem>
-							<fb:FilterGroupItem name="B" label="任务状态" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
-								<fb:control>
-									<Select forceSelection="true">
-										<core:Item key="" text="已完成" />
-										<core:Item key="" text="新建" />
-										<core:Item key="" text="处理中" />
-										<core:Item key="" text="取消" />
-									</Select>
-								</fb:control>
-							</fb:FilterGroupItem>
-							</fb:filterGroupItems>
-						</fb:FilterBar>
+							<Label text="筛选条件" />
+							<fb:FilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="true" showFilterConfiguration="false">
+
+								<fb:filterGroupItems>
+									<fb:FilterGroupItem name="A" label="优先级" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+										<fb:control>
+											<Select forceSelection="true">
+												<core:Item key="" text="高" />
+												<core:Item key="" text="中" />
+												<core:Item key="" text="低" />
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem name="B" label="任务状态" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+										<fb:control>
+											<Select forceSelection="true">
+												<core:Item key="" text="已完成" />
+												<core:Item key="" text="新建" />
+												<core:Item key="" text="处理中" />
+												<core:Item key="" text="取消" />
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+								</fb:filterGroupItems>
+							</fb:FilterBar>
 							<!-- <Label text="时间范围" />
 							<DatePicker />
 							<Text text="~" />
@@ -104,7 +106,7 @@
 							<ObjectIdentifier title="{task>Title}" text="{task>Id}" />
 							<Text text="{task>Description}" />
 							<Link text="{task>Block}" />
-				            <ObjectIdentifier title="{task>Responsible}" text="{task>ResponsiblePhone}"/>
+							<ObjectIdentifier title="{task>Responsible}" text="{task>ResponsiblePhone}" />
 							<Text text="{task>Priority}" />
 							<Text text="{task>CreatedDate}" />
 							<Text text="{task>DueDate}" />

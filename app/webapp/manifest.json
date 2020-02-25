@@ -89,7 +89,7 @@
 				"target": ["Error"]
 			},{
 				"name": "Home",
-				"pattern": "Home",
+				"pattern": "",
 				"target": ["Home"]
 			},{
 				"name": "Monitoring",

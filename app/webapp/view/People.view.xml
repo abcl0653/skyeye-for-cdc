@@ -9,7 +9,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="物资需求与库存" />
+					<Title text="人员" />
 				</f:heading>
 				<f:content>
 				</f:content>
