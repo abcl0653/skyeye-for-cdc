@@ -3,18 +3,53 @@
 	xmlns="sap.m" 
 	xmlns:form="sap.ui.layout.form" 
 	xmlns:core="sap.ui.core">
-	<form:SimpleForm layout="ResponsiveGridLayout" labelSpanS="4" editable="true" singleContainerFullSize="false">
-		<Label text="主题" required="true" />
-		<Input value="" />
-		<Label text="事件类型" required="true" />
-		<Select >
-			<core:Item key="" text="" />
-		</Select>
-		<Label text="案例类型" required="true" />
-		<Select>
-			<core:Item key="" text="" />
-		</Select>
-		<Label text="描述" />
-		<TextArea width="100%" rows="3" value="{block>/remarks}" />
-	</form:SimpleForm>
+	<Page showHeader="false" showFooter="true">
+		<form:SimpleForm layout="ResponsiveGridLayout" labelSpanS="4" editable="true" singleContainerFullSize="false">
+			<Label text="主题" required="true" />
+			<Input value="{/Title}" />
+			<Label text="描述" />
+			<Input value="{/Description}" />
+			<Label text="提报类型" required="true" />
+			<Select selectedKey="{/SubmitType}">
+				<core:Item key="Task" text="任务" />
+				<core:Item key="Event" text="事件" />
+			</Select>
+			<Label text="任务类型" required="true" visible="{= ${/SubmitType} === 'Task'}" />
+			<Select selectedKey="{/Type}" visible="{= ${/SubmitType} === 'Task'}">
+				<core:Item key="测温" text="测温" />
+				<core:Item key="寻访" text="寻访" />
+				<core:Item key="物品发放" text="物品发放" />
+			</Select>
+			<Label text="事件类型" required="true" visible="{= ${/SubmitType} === 'Event'}" />
+			<Select selectedKey="{/Type}" visible="{= ${/SubmitType} === 'Event'}">
+				<core:Item key="不明疾病" text="不明疾病" />
+				<core:Item key="食物中毒" text="食物中毒" />
+			</Select>
+			<Label text="优先级" required="true" />
+			<Select selectedKey="{/Priority}">
+				<core:Item key="高" text="高" />
+				<core:Item key="中" text="中" />
+				<core:Item key="低" text="低" />
+			</Select>
+			<Label text="状态" required="true" />
+			<Select selectedKey="{/Status}">
+				<core:Item key="新建" text="新建" />
+				<core:Item key="进行中" text="进行中" />
+				<core:Item key="已完成" text="已完成" />
+			</Select>
+			<Label text="相关网格" />
+			<Select selectedKey="{/Block}">
+				<core:Item key="" text="" />
+			</Select>
+			<Label text="备注" />
+			<TextArea width="100%" rows="3" value="{/Remarks}" />
+		</form:SimpleForm>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button text="提交" type="Emphasized" />
+				<Button text="提交并标注完成" type="Accept" />
+			</Toolbar>
+		</footer>
+	</Page>
 </mvc:View>

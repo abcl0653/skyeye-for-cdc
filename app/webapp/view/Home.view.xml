@@ -46,7 +46,7 @@
 										<NumericContent value="12" valueColor="Critical" withMargin="false" icon="sap-icon://activity-individual" />
 									</TileContent>
 								</GenericTile>
-								<GenericTile header="信息提报" ariaLabel="Event" press="onPressTile">
+								<GenericTile header="信息提报" subheader="新建任务或事件" ariaLabel="MobileUpload" press="onPressTile">
 									<TileContent footer="">
 										<ImageContent src="sap-icon://upload" />
 									</TileContent>

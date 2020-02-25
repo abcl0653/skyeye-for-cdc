@@ -2,7 +2,7 @@
 
 Here is the repo of SkyEye Solution for Regional CDC.
 
-You could open the demo page [here](https://string1225.github.io/skyeye-for-cdc/app/index.html).
+You could open the demo page [here](http://www.sunny-string.cn:8080/github/skyeye-for-cdc/app/webapp/index.html).
 
 > using the [UI5 Tooling](https://github.com/SAP/ui5-tooling).
 
@@ -26,13 +26,13 @@ You could open the demo page [here](https://string1225.github.io/skyeye-for-cdc/
     npm install
     ```
 
-1. Start a local server and run the application (<http://localhost:8080/index.html)>
+1. Start a local server and run the application via UI5 Server (<http://localhost:8080/index.html)>
 
     ```sh
-    npm start
+    npm run ui5
     ```
 
-    Alternatively, if you want to start a local server(<http://localhost:4004)> via cds
+    Alternatively, if you want to start a local server via cds (<http://localhost:4004)>
 
     ```bash
     cds deploy
