@@ -12,7 +12,7 @@
 	<l:Splitter>
 		<l:FixFlex fixFirst="false">
 			<l:layoutData>
-				<l:SplitterLayoutData size="15rem" resizable="false" />
+				<l:SplitterLayoutData size="{= ${device>/system/phone} ? '0rem' : '15rem'}" resizable="false" />
 			</l:layoutData>
 			<l:flexContent>
 				<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
@@ -29,16 +29,7 @@
 			</l:flexContent>
 			<l:fixContent>
 				<List>
-					<InputListItem label="网格风险层级">
-						<Select id="levelSelect" selectedKey="{pageConfig>/BlockRiskLevel}" change="onChangeLevel">
-							<core:Item key="1" text="市" />
-							<core:Item key="2" text="区" />
-							<core:Item key="3" text="街道" />
-							<core:Item key="4" text="社区" />
-							<core:Item key="5" text="楼栋" />
-						</Select>
-					</InputListItem>
-					<InputListItem label="层级地图跟随">
+					<InputListItem label="">
 						<Switch state="{pageConfig>/AutoLevel}" />
 					</InputListItem>
 				</List>
@@ -75,7 +66,7 @@
 				</leaflet:TileLayer>
 			</leaflet:layers>
 			<leaflet:floatingItems>
-				<leaflet:FloatingItem top="1rem" left="1rem">
+				<leaflet:FloatingItem top="1rem" left="1rem" visible="{= !${device>/system/phone}}">
 					<f:Card class="myCard" width="13rem">
 						<f:layoutData>
 							<f:GridContainerItemLayoutData columns="2" />
@@ -97,7 +88,7 @@
 						</f:content>
 					</f:Card>
 				</leaflet:FloatingItem>
-				<leaflet:FloatingItem top="1rem" left="15rem">
+				<leaflet:FloatingItem top="1rem" left="15rem" visible="{= !${device>/system/phone}}">
 					<f:Card class="myCard" width="20rem">
 						<f:header>
 							<fc:NumericHeader title="新冠肺炎" subtitle="上海市 | 浦东新区 | 张江镇" number="13" trend="Up" state="Critical" details="确诊病例" press="onPressWorkOrderCard">
@@ -130,14 +121,28 @@
 						</headerToolbar>
 						<VBox>
 							<CheckBox text="网格风险" selected="{pageConfig>/BlockRiskVisible}" />
+							<Select id="levelSelect" selectedKey="{pageConfig>/BlockRiskLevel}" change="onChangeLevel" enabled="{pageConfig>/BlockRiskVisible}">
+							<layoutData>
+							<FlexItemData alignSelf="Center"/>
+							</layoutData>
+								<core:Item key="1" text="市" />
+								<core:Item key="2" text="区" />
+								<core:Item key="3" text="街道" />
+								<core:Item key="4" text="社区" />
+								<core:Item key="5" text="楼栋" />
+							</Select>
+							<CheckBox text="层级地图跟随" selected="{pageConfig>/AutoMapFollow}" enabled="{pageConfig>/BlockRiskVisible}" />
 							<CheckBox text="特殊网格标注" selected="{pageConfig>/SpecialRiskVisible}" enabled="{= ${pageConfig>/BlockRiskVisible} &amp;&amp; (${pageConfig>/BlockRiskLevel} === '5')}" />
 							<CheckBox text="医疗机构" selected="{pageConfig>/HospitalVisible}" />
+							<HBox justifyContent="SpaceBetween">
 							<CheckBox text="病例" selected="{pageConfig>/CaseVisible}" select="onChangeCaseVisible" />
+							<Button icon="sap-icon://filter" press="onFilterCase" type="Transparent"/>
+							</HBox>
 							<CheckBox text="病例活动行迹" selected="{pageConfig>/CaseTraceVisible}" enabled="{pageConfig>/CaseVisible}" />
 						</VBox>
 					</Panel>
 				</leaflet:FloatingItem>
-				<leaflet:FloatingItem top="1rem" right="10rem">
+				<leaflet:FloatingItem top="1rem" right="10rem" visible="{= !${device>/system/phone}}">
 					<Panel width="17rem" height="6rem" headerText="网格风险预测" class="floatingPanel sapUiNoContentPadding">
 						<HBox>
 							<Text text="当前" width="2.5rem" textAlign="Center" class="sapUiTinyMargin" />

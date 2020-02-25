@@ -37,3 +37,24 @@
 .mySimpleForm .sapUiFormTitle {
     display: none;
 }
+
+.sapUiSizeCompact .myObjectPageLayout.sapUxAPObjectPageLayout-Std-Phone .sapUxAPBlockContainer{
+    padding: 1rem 0rem 2rem 1rem;
+}
+
+.myObjectPageLayout .sapMGT, .myObjectPageLayout .sapMST{
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.myObjectPageLayout{
+    background-image: linear-gradient(to bottom, #a9c4df, #e7ecf0);
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.myObjectPageLayout .sapUxAPObjectPageContainer, .myObjectPageLayout .sapUxAPObjectPageContainer + div, .myObjectPageLayout .sapUxAPObjectPageHeaderDetailsHidden{
+    background: transparent;
+}

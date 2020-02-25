@@ -1,4 +1,4 @@
-<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Supply" 
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Requirement" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:f="sap.f" 
@@ -9,7 +9,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="物资供给" />
+					<Title text="物资需求与库存" />
 				</f:heading>
 				<f:content>
 				</f:content>

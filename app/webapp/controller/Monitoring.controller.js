@@ -34,33 +34,34 @@ sap.ui.define([
 				this._oTaskDialog = oDialog;
 				this.getView().addDependent(this._oTaskDialog);
 			}.bind(this));
-			
+
 			var oBlockModel = new sap.ui.model.json.JSONModel();
 			this.loadBlockData(oBlockModel);
 			this.getView().setModel(oBlockModel, "block");
 
-			this.getView().setModel(new sap.ui.model.json.JSONModel("json/orgUnit.json"),"orgUnit");
+			this.getView().setModel(new sap.ui.model.json.JSONModel("json/orgUnit.json"), "orgUnit");
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/hospital.json"), "hospital");
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/case.json"), "case");
 
-			this.getView().setModel(new sap.ui.model.json.JSONModel("json/trend.json"),"trend");
-			this.getView().setModel(new sap.ui.model.json.JSONModel("json/trendOption.json"),"trendOption");
+			this.getView().setModel(new sap.ui.model.json.JSONModel("json/trend.json"), "trend");
+			this.getView().setModel(new sap.ui.model.json.JSONModel("json/trendOption.json"), "trendOption");
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/graphTest.json"));
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel({
-				BlockRiskVisible:false,
-				SpecialRiskVisible:false,
-				CaseVisible:true,
-				CaseTraceVisible:true,
-				HospitalVisible:true,
-				BlockRiskLevel:"3",
-				AutoLevel:false,
-				Date:"2月11日",
+				BlockRiskVisible: false,
+				AutoMapFollow: false,
+				SpecialRiskVisible: false,
+				CaseVisible: true,
+				CaseTraceVisible: true,
+				HospitalVisible: true,
+				BlockRiskLevel: "3",
+				AutoLevel: false,
+				Date: "2月11日",
 				Time: "12:00",
-				Year:"2020年",
-				WeekDay:"星期二"
-			}),"pageConfig");
+				Year: "2020年",
+				WeekDay: "星期二"
+			}), "pageConfig");
 
 			// this.getView().byId("caseDetailContainer").bindElement("case>/0");
 
@@ -68,23 +69,23 @@ sap.ui.define([
 			this.onChangeLevel();
 		},
 
-		loadBlockData:function(oBlockModel){
+		loadBlockData: function (oBlockModel) {
 			var aData = [];
-			oBlockModel.loadData("json/block-3.json",null,false);
+			oBlockModel.loadData("json/block-3.json", null, false);
 			aData = aData.concat(oBlockModel.getData());
-			oBlockModel.loadData("json/block-4.json",null,false);
+			oBlockModel.loadData("json/block-4.json", null, false);
 			aData = aData.concat(oBlockModel.getData());
-			oBlockModel.loadData("json/block-5.json",null,false);
+			oBlockModel.loadData("json/block-5.json", null, false);
 			aData = aData.concat(oBlockModel.getData());
 			oBlockModel.setData(aData);
 		},
 
-		onGraphReady:function(oEvent){
+		onGraphReady: function (oEvent) {
 			var oGraph = oEvent.getSource();
-			setTimeout(function(){
+			setTimeout(function () {
 				oGraph._fitToScreen();
-			},0);
-			
+			}, 0);
+
 		},
 
 		onPressBlock: function (oEvent) {
@@ -92,7 +93,7 @@ sap.ui.define([
 			this._oBlockPopover.openBy(oEvent.getSource());
 		},
 
-		onPressBlockDetail:function(){
+		onPressBlockDetail: function () {
 			this.getRouter().navTo("Block");
 		},
 
@@ -102,36 +103,40 @@ sap.ui.define([
 		},
 
 		onPressCase: function (oEvent) {
-			var oDetailContainer = this.getView().byId("caseDetailContainer");
-			oDetailContainer.bindElement("case>" + oEvent.getSource().getBindingContext("case").getPath().match(/\/\d+/)[0]);
-			oDetailContainer.setVisible(true);
+			if (this.getView().getModel("device").getProperty("/system/phone")) {
+
+			} else {
+				var oDetailContainer = this.getView().byId("caseDetailContainer");
+				oDetailContainer.bindElement("case>" + oEvent.getSource().getBindingContext("case").getPath().match(/\/\d+/)[0]);
+				oDetailContainer.setVisible(true);
+			}
 		},
 
 		onPressMap: function (oEvent) {
 			this.getView().byId("caseDetailContainer").setVisible(false);
 		},
 
-		onPressTask: function(){
+		onPressTask: function () {
 			this._oTaskDialog.open();
 		},
 
-		onPressTaskDetail: function(){
+		onPressTaskDetail: function () {
 			this.getRouter().navTo("TaskDetail");
 			this._oTaskDialog.close();
 		},
-		
-		onCloseDialog: function(oEvent){
+
+		onCloseDialog: function (oEvent) {
 			oEvent.getSource().getParent().close();
 		},
 
-		onChangeLevel:function(oEvent){
+		onChangeLevel: function (oEvent) {
 			var sLevel = this.getView().byId("levelSelect").getSelectedKey();
 			this.getView().byId("blockRisk").getBinding("layers").filter(new sap.ui.model.Filter("Level", "EQ", sLevel));
 		},
 
-		onChangeCaseVisible:function(oEvent){
+		onChangeCaseVisible: function (oEvent) {
 			// if(!oEvent.getParameter("selected")){
-				this.getView().getModel("pageConfig").setProperty("/CaseTraceVisible",oEvent.getParameter("selected"));
+			this.getView().getModel("pageConfig").setProperty("/CaseTraceVisible", oEvent.getParameter("selected"));
 			// }
 		},
 

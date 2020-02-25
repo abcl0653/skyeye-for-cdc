@@ -16,6 +16,7 @@
         "Title": "疾控管理",
         "Subtitle": "",
         "Icon": "sap-icon://order-status",
+        "ShowInLaunchpad":true,
         "Content": [
             {
                 "key": "Case",
@@ -33,8 +34,8 @@
                 "icon": ""
             },
             {
-                "key": "Staff",
-                "text": "工作人员管理",
+                "key": "People",
+                "text": "人员管理",
                 "icon": ""
             },
             {
@@ -54,6 +55,7 @@
         "Title": "组织架构",
         "Subtitle": "",
         "Icon": "sap-icon://org-chart",
+        "ShowInLaunchpad":true,
         "Content": [
             {
                 "key": "Region",
@@ -73,37 +75,33 @@
         ]
     },
     {
-        "Id": "Supply",
+        "Id": "Requirement",
         "Title": "物资调度",
         "Subtitle": "",
         "Icon": "sap-icon://shipping-status",
+        "ShowInLaunchpad":true,
         "Content": [
+            {
+                "key": "Requirement",
+                "text": "物资需求与库存",
+                "icon": ""
+            },
             {
                 "key": "Supply",
                 "text": "物资供给",
                 "icon": ""
             },
             {
-                "key": "Requirement",
-                "text": "物资需求",
-                "icon": ""
-            },
-            {
                 "key": "Arrangement",
                 "text": "供需调度",
-                "icon": ""
-            },
-            {
-                "key": "Storage",
-                "text": "库存管理",
                 "icon": ""
             }
         ]
     },
     {
-        "Id": "MobileUpload",
-        "Title": "信息上报",
+        "Id": "Knowledge",
+        "Title": "知识文库",
         "Subtitle": "",
-        "Icon": "sap-icon://iphone"
+        "Icon": "sap-icon://education"
     }
 ]

@@ -89,55 +89,83 @@
 				"target": ["Error"]
 			},{
 				"name": "Home",
-				"pattern": "home",
+				"pattern": "Home",
 				"target": ["Home"]
 			},{
 				"name": "Monitoring",
-				"pattern": "monitoring",
+				"pattern": "Monitoring",
 				"target": ["Monitoring"]
 			},{
 				"name": "Case",
-				"pattern": "case/list",
+				"pattern": "Case/List",
 				"target": ["Case"]
 			},{
 				"name": "CaseDetail",
-				"pattern": "case/detail",
+				"pattern": "Case/Detail",
 				"target": ["CaseDetail"]
 			},{
-				"name": "Block",
-				"pattern": "block/list",
-				"target": ["Block"]
-			},{
-				"name": "BlockDetail",
-				"pattern": "block/detail",
-				"target": ["BlockDetail"]
-			},{
 				"name": "Task",
-				"pattern": "task/list",
+				"pattern": "Task/List",
 				"target": ["Task"]
 			},{
 				"name": "TaskDetail",
-				"pattern": "task/detail",
+				"pattern": "Task/Detail",
 				"target": ["TaskDetail"]
 			},{
+				"name": "Block",
+				"pattern": "Block/List",
+				"target": ["Block"]
+			},{
+				"name": "BlockDetail",
+				"pattern": "Block/Detail",
+				"target": ["BlockDetail"]
+			},{
+				"name": "People",
+				"pattern": "People",
+				"target": ["People"]
+			},{
+				"name": "Event",
+				"pattern": "Event",
+				"target": ["Event"]
+			},{
+				"name": "Sample",
+				"pattern": "Sample",
+				"target": ["Sample"]
+			},{
+				"name": "Region",
+				"pattern": "Region",
+				"target": ["Region"]
+			},{
+				"name": "Hospital",
+				"pattern": "Hospital",
+				"target": ["Hospital"]
+			},{
 				"name": "Staff",
-				"pattern": "staff/list",
+				"pattern": "Staff/List",
 				"target": ["Staff"]
 			},{
 				"name": "StaffDetail",
-				"pattern": "staff/detail",
+				"pattern": "Staff/Detail",
 				"target": ["StaffDetail"]
 			},{
-				"name": "Region",
-				"pattern": "region",
-				"target": ["Region"]
+				"name": "Requirement",
+				"pattern": "Requirement",
+				"target": ["Requirement"]
 			},{
 				"name": "Supply",
-				"pattern": "supply",
+				"pattern": "Supply",
 				"target": ["Supply"]
 			},{
+				"name": "Arrangement",
+				"pattern": "Arrangement",
+				"target": ["Arrangement"]
+			},{
+				"name": "Knowledge",
+				"pattern": "Knowledge",
+				"target": ["Knowledge"]
+			},{
 				"name": "MobileUpload",
-				"pattern": "mobile",
+				"pattern": "MobileUpload",
 				"target": ["MobileUpload"]
 			}],
 			"targets": {
@@ -166,6 +194,16 @@
 					"viewName": "CaseDetail",
 					"title":"Case"
 				},
+				"Task": {
+					"viewType": "XML",
+					"viewName": "Task",
+					"title":"Task"
+				},
+				"TaskDetail": {
+					"viewType": "XML",
+					"viewName": "TaskDetail",
+					"title":"Task"
+				},
 				"Block": {
 					"viewType": "XML",
 					"viewName": "Block",
@@ -176,15 +214,45 @@
 					"viewName": "BlockDetail",
 					"title":"Block"
 				},
-				"Task": {
+				"People": {
 					"viewType": "XML",
-					"viewName": "Task",
-					"title":"Task"
+					"viewName": "People",
+					"title":"People"
 				},
-				"TaskDetail": {
+				"PeopleDetail": {
 					"viewType": "XML",
-					"viewName": "TaskDetail",
-					"title":"Task"
+					"viewName": "PeopleDetail",
+					"title":"People"
+				},
+				"Event": {
+					"viewType": "XML",
+					"viewName": "Event",
+					"title":"Event"
+				},
+				"EventDetail": {
+					"viewType": "XML",
+					"viewName": "EventDetail",
+					"title":"Event"
+				},
+				"Sample": {
+					"viewType": "XML",
+					"viewName": "Sample",
+					"title":"Sample"
+				},
+				"SampleDetail": {
+					"viewType": "XML",
+					"viewName": "SampleDetail",
+					"title":"Sample"
+				},
+				"Region": {
+					"viewType": "XML",
+					"viewName": "Region",
+					"title":"Region"
+				},
+				"Hospital": {
+					"viewType": "XML",
+					"viewName": "Hospital",
+					"title":"Hospital"
 				},
 				"Staff": {
 					"viewType": "XML",
@@ -196,15 +264,25 @@
 					"viewName": "StaffDetail",
 					"title":"Staff"
 				},
-				"Region": {
+				"Requirement": {
 					"viewType": "XML",
-					"viewName": "Region",
-					"title":"Region"
+					"viewName": "Requirement",
+					"title":"Requirement"
 				},
 				"Supply": {
 					"viewType": "XML",
 					"viewName": "Supply",
 					"title":"Supply"
+				},
+				"Arrangement": {
+					"viewType": "XML",
+					"viewName": "Arrangement",
+					"title":"Arrangement"
+				},
+				"Knowledge": {
+					"viewType": "XML",
+					"viewName": "Knowledge",
+					"title":"Knowledge"
 				},
 				"MobileUpload": {
 					"viewType": "XML",

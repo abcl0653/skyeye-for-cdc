@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("sap.ibso.skyeyeForCdc.controller.Supply", {
+	return BaseController.extend("sap.ibso.skyeyeForCdc.controller.Sample", {
 		onInit: function () {
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/blockDetail.json"), "people");
 		},

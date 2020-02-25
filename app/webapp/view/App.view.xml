@@ -8,7 +8,7 @@
 			<tnt:ToolHeader>
 				<ToolbarSpacer width="{= ${pageConfig>Content} ? '2rem' : '4.5rem'}" visible="{= !${device>/system/phone}}" />
 				<Button icon="sap-icon://menu2" type="Transparent" press=".onSideNavButtonPress" visible="{= Boolean(${pageConfig>Content})}" />
-				<Image src="image/SAP_Logo.png" height="2rem" />
+				<Image src="image/SAP_Logo.png" height="2rem" press="onHome"/>
 				<Title text="{pageConfig>Title}" />
 				<tnt:ToolHeaderUtilitySeparator />
 				<ToolbarSpacer />
