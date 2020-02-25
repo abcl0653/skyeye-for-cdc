@@ -3,7 +3,7 @@
 	xmlns="sap.m" 
 	xmlns:tnt="sap.tnt" 
 	xmlns:core="sap.ui.core">
-	<tnt:ToolPage id="toolPage" class="sapUiSizeCompact">
+	<tnt:ToolPage id="toolPage">
 		<tnt:header>
 			<tnt:ToolHeader>
 				<ToolbarSpacer width="{= ${pageConfig>Content} ? '2rem' : '4.5rem'}" visible="{= !${device>/system/phone}}" />

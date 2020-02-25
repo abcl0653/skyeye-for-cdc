@@ -21,6 +21,10 @@ sap.ui.define([
 				this._oProductSwitcher = oProductSwitcher;
 				this.getView().addDependent(this._oProductSwitcher);
 			}.bind(this));
+
+			if(!sap.ui.Device.system.phone){
+				this.getView().byId("toolPage").addStyleClass("sapUiSizeCompact");
+			}
 		},
 
 		onTitleChanged: function (oEvent) {

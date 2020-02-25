@@ -27,6 +27,9 @@ sap.ui.define([
 			this.setModel(models.createDeviceModel(), "device");
 			
 			this.setModel(models.createPageConfigModel(), "pageConfig");
+			
+			this.setModel(new sap.ui.model.json.JSONModel("json/task.json"), "task");
+			this.setModel(new sap.ui.model.json.JSONModel("json/event.json"), "event");
 		}
 	});
 });

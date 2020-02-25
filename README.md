@@ -2,7 +2,7 @@
 
 Here is the repo of SkyEye Solution for Regional CDC.
 
-You could open the demo page [here](http://www.sunny-string.cn:8080/github/skyeye-for-cdc/app/webapp/index.html).
+You could open the demo page [here](https://string1225.github.io/skyeye-for-cdc/app/webapp/index.html).
 
 > using the [UI5 Tooling](https://github.com/SAP/ui5-tooling).
 

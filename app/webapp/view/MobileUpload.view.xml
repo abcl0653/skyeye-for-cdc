@@ -2,7 +2,7 @@
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
 	xmlns:form="sap.ui.layout.form" 
-	xmlns:core="sap.ui.core">
+	xmlns:core="sap.ui.core" busyIndicatorDelay="0">
 	<Page showHeader="false" showFooter="true">
 		<form:SimpleForm layout="ResponsiveGridLayout" labelSpanS="4" editable="true" singleContainerFullSize="false">
 			<Label text="主题" required="true" />
@@ -39,7 +39,10 @@
 			</Select>
 			<Label text="相关网格" />
 			<Select selectedKey="{/Block}">
-				<core:Item key="" text="" />
+				<core:Item key="楼栋A" text="楼栋A" />
+				<core:Item key="楼栋B" text="楼栋B" />
+				<core:Item key="楼栋C" text="楼栋C" />
+				<core:Item key="楼栋D" text="楼栋D" />
 			</Select>
 			<Label text="备注" />
 			<TextArea width="100%" rows="3" value="{/Remarks}" />
@@ -47,8 +50,8 @@
 		<footer>
 			<Toolbar>
 				<ToolbarSpacer />
-				<Button text="提交" type="Emphasized" />
-				<Button text="提交并标注完成" type="Accept" />
+				<Button text="提交" type="Emphasized" press="onSubmit" />
+				<Button text="提交并标注完成" type="Accept" press="onSubmitWithComplete" />
 			</Toolbar>
 		</footer>
 	</Page>
