@@ -1,6 +1,7 @@
 <mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.BlockDetail" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns:m="sap.m" 
+	xmlns:f="sap.f" 
 	xmlns="sap.uxap" 
 	xmlns:l="sap.ui.layout"
 	xmlns:form="sap.ui.layout.form" 
@@ -9,8 +10,8 @@
 		<headerTitle>
 			<ObjectPageHeader objectTitle="{blockDetail>Address}" objectSubtitle="{blockDetail>Id}" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
 				<breadcrumbs>
-					<m:Breadcrumbs currentLocationText="区块">
-						<m:Link text="区块列表" press="onPressBlockList" />
+					<m:Breadcrumbs currentLocationText="{blockDetail>Address}">
+						<m:Link text="汤臣社区" press="onPressBlockList" />
 					</m:Breadcrumbs>
 				</breadcrumbs>
 				<breadCrumbsLinks>
@@ -22,20 +23,21 @@
 
 		<headerContent>
 			<l:VerticalLayout>
-				<m:Link text="+33 6 4512 5158" />
-				<m:Link text="DeniseSmith@sap.com" />
+				<m:Text text="负责人：{blockDetail>Responsible}" />
+				<m:Link text="+86 {blockDetail>ResponsiblePhone}" />
+				<m:Link text="18900322338@qq.com" />
 			</l:VerticalLayout>
 
 			<l:VerticalLayout>
-				<m:Label text="Hello! I am Tim and I use UxAP" />
+				<m:Label text="任务完成情况:" />
 				<m:VBox height="63px">
-					<m:Label text="Achieved goals" />
-					<m:ProgressIndicator percentValue="30" displayValue="30%" showValue="true" state="None" />
+					<m:Label text="已完成任务/总任务: 1/3" />
+					<m:ProgressIndicator percentValue="33" displayValue="33%" showValue="true" state="None" />
 				</m:VBox>
 			</l:VerticalLayout>
 
 			<l:VerticalLayout>
-				<m:Label text="San Jose, USA" />
+				<m:Label text="{blockDetail>Town} {blockDetail>Estate}" />
 			</l:VerticalLayout>
 		</headerContent>
 
@@ -47,19 +49,70 @@
 							<form:SimpleForm class="mySimpleForm" xmlns="sap.m" layout="ResponsiveGridLayout" singleContainerFullSize="false" breakpointM="300" columnsM="2" labelSpanM="12" adjustLabelSpan="false">
 								<core:Title />
 								<Label text="总人口/户数" />
-								<Text text="1000/400" />
+								<Text text="100/40" />
 								<Label text="本地常住人口/户数" />
-								<Text text="900/350" />
+								<Text text="90/35" />
 								<Label text="外来人口/户数" />
-								<Text text="100/50" />
+								<Text text="10/5" />
 								<core:Title />
-								<Label text="昨日出入人次" />
-								<Text text="500" />
-								<Label text="异常人次" />
-								<Text text="10" />
-								<Label text="志愿者人数" />
-								<Text text="10" />
+								<Label text="确诊人数" />
+								<Text text="{blockDetail>Confirmed}" />
+								<Label text="隔离人数" />
+								<Text text="{blockDetail>Isolated}" />
+								<Label text="风险等级" />
+								<Text text="{blockDetail>RiskLevel}" />
 							</form:SimpleForm>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection title="任务">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+			<m:Table id="taskList" itemPress="onPressItem" items="{path:'task>/',
+				filters:[{path: 'Block', operator: 'EQ', value1:'汤臣二期1号楼'}]}">
+				<m:columns>
+					<m:Column >
+						<m:Text text="任务编号" />
+					</m:Column>
+					<m:Column minScreenWidth="Desktop" demandPopin="true">
+						<m:Text text="描述" />
+					</m:Column>
+					<m:Column minScreenWidth="Desktop" demandPopin="true">
+						<m:Text text="所属楼栋" />
+					</m:Column>
+					<m:Column minScreenWidth="Desktop" demandPopin="true">
+						<m:Text text="负责人" />
+					</m:Column>
+					<m:Column minScreenWidth="Desktop" demandPopin="true">
+						<m:Text text="优先级" />
+					</m:Column>
+					<m:Column minScreenWidth="Desktop" demandPopin="true">
+						<m:Text text="创建日期" />
+					</m:Column>
+					<m:Column minScreenWidth="Desktop" demandPopin="true">
+						<m:Text text="到期日" />
+					</m:Column>
+					<m:Column minScreenWidth="Desktop" demandPopin="true">
+						<m:Text text="状态" />
+					</m:Column>
+				</m:columns>
+				<m:items>
+					<m:ColumnListItem vAlign="Middle" type="Navigation">
+						<m:cells>
+							<m:ObjectIdentifier title="{task>Title}" text="{task>Id}" />
+							<m:Text text="{task>Description}" />
+							<m:Link text="{task>Block}" />
+				            <m:ObjectIdentifier title="{task>Responsible}" text="{task>ResponsiblePhone}"/>
+							<m:Text text="{task>Priority}" />
+							<m:Text text="{task>CreatedDate}" />
+							<m:Text text="{task>DueDate}" />
+							<m:Text text="{task>Status}" />
+						</m:cells>
+					</m:ColumnListItem>
+				</m:items>
+			</m:Table>
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>

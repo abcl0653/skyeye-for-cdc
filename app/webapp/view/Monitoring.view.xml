@@ -190,7 +190,7 @@
 										</HBox>
 										<HBox class="sapUiSmallMarginBegin sapUiTinyMarginTop">
 											<VBox>
-												<Text width="9rem" class="sapUiSmallMarginEnd" text="所属区块" />
+												<Text width="9rem" class="sapUiSmallMarginEnd" text="所属网格" />
 												<Link text="{case>Region}" />
 											</VBox>
 											<VBox>

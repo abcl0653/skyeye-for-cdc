@@ -13,6 +13,12 @@ sap.ui.define([
 		},
 		onPressEvent:function(oEvent){
 			this.getRouter().navTo("Event");
+		},
+		onPressTask:function(oEvent){
+			this.getRouter().navTo("Task");
+		},
+		onPressCase:function(oEvent){
+			this.getRouter().navTo("Case");
 		}
 	});
 });
