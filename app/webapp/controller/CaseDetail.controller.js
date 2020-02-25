@@ -9,8 +9,13 @@ sap.ui.define([
 			
 			this.getView().bindElement("case>/0")
 		},
-		onPressTaskList:function(){
+		onPressCaseList:function(){
 			this.getRouter().navTo("Case");
-		}
+		},
+		onPressBlockDetail:function(oEvent){
+			// var sId = oEvent.getParameter("listItem").getBindingContext("blockDetail").getObject().Id;
+			// this.getRouter().navTo("BlockDetail",{Id:sId});
+			this.getRouter().navTo("BlockDetail");
+		},
 	});
 });

@@ -55,7 +55,7 @@
 							<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
 								<List>
 									<StandardListItem title="全部" />
-									<StandardListItem title="汤臣社区" />
+									<StandardListItem title="光明小区社区" />
 									<StandardListItem title="科苑社区" />
 								</List>
 							</ScrollContainer>

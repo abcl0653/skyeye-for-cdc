@@ -11,7 +11,7 @@
 					<uxap:ObjectPageSubSection>
 						<uxap:blocks>
 							<ScrollContainer width="100%" height="100%">
-								<GenericTile frameType="TwoByOne" header="汤臣社区" subheader="上海市 浦东新区 张江镇" ariaLabel="Monitoring" press="onPressTile">
+								<GenericTile frameType="TwoByOne" header="光明小区社区" subheader="上海市 浦东新区 张江镇" ariaLabel="Monitoring" press="onPressTile">
 									<TileContent footer="累计发生事件">
 										<NumericContent value="5" valueColor="Critical" withMargin="false" icon="sap-icon://activities" />
 									</TileContent>

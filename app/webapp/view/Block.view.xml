@@ -11,9 +11,9 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="上海市/浦东新区/张江镇/汤臣社区" />
+					<Title text="上海市/浦东新区/张江镇/光明小区社区" />
 					
-					<Breadcrumbs currentLocationText="汤臣社区" class="riskText">
+					<Breadcrumbs currentLocationText="光明小区社区" class="riskText">
 						<Link text="上海市浦东新区张江镇" press="onPressBlockList" />
 					</Breadcrumbs>
 				</f:heading>
@@ -91,31 +91,31 @@
 					<Column >
 						<Text text="楼栋地址" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="登记人数/户数" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="确诊病例" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="隔离人数" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="返城人数" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="防疫物资发放状态" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="上次消毒" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="上次排查" />
 					</Column>
 					<Column >
 						<Text text="负责人" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="备注" />
 					</Column>
 				</columns>

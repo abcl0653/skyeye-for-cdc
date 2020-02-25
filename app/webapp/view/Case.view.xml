@@ -25,9 +25,9 @@
 							<fb:FilterGroupItem name="A" label="区域" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
 								<fb:control>
 									<Select forceSelection="true">
-										<core:Item key="" text="全部" />
-										<core:Item key="" text="上海" />
-										<core:Item key="" text="北京" />
+										<core:Item key="" text="本社区(光明小区社区)" />
+										<core:Item key="" text="本街道(浦东新区张江镇)" />
+										<core:Item key="" text="全市" />
 									</Select>
 								</fb:control>
 							</fb:FilterGroupItem>
@@ -60,38 +60,64 @@
 			<Table itemPress="onPressItem" items="{case>/}">
 				<columns>
 					<Column >
-						<Text text="主题/编号" />
+						<Text text="案例编号" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="描述"/>
+					</Column>
+					<!-- <Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
 						<Text text="描述" />
+					</Column> -->
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="所属楼栋" />
 					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
-						<Text text="区域" />
-					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
-						<Text text="事件类型" />
-					</Column>
-					<Column minScreenWidth="Desktop"
-				demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="案例类型" />
 					</Column>
-					<Column >
-						<Text text="负责人" />
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="确诊日期" />
+					</Column>
+					<Column  minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="收治状态" />
+					</Column>
+					<Column  minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="创建日期" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="创建人" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="密切接触人数" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="收治医院" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="户口信息" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="联系方式" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="备注" />
 					</Column>
 				</columns>
 				<items>
-					<ColumnListItem vAlign="Middle">
+					<ColumnListItem vAlign="Middle" type="Navigation">
 						<cells>
-							<ObjectIdentifier title="{case>Title}" text="" />
-							<Text text="" />
-							<Text text="" />
-							<Text text="" />
-							<Text text="" />
-							<Text text="" />
-							<Link text=""/>
+							<ObjectIdentifier title="{case>Name}" text="{case>ID}" />
+							<Text text="{case>Description}" />
+							<Text text="{case>Region}" />
+							<Text text="{case>Type}" />
+							<Text text="{case>ConfirmedDate}" />
+							<Text text="{case>Status}" />
+							<Text text="{case>CreatedDate}"/>
+							<Text text="{case>CreatedBy}"/>
+							<Text text="3"/>
+							<Link text="{case>Hospital}"/>
+							<Text text="本地户口"/>
+							<Text text="电话：021-697030303"/>
+							<Text text="年龄偏大患者"/>
 						</cells>
 					</ColumnListItem>
 				</items>
