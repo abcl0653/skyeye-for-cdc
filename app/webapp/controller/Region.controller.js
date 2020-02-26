@@ -21,11 +21,11 @@ sap.ui.define([
 							person:"XXX",
 							nodes:[
 								{
-									name:"汤臣三期",
+									name:"光明小区三期",
 									type:"居民小区",
 									person:"XXX"
 								},{
-									name:"汤臣四期",
+									name:"光明小区四期",
 									type:"居民小区",
 									person:"XXX"
 								}

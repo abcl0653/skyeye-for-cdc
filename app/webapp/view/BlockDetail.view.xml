@@ -11,7 +11,7 @@
 			<ObjectPageHeader objectTitle="{blockDetail>Address}" objectSubtitle="{blockDetail>Id}" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
 				<breadcrumbs>
 					<m:Breadcrumbs currentLocationText="{blockDetail>Address}">
-						<m:Link text="汤臣社区" press="onPressBlockList" />
+						<m:Link text="光明小区社区" press="onPressBlockList" />
 					</m:Breadcrumbs>
 				</breadcrumbs>
 				<breadCrumbsLinks>
@@ -23,9 +23,22 @@
 
 		<headerContent>
 			<l:VerticalLayout>
+				<l:HorizontalLayout>
+					<core:Icon src="sap-icon://map-2"/>
+				<m:Link text="{blockDetail>Town} {blockDetail>Estate}" />
+					</l:HorizontalLayout>
+				<l:HorizontalLayout>
+					<core:Icon src="sap-icon://contacts"/>
 				<m:Text text="负责人：{blockDetail>Responsible}" />
+					</l:HorizontalLayout>
+					<l:HorizontalLayout>
+						<core:Icon src="sap-icon://call"/>
 				<m:Link text="+86 {blockDetail>ResponsiblePhone}" />
+					</l:HorizontalLayout>
+					<l:HorizontalLayout>
+						<core:Icon src="sap-icon://email"/>
 				<m:Link text="18900322338@qq.com" />
+				</l:HorizontalLayout>
 			</l:VerticalLayout>
 
 			<l:VerticalLayout>
@@ -36,9 +49,6 @@
 				</m:VBox>
 			</l:VerticalLayout>
 
-			<l:VerticalLayout>
-				<m:Label text="{blockDetail>Town} {blockDetail>Estate}" />
-			</l:VerticalLayout>
 		</headerContent>
 
 		<sections>
@@ -46,7 +56,7 @@
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
-							<form:SimpleForm class="mySimpleForm" xmlns="sap.m" layout="ResponsiveGridLayout" singleContainerFullSize="false" breakpointM="300" columnsM="2" labelSpanM="12" adjustLabelSpan="false">
+							<form:SimpleForm class="mySimpleForm" xmlns="sap.m" layout="ResponsiveGridLayout" singleContainerFullSize="false" breakpointM="30" columnsM="2" labelSpanM="12" adjustLabelSpan="false">
 								<core:Title />
 								<Label text="总人口/户数" />
 								<Text text="100/40" />
@@ -71,30 +81,30 @@
 					<ObjectPageSubSection>
 						<blocks>
 			<m:Table id="taskList" itemPress="onPressItem" items="{path:'task>/',
-				filters:[{path: 'Block', operator: 'EQ', value1:'汤臣二期1号楼'}]}">
+				filters:[{path: 'Block', operator: 'EQ', value1:'光明小区二期1号楼'}]}">
 				<m:columns>
 					<m:Column >
 						<m:Text text="任务编号" />
 					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true">
+					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
 						<m:Text text="描述" />
 					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true">
+					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
 						<m:Text text="所属楼栋" />
 					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true">
+					<m:Column> 
 						<m:Text text="负责人" />
 					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true">
+					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<m:Text text="优先级" />
 					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true">
+					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<m:Text text="创建日期" />
 					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true">
+					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<m:Text text="到期日" />
 					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true">
+					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<m:Text text="状态" />
 					</m:Column>
 				</m:columns>

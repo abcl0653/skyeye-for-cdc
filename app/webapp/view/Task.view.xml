@@ -9,7 +9,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="任务管理(上海市/浦东新区/张江镇/汤臣社区)" />
+					<Title text="任务管理(上海市/浦东新区/张江镇/光明小区社区)" />
 				</f:heading>
 				<f:content>
 				</f:content>
@@ -22,9 +22,10 @@
 			<f:DynamicPageHeader pinnable="false">
 				<f:content>
 					<HeaderContainer>
-						<VBox width="8rem">
-							<Label text="今日任务:" />
-							<Text text="5" class="taskNumber" />
+						<VBox width="20rem" >
+							<Label text="今日任务:"/>
+							<Text text="5" class="taskNumber"/>
+
 						</VBox>
 						<VBox width="20rem">
 							<Label text="筛选条件" />
@@ -75,27 +76,30 @@
 			<Table itemPress="onPressItem" items="{task>/}">
 				<columns>
 					<Column >
-						<Text text="任务编号" />
+						<Text text="任务标题/编号" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
 						<Text text="描述" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="任务类型" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="所属楼栋" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column> 
 						<Text text="负责人" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="优先级" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="创建日期" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="到期日" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="状态" />
 					</Column>
 				</columns>
@@ -104,6 +108,7 @@
 						<cells>
 							<ObjectIdentifier title="{task>Title}" text="{task>Id}" />
 							<Text text="{task>Description}" />
+							<Text text="{task>Type}" />
 							<Link text="{task>Block}" />
 							<ObjectIdentifier title="{task>Responsible}" text="{task>ResponsiblePhone}" />
 							<Text text="{task>Priority}" />
