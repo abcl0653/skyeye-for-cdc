@@ -11,29 +11,8 @@ sap.ui.define([
 
 	return BaseController.extend("sap.ibso.skyeyeForCdc.controller.Monitoring", {
 		onInit: function () {
-			Fragment.load({
-				name: "sap.ibso.skyeyeForCdc.view.fragment.Block",
-				controller: this
-			}).then(function (oPopover) {
-				this._oBlockPopover = oPopover;
-				this.getView().addDependent(this._oBlockPopover);
-			}.bind(this));
 
-			Fragment.load({
-				name: "sap.ibso.skyeyeForCdc.view.fragment.Hospital",
-				controller: this
-			}).then(function (oPopover) {
-				this._oHospitalPopover = oPopover;
-				this.getView().addDependent(this._oHospitalPopover);
-			}.bind(this));
-
-			Fragment.load({
-				name: "sap.ibso.skyeyeForCdc.view.fragment.Task",
-				controller: this
-			}).then(function (oDialog) {
-				this._oTaskDialog = oDialog;
-				this.getView().addDependent(this._oTaskDialog);
-			}.bind(this));
+			this.initPopover();
 
 			var oBlockModel = new sap.ui.model.json.JSONModel();
 			this.loadBlockData(oBlockModel);
@@ -68,6 +47,40 @@ sap.ui.define([
 			this.onChangeLevel();
 		},
 
+		initPopover:function(){
+			Fragment.load({
+				name: "sap.ibso.skyeyeForCdc.view.fragment.Block",
+				controller: this
+			}).then(function (oPopover) {
+				this._oBlockPopover = oPopover;
+				this.getView().addDependent(this._oBlockPopover);
+			}.bind(this));
+
+			Fragment.load({
+				name: "sap.ibso.skyeyeForCdc.view.fragment.Hospital",
+				controller: this
+			}).then(function (oPopover) {
+				this._oHospitalPopover = oPopover;
+				this.getView().addDependent(this._oHospitalPopover);
+			}.bind(this));
+
+			Fragment.load({
+				name: "sap.ibso.skyeyeForCdc.view.fragment.Task",
+				controller: this
+			}).then(function (oDialog) {
+				this._oTaskDialog = oDialog;
+				this.getView().addDependent(this._oTaskDialog);
+			}.bind(this));
+
+			Fragment.load({
+				name: "sap.ibso.skyeyeForCdc.view.fragment.Event",
+				controller: this
+			}).then(function (oPopover) {
+				this._oEventPopover = oPopover;
+				this.getView().addDependent(this._oEventPopover);
+			}.bind(this));
+		},
+
 		loadBlockData: function (oBlockModel) {
 			var aData = [];
 			oBlockModel.loadData("json/block-3.json", null, false);
@@ -99,6 +112,16 @@ sap.ui.define([
 		onPressHospital: function (oEvent) {
 			this._oHospitalPopover.bindElement("hospital>" + oEvent.getSource().getBindingContext("hospital").getPath());
 			this._oHospitalPopover.openBy(oEvent.getSource());
+		},
+
+		onPressEvent: function (oEvent) {
+			this._oEventPopover.bindElement("event>" + oEvent.getSource().getBindingContext("event").getPath());
+			this._oEventPopover.openBy(oEvent.getSource());
+		},
+
+		onPressEventDetail: function () {
+			this.getRouter().navTo("Event");
+			this._oEventPopover.close();
 		},
 
 		onPressCase: function (oEvent) {

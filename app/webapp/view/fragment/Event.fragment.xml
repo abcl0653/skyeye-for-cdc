@@ -9,10 +9,10 @@
 				<f:content>
 				</f:content>
 				<f:header>
-					<fc:NumericHeader title="{hospital>Name}" subtitle="负责人：{hospital>Responsible} | 收治容量：{hospital>Capacity}" number="{hospital>Collected}" scale="" state="Good" details="收治的确诊与疑似病例">
+					<fc:NumericHeader title="{event>Name}" subtitle="{event>Description}" number="{event>Progress}" state="{= ${event>Progress} === '已处理' ? 'Good' : (${event>Progress} === '处理中' ? 'Critical' : 'Error')}" scale="" details="处理进展">
 					<fc:sideIndicators>
-						<fc:NumericSideIndicator title="发热门诊人数" number="{hospital>Fever}" unit="" />
-						<fc:NumericSideIndicator title="周围风险人数" number="{hospital>Risk}" unit="" />
+						<fc:NumericSideIndicator title="事件类型" number="{event>Type}" unit="" />
+						<fc:NumericSideIndicator title="影响范围" number="{event>Influence}" unit="" />
 					</fc:sideIndicators>
 					</fc:NumericHeader>
 				</f:header>
@@ -22,7 +22,7 @@
 			<Button text="关闭" press="onCloseDialog" visible="{device>/system/phone}"/>
 		</endButton>
 		<beginButton>
-			<Button text="查看详情" />
+			<Button text="查看详情" press="onPressEventDetail" />
 		</beginButton>
 	</ResponsivePopover>
 </core:FragmentDefinition>
