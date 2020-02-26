@@ -47,9 +47,6 @@ sap.ui.define([
 			this.onChangeLevel();
 		},
 
-<<<<<<< HEAD
-		loadBlockData: function (oBlockModel, offset=0) {
-=======
 		initPopover:function(){
 			Fragment.load({
 				name: "sap.ibso.skyeyeForCdc.view.fragment.Block",
@@ -84,8 +81,7 @@ sap.ui.define([
 			}.bind(this));
 		},
 
-		loadBlockData: function (oBlockModel) {
->>>>>>> f8fc2fbdec20b8953d155c31e5fd8027564b69f9
+		loadBlockData: function (oBlockModel, offset=0) {
 			var aData = [];
 			oBlockModel.loadData("json/block-3.json", null, false);
 			aData = aData.concat(oBlockModel.getData());
