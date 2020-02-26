@@ -68,15 +68,23 @@ sap.ui.define([
 			this.onChangeLevel();
 		},
 
-		loadBlockData: function (oBlockModel) {
+		loadBlockData: function (oBlockModel, offset=0) {
 			var aData = [];
 			oBlockModel.loadData("json/block-3.json", null, false);
 			aData = aData.concat(oBlockModel.getData());
-			oBlockModel.loadData("json/block-4.json", null, false);
+			
+			let path = `json/block-4-${offset}.json`
+			oBlockModel.loadData(path, null, false);
 			aData = aData.concat(oBlockModel.getData());
 			oBlockModel.loadData("json/block-5.json", null, false);
 			aData = aData.concat(oBlockModel.getData());
 			oBlockModel.setData(aData);
+		},
+
+		onLiveChange: function (oEvent) {
+			let offset = oEvent.getParameters().value
+			let oBlockModel = this.getView().getModel("block")
+			this.loadBlockData(oBlockModel,offset)
 		},
 
 		onGraphReady: function (oEvent) {

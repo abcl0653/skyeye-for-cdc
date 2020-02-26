@@ -11,7 +11,7 @@
 			<ObjectPageHeader objectTitle="{case>Name}" objectSubtitle="{case>ID}" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
 				<breadcrumbs>
 					<m:Breadcrumbs currentLocationText="{case>Name}">
-						<m:Link text="案例列表" press="onPressCaseList" />
+						<m:Link text="病例列表" press="onPressCaseList" />
 					</m:Breadcrumbs>
 				</breadcrumbs>
 			</ObjectPageHeader>
@@ -48,7 +48,7 @@
 						<blocks>
 							<form:SimpleForm class="mySimpleForm" xmlns="sap.m" layout="ResponsiveGridLayout" singleContainerFullSize="false" breakpointM="30" columnsM="2" labelSpanM="12" adjustLabelSpan="false">
 								<core:Title />
-								<Label text="案例类型" />
+								<Label text="病例类型" />
 								<Text text="{case>Type}" />
 								<Label text="确诊日期" />
 								<Text text="{case>ConfirmedDate}" />
@@ -73,7 +73,7 @@
 			<m:Table items="{case>Contacts}">
 				<m:columns>
 					<m:Column >
-						<m:Text text="接触案例" />
+						<m:Text text="接触病例" />
 					</m:Column>
 					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
 						<m:Text text="接触日期" />

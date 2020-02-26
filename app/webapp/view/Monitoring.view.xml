@@ -151,7 +151,7 @@
 					<Panel width="17rem" height="6rem" headerText="网格风险预测" class="floatingPanel sapUiNoContentPadding">
 						<HBox>
 							<Text text="当前" width="2.5rem" textAlign="Center" class="sapUiTinyMargin" />
-							<Slider min="0" max="5" enableTickmarks="true" width="10rem" />
+							<Slider min="0" max="5" enableTickmarks="true" width="10rem" liveChange="onLiveChange"/>
 							<Text text="5天后" width="2.5rem" textAlign="Center" class="sapUiTinyMarginTop" />
 						</HBox>
 					</Panel>

@@ -8,7 +8,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="案例" />
+					<Title text="病例" />
 				</f:heading>
 				<f:content>
 				</f:content>
@@ -41,7 +41,7 @@
 									</Select>
 								</fb:control>
 							</fb:FilterGroupItem>
-							<fb:FilterGroupItem name="C" label="案例类型" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+							<fb:FilterGroupItem name="C" label="病例类型" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
 								<fb:control>
 									<Select forceSelection="true">
 										<core:Item key="" text="全部" />
@@ -60,7 +60,7 @@
 			<Table itemPress="onPressItem" items="{case>/}">
 				<columns>
 					<Column >
-						<Text text="案例编号" />
+						<Text text="病例编号" />
 					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
 						<Text text="描述"/>
@@ -72,7 +72,7 @@
 						<Text text="所属楼栋" />
 					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-						<Text text="案例类型" />
+						<Text text="病例类型" />
 					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="确诊日期" />

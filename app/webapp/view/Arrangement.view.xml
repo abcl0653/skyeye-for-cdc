@@ -39,7 +39,7 @@
 									</Select>
 								</fb:control>
 							</fb:FilterGroupItem>
-							<!-- <fb:FilterGroupItem name="C" label="案例类型" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+							<!-- <fb:FilterGroupItem name="C" label="病例类型" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
 												<fb:control>
 													<Select forceSelection="true">
 														<core:Item key="" text="全部" />

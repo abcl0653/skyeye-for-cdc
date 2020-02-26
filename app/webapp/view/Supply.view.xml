@@ -96,7 +96,7 @@
 						<Text text="事件类型" />
 					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true">
-						<Text text="案例类型" />
+						<Text text="病例类型" />
 					</Column>
 					<Column >
 						<Text text="负责人" />
