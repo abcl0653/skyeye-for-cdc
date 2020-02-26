@@ -1,16 +1,33 @@
 [{
-    "Id":"3101111111",
-    "Address":"伽马路233弄2号203室",
-    "City":"上海市",
-    "District":"浦东新区",
-    "Town":"张江镇",
-    "Estate":"光明小区三期",
-    "CountOfPeople":4,
-    "Residence":"本市常驻",
-    "Status":"居家/本地就医",
-    "Affectness":"无异常",
-    "ManagementLevel":"自我隔离",
-    "Outgoing":2,
-    "Responsible":"负责人姓名",
-    "Remark":"高龄老人"
+    "Name":"大鹏",
+    "Contact":"15912345678",
+    "Type":"工作人员",
+    "CreatedAt":"2018-04-07",
+    "CurrentTask":"物资清点",
+    "Percentage":80,
+    "PercentageStatus":"Success"
+},{
+    "Name":"小丽",
+    "Contact":"15912345678",
+    "Type":"工作人员",
+    "CreatedAt":"2018-04-07",
+    "CurrentTask":"重点人员寻访",
+    "Percentage":60,
+    "PercentageStatus":"Warning"
+},{
+    "Name":"李阿姨",
+    "Contact":"15912345678",
+    "Type":"志愿者",
+    "CreatedAt":"2020-02-07",
+    "CurrentTask":"社区进出人员登记",
+    "Percentage":90,
+    "PercentageStatus":"Success"
+},{
+    "Name":"王大妈",
+    "Contact":"15912345678",
+    "Type":"志愿者",
+    "CreatedAt":"2020-02-07",
+    "CurrentTask":"社区进出人员登记",
+    "Percentage":90,
+    "PercentageStatus":"Success"
 }]

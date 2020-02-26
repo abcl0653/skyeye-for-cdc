@@ -22,7 +22,7 @@
 		<f:header>
 		</f:header>
 		<f:content>
-			<t:TreeTable id="TreeTableBasic" rows="{path:'/', parameters: {arrayNames:['nodes']}}" selectionMode="MultiToggle" enableSelectAll="false">
+			<t:TreeTable id="TreeTableBasic" rows="{path:'/', parameters: {arrayNames:['nodes'],numberOfExpandedLevels: 5}}" selectionMode="MultiToggle" enableSelectAll="false">
 				<t:columns>
 					<t:Column>
 						<Label text="区划名称" />

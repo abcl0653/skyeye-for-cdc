@@ -11,12 +11,15 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="上海市/浦东新区/张江镇/光明小区社区" />
-					
-					<Breadcrumbs currentLocationText="光明小区社区" class="riskText">
-						<Link text="上海市浦东新区张江镇" press="onPressBlockList" />
-					</Breadcrumbs>
+					<Title text="光明小区社区" />
 				</f:heading>
+				<f:breadcrumbs>
+					<Breadcrumbs currentLocationText="光明小区社区">
+						<Link text="上海市" press="onPressBlockList" />
+						<Link text="浦东新区" press="onPressBlockList" />
+						<Link text="张江镇" press="onPressBlockList" />
+					</Breadcrumbs>
+				</f:breadcrumbs>
 				<f:content>
 				</f:content>
 				<f:actions>

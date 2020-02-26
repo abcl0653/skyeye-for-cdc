@@ -297,7 +297,7 @@
                     "Key": 0,
                     "Title": "12-30",
                     "Status": "Error",
-                    "Icon": "sap-icon://key-user-settings",
+                    "Icon": "sap-icon://person-placeholder",
                     "Attributes": [
                         {
                             "Label": "属性1",
@@ -313,7 +313,7 @@
                     "Key": 1,
                     "Title": "12-31",
                     "Status": "Error",
-                    "Icon": "sap-icon://key-user-settings",
+                    "Icon": "sap-icon://person-placeholder",
                     "Attributes": [
                         {
                             "Label": "属性1",
@@ -329,7 +329,7 @@
                     "Key": 2,
                     "Title": "01-01",
                     "Status": "Error",
-                    "Icon": "sap-icon://key-user-settings",
+                    "Icon": "sap-icon://person-placeholder",
                     "Attributes": [
                         {
                             "Label": "属性1",
@@ -345,7 +345,7 @@
                     "Key": 3,
                     "Title": "01-02",
                     "Status": "Error",
-                    "Icon": "sap-icon://key-user-settings",
+                    "Icon": "sap-icon://person-placeholder",
                     "Attributes": [
                         {
                             "Label": "属性1",
@@ -361,7 +361,7 @@
                     "Key": 4,
                     "Title": "01-03",
                     "Status": "Warning",
-                    "Icon": "sap-icon://key-user-settings",
+                    "Icon": "sap-icon://person-placeholder",
                     "Attributes": [
                         {
                             "Label": "属性1",
@@ -377,7 +377,7 @@
                     "Key": 5,
                     "Title": "01-04",
                     "Status": "Warning",
-                    "Icon": "sap-icon://key-user-settings",
+                    "Icon": "sap-icon://person-placeholder",
                     "Attributes": [
                         {
                             "Label": "属性1",
@@ -393,7 +393,7 @@
                     "Key": 6,
                     "Title": "01-05",
                     "Status": "Success",
-                    "Icon": "sap-icon://key-user-settings",
+                    "Icon": "sap-icon://person-placeholder",
                     "Attributes": [
                         {
                             "Label": "属性1",
@@ -409,7 +409,7 @@
                     "Key": 7,
                     "Title": "家人1",
                     "Status": "Success",
-                    "Icon": "sap-icon://key-user-settings",
+                    "Icon": "sap-icon://add-employee",
                     "Attributes": [
                         {
                             "Label": "属性1",
@@ -425,7 +425,88 @@
                     "Key": 8,
                     "Title": "亲戚1",
                     "Status": "Warning",
-                    "Icon": "sap-icon://key-user-settings",
+                    "Icon": "sap-icon://add-employee",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 9,
+                    "Title": "医生1",
+                    "Status": "Success",
+                    "Icon": "sap-icon://nurse",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 10,
+                    "Title": "医生2",
+                    "Status": "Success",
+                    "Icon": "sap-icon://nurse",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 11,
+                    "Title": "医生3",
+                    "Status": "Success",
+                    "Icon": "sap-icon://nurse",
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 12,
+                    "Title": "医院",
+                    "Status": "Success",
+                    "Icon": "sap-icon://pharmacy",
+                    "Collapsed":true,
+                    "Attributes": [
+                        {
+                            "Label": "属性1",
+                            "Value": "值1"
+                        },
+                        {
+                            "Label": "属性2",
+                            "Value": "值2"
+                        }
+                    ]
+                },
+                {
+                    "Key": 13,
+                    "Title": "亲戚2",
+                    "Status": "Warning",
+                    "Icon": "sap-icon://add-employee",
                     "Attributes": [
                         {
                             "Label": "属性1",
@@ -486,6 +567,26 @@
                 {
                     "From": 7,
                     "To": 8
+                },
+                {
+                    "From": 3,
+                    "To": 12
+                },
+                {
+                    "From": 12,
+                    "To": 9
+                },
+                {
+                    "From": 12,
+                    "To": 10
+                },
+                {
+                    "From": 12,
+                    "To": 11
+                },
+                {
+                    "From": 8,
+                    "To": 13
                 }
             ]
         },

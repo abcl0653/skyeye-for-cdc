@@ -60,12 +60,12 @@
             {
                 "key": "Region",
                 "text": "行政区划",
-                "icon": ""
+                "icon": "sap-icon://org-chart"
             },
             {
                 "key": "Hospital",
                 "text": "医疗机构",
-                "icon": ""
+                "icon": "sap-icon://accidental-leave"
             },
             {
                 "key": "Staff",
@@ -84,17 +84,17 @@
             {
                 "key": "Requirement",
                 "text": "物资需求与库存",
-                "icon": ""
+                "icon": "sap-icon://retail-store"
             },
             {
                 "key": "Supply",
                 "text": "物资供给",
-                "icon": ""
+                "icon": "sap-icon://shipping-status"
             },
             {
                 "key": "Arrangement",
                 "text": "供需调度",
-                "icon": ""
+                "icon": "sap-icon://cart"
             }
         ]
     },

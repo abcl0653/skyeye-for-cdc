@@ -9,7 +9,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="样本管理" />
+					<Title text="样本" />
 				</f:heading>
 				<f:content>
 				</f:content>
@@ -81,7 +81,7 @@
 			</f:DynamicPageHeader>
 		</f:header>
 		<f:content>
-			<Table itemPress="onPressItem" items="{task>/}">
+			<Table itemPress="onPressItem" items="{sample>/}">
 				<columns>
 					<Column >
 						<Text text="主题/编号" />
@@ -105,12 +105,12 @@
 				<items>
 					<ColumnListItem vAlign="Middle" type="Navigation">
 						<cells>
-							<ObjectIdentifier title="{task>Title}" text="{task>Id}" />
-							<Text text="{task>Title}" />
-							<Text text="{task>Title}" />
-							<Text text="{task>Title}" />
-							<Text text="{task>Title}" />
-							<Text text="{task>Title}" />
+							<ObjectIdentifier title="{sample>Title}" text="{sample>Id}" />
+							<Text text="{sample>Title}" />
+							<Text text="{sample>Title}" />
+							<Text text="{sample>Title}" />
+							<Text text="{sample>Title}" />
+							<Text text="{sample>Title}" />
 						</cells>
 					</ColumnListItem>
 				</items>

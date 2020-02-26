@@ -37,6 +37,8 @@
 				<core:Item key="进行中" text="进行中" />
 				<core:Item key="已完成" text="已完成" />
 			</Select>
+			<Label text="发生地点" visible="{= ${/SubmitType} === 'Event'}" />
+			<Input showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onOpenLocationValueHelp" visible="{= ${/SubmitType} === 'Event'}"/>
 			<Label text="相关网格" />
 			<Select selectedKey="{/Block}">
 				<core:Item key="楼栋A" text="楼栋A" />

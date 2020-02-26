@@ -20,67 +20,24 @@
 		<f:header>
 			<f:DynamicPageHeader pinnable="false">
 				<f:content>
-					<HeaderContainer>
-						<VBox width="8rem">
-							<Label text="省/市" />
-							<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
-								<List>
-									<StandardListItem title="全部" />
-									<StandardListItem title="上海" />
-								</List>
-							</ScrollContainer>
-						</VBox>
-						<VBox width="8rem">
-							<Label text="县/区" />
-							<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
-								<List>
-									<StandardListItem title="全部" />
-									<StandardListItem title="浦东新区" />
-									<StandardListItem title="黄浦区" />
-								</List>
-							</ScrollContainer>
-						</VBox>
-						<VBox width="8rem">
-							<Label text="街道" />
-							<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
-								<List>
-									<StandardListItem title="全部" />
-									<StandardListItem title="张江镇" />
-									<StandardListItem title="金桥镇" />
-								</List>
-							</ScrollContainer>
-						</VBox>
-						<VBox width="8rem">
-							<Label text="社区" />
-							<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
-								<List>
-									<StandardListItem title="全部" />
-									<StandardListItem title="光明小区社区" />
-									<StandardListItem title="科苑社区" />
-								</List>
-							</ScrollContainer>
-						</VBox>
-						<VBox width="20rem">
-							<Label text="人口来源" />
-							<mc:InteractiveDonutChart selectionChanged="onSelectionChanged">
-								<mc:segments>
-									<mc:InteractiveDonutChartSegment label="本地常住人口" value="40.0" displayedValue="40.0%" />
-									<mc:InteractiveDonutChartSegment label="外来常住人口" value="21.5" displayedValue="21.5%" />
-									<mc:InteractiveDonutChartSegment label="其他人口" value="38.5" displayedValue="38.5%" />
-								</mc:segments>
-							</mc:InteractiveDonutChart>
-						</VBox>
-						<VBox width="20rem">
-							<Label text="居住状态" />
-							<mc:InteractiveDonutChart selectionChanged="onSelectionChanged">
-								<mc:segments>
-									<mc:InteractiveDonutChartSegment label="居家/本地就医" value="40.0" displayedValue="40.0%" />
-									<mc:InteractiveDonutChartSegment label="长期外出" value="21.5" displayedValue="21.5%" />
-									<mc:InteractiveDonutChartSegment label="未知" value="38.5" displayedValue="38.5%" />
-								</mc:segments>
-							</mc:InteractiveDonutChart>
-						</VBox>
-					</HeaderContainer>
+					<fb:FilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="true" showGoOnFB="false" showFilterConfiguration="false">
+						<fb:filterGroupItems>
+							<fb:FilterGroupItem name="B" label="类型" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+								<fb:control>
+									<Select forceSelection="true">
+										<core:Item key="" text="全部" />
+										<core:Item key="" text="工作人员" />
+										<core:Item key="" text="志愿者" />
+									</Select>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem name="C" label="加入时间" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+								<fb:control>
+									<DateRangeSelection />
+								</fb:control>
+							</fb:FilterGroupItem>
+						</fb:filterGroupItems>
+					</fb:FilterBar>
 				</f:content>
 			</f:DynamicPageHeader>
 		</f:header>
@@ -88,45 +45,29 @@
 			<Table items="{staff>/}" itemPress="onPressItem">
 				<columns>
 					<Column >
-						<Text text="地址" />
+						<Text text="姓名/联系方式" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
-						<Text text="人数" />
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="类型" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
-						<Text text="人口来源" />
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="加入时间" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
-						<Text text="居住状态" />
+					<Column>
+						<Text text="当前工作" />
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
-						<Text text="受影响状态" />
-					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
-						<Text text="当前管控级别" />
-					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
-						<Text text="每日外出人次" />
-					</Column>
-					<Column >
-						<Text text="负责人" />
-					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true">
-						<Text text="备注" />
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="今日任务完成情况" />
 					</Column>
 				</columns>
 				<items>
 					<ColumnListItem vAlign="Middle" type="Navigation">
 						<cells>
-							<ObjectIdentifier title="{staff>Address}" text="{staff>City} {staff>District} {staff>Town} {staff>Estate}" />
-							<ObjectNumber number="{staff>CountOfPeople}" unit="人" />
-							<Text text="{staff>Residence}" />
-							<Text text="{staff>Status}" />
-							<Text text="{staff>Affectness}" />
-							<Text text="{staff>ManagementLevel}" />
-							<Text text="{staff>Outgoing}" />
-							<Text text="{staff>Responsible}" />
-							<Text text="{staff>Remark}" />
+							<ObjectIdentifier title="{staff>Name}" text="{staff>Contact}" />
+							<Text text="{staff>Type}" />
+							<Text text="{staff>CreatedAt}" />
+							<Text text="{staff>CurrentTask}" />
+							<ProgressIndicator width="20rem" percentValue="{staff>Percentage}" displayValue="{staff>Percentage}%" showValue="true" state="{staff>PercentageStatus}" />
 						</cells>
 					</ColumnListItem>
 				</items>

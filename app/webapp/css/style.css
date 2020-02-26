@@ -75,3 +75,8 @@
     font-size: 7rem;
     font-weight: bold;
 }
+
+.sapSuiteUiCommonsNetworkGraphFullScreen{
+    width: 100%!important;
+    height: 100%!important;
+}
