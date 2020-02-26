@@ -9,7 +9,7 @@ sap.ui.define([
 		},
 		onPressItem: function (oEvent) {
 			// var sId = oEvent.getParameter("listItem").getBindingContext("people").getObject().Id;
-			this.getRouter().navTo("TaskDetail");
+			// this.getRouter().navTo("TaskDetail");
 		}
 	});
 });

@@ -105,7 +105,7 @@
 				<items>
 					<ColumnListItem vAlign="Middle" type="Navigation">
 						<cells>
-							<ObjectIdentifier title="{event>Title}" text="{event>Id}" />
+							<ObjectIdentifier title="{event>Name}" text="{event>Id}" />
 							<Text text="{event>Title}" />
 							<Text text="{event>Title}" />
 							<Text text="{event>Title}" />

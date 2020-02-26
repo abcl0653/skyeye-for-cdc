@@ -81,7 +81,7 @@
 			</f:DynamicPageHeader>
 		</f:header>
 		<f:content>
-			<Table itemPress="onPressItem" items="{task>/}">
+			<Table itemPress="onPressItem" items="{supply>/}">
 				<columns>
 					<Column >
 						<Text text="主题/编号" />
@@ -105,12 +105,12 @@
 				<items>
 					<ColumnListItem vAlign="Middle" type="Navigation">
 						<cells>
-							<ObjectIdentifier title="{task>Title}" text="{task>Id}" />
-							<Text text="{task>Title}" />
-							<Text text="{task>Title}" />
-							<Text text="{task>Title}" />
-							<Text text="{task>Title}" />
-							<Text text="{task>Title}" />
+							<ObjectIdentifier title="{supply>Title}" text="{supply>Id}" />
+							<Text text="{supply>Title}" />
+							<Text text="{supply>Title}" />
+							<Text text="{supply>Title}" />
+							<Text text="{supply>Title}" />
+							<Text text="{supply>Title}" />
 						</cells>
 					</ColumnListItem>
 				</items>
