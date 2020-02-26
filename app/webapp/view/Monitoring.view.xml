@@ -207,12 +207,12 @@
 								</HBox>
 								<HBox alignItems="Center" class="myCarDetailTile">
 									<!-- <Image src="image/networkSample.png" width="50rem" height="14rem" /> -->
-									<ng:Graph id="graph" nodes="{case>ContactTrace/Nodes}" lines="{case>ContactTrace/Lines}" width="50rem" height="17rem" graphReady="onGraphReady">
+									<ng:Graph id="graph" nodes="{case>ContactTrace/Nodes}" lines="{case>ContactTrace/Lines}" width="30rem" height="17rem" graphReady="onGraphReady">
 										<ng:layoutAlgorithm>
-											<ng.layout:ForceDirectedLayout id="fdl" optimalDistanceConstant="0.31" maxIterations="200" maxTime="500" initialTemperature="200" coolDownStep="1" staticNodes="[0,0,1,2,3,4,5,6,100]"	/>
+											<ng.layout:ForceDirectedLayout id="fdl" optimalDistanceConstant="0.31" maxIterations="200" maxTime="400" initialTemperature="100" coolDownStep="1" staticNodes="[0,0,1,2,3,4,5,6,100]"	/>
 										</ng:layoutAlgorithm>
 										<ng:nodes>
-											<ng:Node key="{case>Key}" title="{case>Title}" icon="{case>Icon}" attributes="{path:'case>Attributes', templateShareable:true}" shape="{case>Shape}" status="{case>Status}" x="{= Number(${case>Key}) * 100}" y="0">
+											<ng:Node key="{case>Key}" title="{case>Title}" icon="{case>Icon}" attributes="{path:'case>Attributes', templateShareable:true}" collapsed="{case>Collapsed}" status="{case>Status}" x="{= Number(${case>Key}) * 100}" y="0">
 												<ng:attributes>
 													<ng:ElementAttribute label="{case>Label}" value="{case>Value}" />
 												</ng:attributes>

@@ -490,6 +490,7 @@
                     "Title": "医院",
                     "Status": "Success",
                     "Icon": "sap-icon://pharmacy",
+                    "Collapsed":true,
                     "Attributes": [
                         {
                             "Label": "属性1",
