@@ -45,6 +45,10 @@
 						<leaflet:Icon options='\{"iconUrl":"image/hospital.png", "iconSize": [50, 50]\}' />
 					</leaflet:Marker>
 				</leaflet:LayerGroup >
+				<leaflet:LayerGroup id="event" layers="{event>/}" visible="{pageConfig>/EventVisible}">
+					<leaflet:Marker press="onPressEvent" latLng="{event>LatLng}">
+					</leaflet:Marker>
+				</leaflet:LayerGroup >
 				<leaflet:LayerGroup layers="{path:'case>/'}" zIndex="450" visible="{pageConfig>/CaseVisible}">
 					<leaflet:LayerGroup>
 						<leaflet:Marker press="onPressCase" latLng="{case>LatLng}">
@@ -102,16 +106,16 @@
 							<VBox width="100%">
 								<echarts:Instance class="sapUiTinyMarginTopBottom" id="chart-trend" option="{trendOption>/}" dataset="{trend>/}" width="100%" height="7rem">
 								</echarts:Instance>
-								<HBox justifyContent="SpaceAround">
+								<!-- <HBox justifyContent="SpaceAround">
 									<Button text="切换事件类型" width="100%" type="Transparent" />
 									<Button text="趋势详细分析" width="100%" type="Transparent" />
-								</HBox>
+								</HBox> -->
 							</VBox>
 						</f:content>
 					</f:Card>
 				</leaflet:FloatingItem>
 				<leaflet:FloatingItem top="1rem" right="1rem">
-					<Panel width="8rem" class="floatingPanel sapUiNoContentPadding">
+					<Panel width="8.5rem" class="floatingPanel sapUiNoContentPadding">
 						<headerToolbar>
 							<Toolbar design="Solid">
 								<ToolbarSpacer width="0.5rem" />
@@ -122,21 +126,22 @@
 						<VBox>
 							<CheckBox text="网格风险" selected="{pageConfig>/BlockRiskVisible}" />
 							<Select id="levelSelect" selectedKey="{pageConfig>/BlockRiskLevel}" change="onChangeLevel" enabled="{pageConfig>/BlockRiskVisible}">
-							<layoutData>
-							<FlexItemData alignSelf="Center"/>
-							</layoutData>
+								<layoutData>
+									<FlexItemData alignSelf="Center" />
+								</layoutData>
 								<core:Item key="1" text="市" />
 								<core:Item key="2" text="区" />
 								<core:Item key="3" text="街道" />
 								<core:Item key="4" text="社区" />
 								<core:Item key="5" text="楼栋" />
 							</Select>
-							<CheckBox text="层级地图跟随" selected="{pageConfig>/AutoMapFollow}" enabled="{pageConfig>/BlockRiskVisible}" />
-							<CheckBox text="特殊网格标注" selected="{pageConfig>/SpecialRiskVisible}" enabled="{= ${pageConfig>/BlockRiskVisible} &amp;&amp; (${pageConfig>/BlockRiskLevel} === '5')}" />
+							<!-- <CheckBox text="层级地图跟随" selected="{pageConfig>/AutoMapFollow}" enabled="{pageConfig>/BlockRiskVisible}" />
+							<CheckBox text="特殊网格标注" selected="{pageConfig>/SpecialRiskVisible}" enabled="{= ${pageConfig>/BlockRiskVisible} &amp;&amp; (${pageConfig>/BlockRiskLevel} === '5')}" /> -->
 							<CheckBox text="医疗机构" selected="{pageConfig>/HospitalVisible}" />
+							<CheckBox text="事件" selected="{pageConfig>/EventVisible}" />
 							<HBox justifyContent="SpaceBetween">
-							<CheckBox text="病例" selected="{pageConfig>/CaseVisible}" select="onChangeCaseVisible" />
-							<Button icon="sap-icon://filter" press="onFilterCase" type="Transparent"/>
+								<CheckBox text="病例" selected="{pageConfig>/CaseVisible}" select="onChangeCaseVisible" />
+								<Button icon="sap-icon://filter" press="onFilterCase" type="Transparent" />
 							</HBox>
 							<CheckBox text="病例活动行迹" selected="{pageConfig>/CaseTraceVisible}" enabled="{pageConfig>/CaseVisible}" />
 						</VBox>
@@ -202,10 +207,9 @@
 								</HBox>
 								<HBox alignItems="Center" class="myCarDetailTile">
 									<!-- <Image src="image/networkSample.png" width="50rem" height="14rem" /> -->
-									<ng:Graph id="graph" enableWheelZoom="false" nodes="{case>ContactTrace/Nodes}" lines="{case>ContactTrace/Lines}" width="50rem" height="17rem" graphReady="onGraphReady">
+									<ng:Graph id="graph" nodes="{case>ContactTrace/Nodes}" lines="{case>ContactTrace/Lines}" width="50rem" height="17rem" graphReady="onGraphReady">
 										<ng:layoutAlgorithm>
-											<ng.layout:ForceDirectedLayout id="fdl" optimalDistanceConstant="0.31" maxIterations="200" maxTime="500" initialTemperature="200" coolDownStep="1" staticNodes="[0,0,1,2,3,4,5,6,100]">
-											</ng.layout:ForceDirectedLayout>
+											<ng.layout:ForceDirectedLayout id="fdl" optimalDistanceConstant="0.31" maxIterations="200" maxTime="500" initialTemperature="200" coolDownStep="1" staticNodes="[0,0,1,2,3,4,5,6,100]"	/>
 										</ng:layoutAlgorithm>
 										<ng:nodes>
 											<ng:Node key="{case>Key}" title="{case>Title}" icon="{case>Icon}" attributes="{path:'case>Attributes', templateShareable:true}" shape="{case>Shape}" status="{case>Status}" x="{= Number(${case>Key}) * 100}" y="0">

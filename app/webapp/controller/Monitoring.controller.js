@@ -49,13 +49,14 @@ sap.ui.define([
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/graphTest.json"));
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel({
-				BlockRiskVisible: false,
+				BlockRiskVisible: true,
 				AutoMapFollow: false,
 				SpecialRiskVisible: false,
-				CaseVisible: true,
-				CaseTraceVisible: true,
 				HospitalVisible: true,
-				BlockRiskLevel: "3",
+				EventVisible:false,
+				CaseVisible: false,
+				CaseTraceVisible: false,
+				BlockRiskLevel: "4",
 				AutoLevel: false,
 				Date: "2月11日",
 				Time: "12:00",
