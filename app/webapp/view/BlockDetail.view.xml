@@ -6,7 +6,7 @@
 	xmlns:l="sap.ui.layout" 
 	xmlns:form="sap.ui.layout.form" 
 	xmlns:core="sap.ui.core">
-	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true">
+	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" useIconTabBar="false">
 		<headerTitle>
 			<ObjectPageHeader objectTitle="{blockDetail>Address}" objectSubtitle="{blockDetail>Id}" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
 				<breadcrumbs>
@@ -81,45 +81,36 @@
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
-							<m:Table id="peopleList" itemPress="onPressPeople" items="{people>/}">
+							<m:Table id="peopleList" itemPress="onPressPeople" items="{people>/}" growing="true" growingThreshold="3">
 								<m:columns>
 									<m:Column >
-										<m:Text text="任务编号" />
+										<m:Text text="住户/联系方式" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+										<m:Text text="常住人数" />
 									</m:Column>
 									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
-										<m:Text text="描述" />
-									</m:Column>
-									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
-										<m:Text text="所属楼栋" />
-									</m:Column>
-									<m:Column>
-										<m:Text text="负责人" />
-									</m:Column>
-									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-										<m:Text text="优先级" />
-									</m:Column>
-									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-										<m:Text text="创建日期" />
-									</m:Column>
-									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-										<m:Text text="到期日" />
+										<m:Text text="人口来源" />
 									</m:Column>
 									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 										<m:Text text="状态" />
 									</m:Column>
+									<m:Column width="5rem">
+										<m:Text text="风险级别" />
+									</m:Column>
+									<!-- <m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+										<m:Text text="备注" />
+									</m:Column> -->
 								</m:columns>
 								<m:items>
 									<m:ColumnListItem vAlign="Middle" type="Navigation">
-										<m:Text>
-											<m:ObjectIdentifier title="{people>Title}" text="{people>Id}" />
-											<m:Text text="{people>Description}" />
-											<m:Link text="{people>Block}" />
-											<m:ObjectIdentifier title="{people>Responsible}" text="{people>ResponsiblePhone}" />
-											<m:Text text="{people>Priority}" />
-											<m:Text text="{people>CreatedDate}" />
-											<m:Text text="{people>DueDate}" />
-											<m:Text text="{people>Status}" />
-										</m:Text>
+										<m:ObjectIdentifier title="{people>Name}" text="{people>Phone}" />
+										<m:Text text="{people>Count}" />
+										<m:Text text="{people>Source}" />
+										<!-- <m:Text text="{people>Responsible}" /> -->
+										<m:Text text="{people>Status}" />
+										<m:ObjectStatus text="{people>Risk}" state="{= ${people>Risk} === '低' ? 'Success' : 'Warning'}" />
+										<!-- <m:Text text="{people>Remark}" /> -->
 									</m:ColumnListItem>
 								</m:items>
 							</m:Table>
@@ -161,16 +152,14 @@
 								</m:columns>
 								<m:items>
 									<m:ColumnListItem vAlign="Middle" type="Navigation">
-										<m:Text>
-											<m:ObjectIdentifier title="{task>Title}" text="{task>Id}" />
-											<m:Text text="{task>Description}" />
-											<m:Link text="{task>Block}" />
-											<m:ObjectIdentifier title="{task>Responsible}" text="{task>ResponsiblePhone}" />
-											<m:Text text="{task>Priority}" />
-											<m:Text text="{task>CreatedDate}" />
-											<m:Text text="{task>DueDate}" />
-											<m:Text text="{task>Status}" />
-										</m:Text>
+										<m:ObjectIdentifier title="{task>Title}" text="{task>Id}" />
+										<m:Text text="{task>Description}" />
+										<m:Link text="{task>Block}" />
+										<m:ObjectIdentifier title="{task>Responsible}" text="{task>ResponsiblePhone}" />
+										<m:Text text="{task>Priority}" />
+										<m:Text text="{task>CreatedDate}" />
+										<m:Text text="{task>DueDate}" />
+										<m:Text text="{task>Status}" />
 									</m:ColumnListItem>
 								</m:items>
 							</m:Table>
