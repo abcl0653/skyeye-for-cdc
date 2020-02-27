@@ -95,7 +95,7 @@
 				<leaflet:FloatingItem top="1rem" left="15rem" visible="{= !${device>/system/phone}}">
 					<f:Card class="myCard" width="20rem">
 						<f:header>
-							<fc:NumericHeader title="新冠肺炎" subtitle="上海市 | 浦东新区 | 张江镇" number="13" trend="Up" state="Critical" details="确诊病例" press="onPressWorkOrderCard">
+							<fc:NumericHeader title="新冠肺炎" subtitle="上海市 | 浦东新区 | 张某镇" number="8" trend="Up" state="Critical" details="确诊病例" press="onPressWorkOrderCard">
 								<fc:sideIndicators>
 									<fc:NumericSideIndicator title="疑似病例" number="69" />
 									<fc:NumericSideIndicator title="密切接触者" number="123" />
