@@ -104,7 +104,7 @@
 				<subSections>
 					<ObjectPageSubSection>
 						<!-- <blocks> -->
-							<m:Image src="../image/trace-map.png" height="15rem" class="smallMap"></m:Image>
+							<m:Image src="../webapp/image/trace-map.png" height="15rem" class="smallMap"></m:Image>
 						<!-- </blocks> -->
 					</ObjectPageSubSection>
 				</subSections>

@@ -77,7 +77,7 @@
 						</VBox>
 						<VBox width="10rem">
 							<Label text="周边网格"/>
-							<Image src="../image/risk-map.png" height="8rem" class="smallMap"></Image>
+							<Image src="../webapp/image/risk-map.png" height="8rem" class="smallMap"></Image>
 						</VBox>
 					</HeaderContainer>
 				</f:content>
@@ -85,6 +85,7 @@
 		</f:header>
 		<f:content>
 			<Table items="{blockDetail>/}" itemPress="onPressItem">
+			<!-- <Table items="{path: 'grids>/Grids'}" itemPress="onPressItem"> -->
 				<infoToolbar>
 					<OverflowToolbar>
 						<Label text="小区楼栋列表"/>
