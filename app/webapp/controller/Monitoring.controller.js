@@ -21,6 +21,7 @@ sap.ui.define([
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/orgUnit.json"), "orgUnit");
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/trend.json"), "trend");
+			this.getView().setModel(new sap.ui.model.json.JSONModel("json/trend-5.json"), "trend5");
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/trendOption.json"), "trendOption");
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/graphTest.json"));

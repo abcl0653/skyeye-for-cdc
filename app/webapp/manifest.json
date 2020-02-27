@@ -12,6 +12,15 @@
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
 			"version": "1.40.12"
+		},
+		"dataSources": {
+			"grids": {
+				"uri": "/master/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
 		}
 	},
 
@@ -61,6 +70,9 @@
 				"settings": {
 					"bundleName": "sap.ibso.skyeyeForCdc.i18n.i18n"
 				}
+			},
+			"grids":{
+				"dataSource":"grids"
 			}
 		},
 		"resources": {

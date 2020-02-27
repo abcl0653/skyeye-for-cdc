@@ -42,7 +42,8 @@ You could open the demo page [here](https://string1225.github.io/skyeye-for-cdc/
 1. Build mta and deploy to SAP Cloud Platform
 
     ```bash
-    npm run build:mta
+    NODE_ENV=production npm run build:mta
+    set NODE_ENV production # Windows
     npm run deploy:cf # This script include mbt build and cf deploy
     ```
 
