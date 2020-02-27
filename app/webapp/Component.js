@@ -32,6 +32,7 @@ sap.ui.define([
 			this.setModel(new sap.ui.model.json.JSONModel("json/task.json"), "task");
 			this.setModel(new sap.ui.model.json.JSONModel("json/event.json"), "event");
 			this.setModel(new sap.ui.model.json.JSONModel("json/hospital.json"), "hospital");
+			this.setModel(new sap.ui.model.json.JSONModel("json/people.json"), "people");
 		}
 	});
 });

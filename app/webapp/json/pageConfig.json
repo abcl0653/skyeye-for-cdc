@@ -27,6 +27,11 @@
                 "key": "Task",
                 "text": "任务管理",
                 "icon": "sap-icon://list"
+            },
+            {
+                "key": "Check",
+                "text": "排查结果",
+                "icon": "sap-icon://activity-items"
             }
         ]
     },
