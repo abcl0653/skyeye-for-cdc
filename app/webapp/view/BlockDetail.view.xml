@@ -3,10 +3,10 @@
 	xmlns:m="sap.m" 
 	xmlns:f="sap.f" 
 	xmlns="sap.uxap" 
-	xmlns:l="sap.ui.layout"
+	xmlns:l="sap.ui.layout" 
 	xmlns:form="sap.ui.layout.form" 
 	xmlns:core="sap.ui.core">
-	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" >
+	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true">
 		<headerTitle>
 			<ObjectPageHeader objectTitle="{blockDetail>Address}" objectSubtitle="{blockDetail>Id}" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
 				<breadcrumbs>
@@ -24,20 +24,20 @@
 		<headerContent>
 			<l:VerticalLayout>
 				<l:HorizontalLayout>
-					<core:Icon src="sap-icon://map-2"/>
-				<m:Link text="{blockDetail>Town} {blockDetail>Estate}" />
-					</l:HorizontalLayout>
+					<core:Icon src="sap-icon://map-2" />
+					<m:Link text="{blockDetail>Town} {blockDetail>Estate}" />
+				</l:HorizontalLayout>
 				<l:HorizontalLayout>
-					<core:Icon src="sap-icon://contacts"/>
-				<m:Text text="负责人：{blockDetail>Responsible}" />
-					</l:HorizontalLayout>
-					<l:HorizontalLayout>
-						<core:Icon src="sap-icon://call"/>
-				<m:Link text="+86 {blockDetail>ResponsiblePhone}" />
-					</l:HorizontalLayout>
-					<l:HorizontalLayout>
-						<core:Icon src="sap-icon://email"/>
-				<m:Link text="18900322338@qq.com" />
+					<core:Icon src="sap-icon://contacts" />
+					<m:Text text="负责人：{blockDetail>Responsible}" />
+				</l:HorizontalLayout>
+				<l:HorizontalLayout>
+					<core:Icon src="sap-icon://call" />
+					<m:Link text="+86 {blockDetail>ResponsiblePhone}" />
+				</l:HorizontalLayout>
+				<l:HorizontalLayout>
+					<core:Icon src="sap-icon://email" />
+					<m:Link text="18900322338@qq.com" />
 				</l:HorizontalLayout>
 			</l:VerticalLayout>
 
@@ -52,11 +52,12 @@
 		</headerContent>
 
 		<sections>
-			<ObjectPageSection title="详细情况">
+			<ObjectPageSection title="楼栋概览">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
-							<form:SimpleForm class="mySimpleForm" xmlns="sap.m" layout="ResponsiveGridLayout" singleContainerFullSize="false" breakpointM="30" columnsM="2" labelSpanM="12" adjustLabelSpan="false">
+							<form:SimpleForm class="mySimpleForm" 
+								xmlns="sap.m" layout="ResponsiveGridLayout" singleContainerFullSize="false" breakpointM="30" columnsM="2" labelSpanM="12" adjustLabelSpan="false">
 								<core:Title />
 								<Label text="总人口/户数" />
 								<Text text="100/40" />
@@ -76,53 +77,103 @@
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
+			<ObjectPageSection title="住户详情">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<m:Table id="peopleList" itemPress="onPressPeople" items="{people>/}">
+								<m:columns>
+									<m:Column >
+										<m:Text text="任务编号" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+										<m:Text text="描述" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+										<m:Text text="所属楼栋" />
+									</m:Column>
+									<m:Column>
+										<m:Text text="负责人" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+										<m:Text text="优先级" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+										<m:Text text="创建日期" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+										<m:Text text="到期日" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+										<m:Text text="状态" />
+									</m:Column>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem vAlign="Middle" type="Navigation">
+										<m:Text>
+											<m:ObjectIdentifier title="{people>Title}" text="{people>Id}" />
+											<m:Text text="{people>Description}" />
+											<m:Link text="{people>Block}" />
+											<m:ObjectIdentifier title="{people>Responsible}" text="{people>ResponsiblePhone}" />
+											<m:Text text="{people>Priority}" />
+											<m:Text text="{people>CreatedDate}" />
+											<m:Text text="{people>DueDate}" />
+											<m:Text text="{people>Status}" />
+										</m:Text>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
 			<ObjectPageSection title="任务">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
-			<m:Table id="taskList" itemPress="onPressItem" items="{path:'task>/',
+							<m:Table id="taskList" itemPress="onPressItem" items="{path:'task>/',
 				filters:[{path: 'Block', operator: 'EQ', value1:'光明小区二期1号楼'}]}">
-				<m:columns>
-					<m:Column >
-						<m:Text text="任务编号" />
-					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
-						<m:Text text="描述" />
-					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
-						<m:Text text="所属楼栋" />
-					</m:Column>
-					<m:Column> 
-						<m:Text text="负责人" />
-					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-						<m:Text text="优先级" />
-					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-						<m:Text text="创建日期" />
-					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-						<m:Text text="到期日" />
-					</m:Column>
-					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-						<m:Text text="状态" />
-					</m:Column>
-				</m:columns>
-				<m:items>
-					<m:ColumnListItem vAlign="Middle" type="Navigation">
-						<m:cells>
-							<m:ObjectIdentifier title="{task>Title}" text="{task>Id}" />
-							<m:Text text="{task>Description}" />
-							<m:Link text="{task>Block}" />
-				            <m:ObjectIdentifier title="{task>Responsible}" text="{task>ResponsiblePhone}"/>
-							<m:Text text="{task>Priority}" />
-							<m:Text text="{task>CreatedDate}" />
-							<m:Text text="{task>DueDate}" />
-							<m:Text text="{task>Status}" />
-						</m:cells>
-					</m:ColumnListItem>
-				</m:items>
-			</m:Table>
+								<m:columns>
+									<m:Column >
+										<m:Text text="任务编号" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+										<m:Text text="描述" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+										<m:Text text="所属楼栋" />
+									</m:Column>
+									<m:Column>
+										<m:Text text="负责人" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+										<m:Text text="优先级" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+										<m:Text text="创建日期" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+										<m:Text text="到期日" />
+									</m:Column>
+									<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+										<m:Text text="状态" />
+									</m:Column>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem vAlign="Middle" type="Navigation">
+										<m:Text>
+											<m:ObjectIdentifier title="{task>Title}" text="{task>Id}" />
+											<m:Text text="{task>Description}" />
+											<m:Link text="{task>Block}" />
+											<m:ObjectIdentifier title="{task>Responsible}" text="{task>ResponsiblePhone}" />
+											<m:Text text="{task>Priority}" />
+											<m:Text text="{task>CreatedDate}" />
+											<m:Text text="{task>DueDate}" />
+											<m:Text text="{task>Status}" />
+										</m:Text>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table>
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>

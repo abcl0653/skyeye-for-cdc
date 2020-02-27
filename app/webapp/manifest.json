@@ -124,6 +124,10 @@
 				"pattern": "Task/Detail",
 				"target": ["TaskDetail"]
 			},{
+				"name": "Check",
+				"pattern": "Check/List",
+				"target": ["Check"]
+			},{
 				"name": "Block",
 				"pattern": "Block/List",
 				"target": ["Block"]
