@@ -46,9 +46,14 @@
 										<NumericContent value="12" valueColor="Critical" withMargin="false" icon="sap-icon://activity-individual" />
 									</TileContent>
 								</GenericTile>
-								<GenericTile header="信息提报" subheader="新建任务或事件" ariaLabel="MobileUpload" press="onPressTile">
+								<!-- <GenericTile header="信息提报" subheader="新建任务或事件" ariaLabel="MobileUpload" press="onPressTile">
 									<TileContent footer="">
 										<ImageContent src="sap-icon://upload" />
+									</TileContent>
+								</GenericTile> -->
+								<GenericTile header="排查结果" subheader="上次排查记录" ariaLabel="Check" press="onPressTile">
+									<TileContent footer="2月20日">
+										<NumericContent value="214" valueColor="Good" withMargin="false" icon="sap-icon://activity-items" />
 									</TileContent>
 								</GenericTile>
 								<GenericTile header="工作人员" subheader="当前在岗/可用工作人员及志愿者" ariaLabel="Staff" press="onPressTile">

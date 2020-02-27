@@ -208,6 +208,11 @@
 					"viewName": "TaskDetail",
 					"title":"Task"
 				},
+				"Check": {
+					"viewType": "XML",
+					"viewName": "Check",
+					"title":"Check"
+				},
 				"Block": {
 					"viewType": "XML",
 					"viewName": "Block",
