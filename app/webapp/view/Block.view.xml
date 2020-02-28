@@ -85,7 +85,6 @@
 		</f:header>
 		<f:content>
 			<Table items="{blockDetail>/}" itemPress="onPressItem">
-			<!-- <Table items="{path: 'grids>/Grids'}" itemPress="onPressItem"> -->
 				<infoToolbar>
 					<OverflowToolbar>
 						<Label text="小区楼栋列表"/>

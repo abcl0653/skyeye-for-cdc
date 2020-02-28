@@ -1,7 +1,7 @@
 namespace cdc;
  
  using { cdc.Grids, cdc.Hospitals } from './master';
- using { cuid } from '@sap/cds/common';
+ using { cuid, managed } from '@sap/cds/common';
  entity Patients  {
      key ID: Integer;
      personalID: String;
@@ -14,15 +14,15 @@ namespace cdc;
      isolationStatus: Boolean;
      isolationDate: Date;
      predictIsolationEnd: Date;
+     PatientTrack : Association to many PatientTrack on PatientTrack.patient = $self;
+     PatientIntimateContact : Association to many PatientIntimateContact on PatientIntimateContact.patient = $self
  }
 
- entity Cases { 
+ entity Cases : managed { 
      key ID: Integer;
      patient: Association to Patients;
      hospital: Association to Hospitals;
      type: String(10); //确诊，疑似，死亡，重症，治愈
-     createdAt: DateTime;
-     
  }
 
  entity PatientTrack: cuid {
