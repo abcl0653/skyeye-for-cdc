@@ -1,6 +1,4 @@
-namespace cdc;
+namespace dcp;
 
-
-using from './master';
+using from './block';
 using from './case';
-using from './task';

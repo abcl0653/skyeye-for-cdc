@@ -70,6 +70,7 @@
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
+			<!-- <m:Table items="{path:'master>/Grids'}"> -->
 			<m:Table items="{case>Contacts}">
 				<m:columns>
 					<m:Column >
