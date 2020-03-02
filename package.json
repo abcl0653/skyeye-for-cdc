@@ -32,7 +32,7 @@
           "app"
         ],
         "credentials": {
-          "database": "db/cdc.db"
+          "database": "db/dcp.db"
         },
         "[production]": {
           "kind": "hana"
