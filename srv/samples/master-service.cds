@@ -1,4 +1,4 @@
-using {cdc, sap.common} from '../db/data-models';
+using {cdc, sap.common} from '../../db/samples/data-models-example';
 
 service masterService {
     entity Grids as projection on cdc.Grids ;

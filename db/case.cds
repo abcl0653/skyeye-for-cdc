@@ -32,7 +32,7 @@ entity EVENT {
     END_DATETIME: DateTime;
     ADDRESS: Association to BLOCK_UNIT;
     LAT_LNG: LargeString;
-    INFLUENCE: String(10) enum {High; Medium; Low};
+    INFLUENCE: TASK_PRIORITY; // String(10) enum {High; Medium; Low};
     EVENT_TYPE: EVENT_TYPE;
     EVENT_SUB_TYPE: EVENT_SUB_TYPE;
     RESPONSIBLE: Association to PERSON;
