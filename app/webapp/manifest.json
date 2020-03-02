@@ -40,6 +40,14 @@
 			"async": true,
 			"id": "App"
 		},
+		"componentUsages":{
+			"test":{
+				"name":"sap.ibso.skyeyeForCdc.component.test",
+				"settings":{},
+				"componentData":{},
+				"lazy":true
+			}
+		},
 		"dependencies": {
 			"minUI5Version": "1.65.6",
 			"libs": {
@@ -134,7 +142,7 @@
 			},{
 				"name": "Sample",
 				"pattern": "Sample",
-				"target": ["Sample"]
+				"target": {"name":"test"}
 			},{
 				"name": "Region",
 				"pattern": "Region",
@@ -297,6 +305,10 @@
 					"viewType": "XML",
 					"viewName": "MobileUpload",
 					"title":"MobileUpload"
+				},
+				"test":{
+					"type":"Component",
+					"usage":"test"
 				}
 			}
 		}

@@ -4,7 +4,6 @@
   "description": "",
   "private": true,
   "devDependencies": {
-    "@sap/ui5-builder-webide-extension": "1.0.9",
     "@ui5/cli": "1.13.0",
     "csv": "^5.3.1",
     "sqlite3": "^4.1.1"
@@ -16,11 +15,6 @@
     "build:mta": "cds build/all && cds deploy && mbt build -p=cf",
     "deploy:cf": "npm run build:mta && cf deploy mta_archives/${npm_package_name}_${npm_package_version}.mtar",
     "ui5": "ui5 serve -o index.html"
-  },
-  "ui5": {
-    "dependencies": [
-      "@sap/ui5-builder-webide-extension"
-    ]
   },
   "cds": {
     "requires": {
