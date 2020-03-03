@@ -13,7 +13,8 @@ using {
     } from './common';
 
 entity CASES : managed {
-    key ID: Integer;
+    key ID: UUID;
+    NUMBER: Integer;
     NAME: String;
     BLOCK_UNIT: Association to BLOCK_UNIT;
     RELATED_PERSON: Association to PERSON;
@@ -24,8 +25,7 @@ entity CASES : managed {
     REMARK: String
 }
 
-entity EVENT {
-    key ID: Integer;
+entity EVENT : cuid {
     TITLE: String(100);
     DESCRIPTION: String;
     START_DATETIME: DateTime;
@@ -38,8 +38,8 @@ entity EVENT {
     RESPONSIBLE: Association to PERSON;
 }
 
-entity TASK {
-    key ID: Integer;
+entity TASK : cuid{
+    NUMBER: Integer; // Readable ID
     TITLE: String(100);
     DESCRIPTION: String;
     DUE_DATETIME: DateTime;
@@ -54,9 +54,9 @@ entity TASK {
     TASK_ITEMS: Composition of many TASK_ITEMS on TASK_ITEMS.TASK = $self;
 }
 
-entity TASK_ITEMS  {
-    key ITEM_ID: Integer;
-    key TASK: Association to TASK;
+entity TASK_ITEMS : cuid{
+    ITEM_NUMBER: Integer;
+    TASK: Association to TASK;
     BLOCK_UNIT: Association to BLOCK_UNIT;
     TASK_ITEM_TYPE: String(10);
     START_DATETIME: DateTime;
