@@ -4,10 +4,12 @@ using { managed } from '@sap/cds/common';
 using { dcp.BLOCK_LEVEL, dcp.PERSON_TYPE, dcp.BLOCK_UNIT_TYPE, dcp.SOURCE_TYPE } from './common';
 
 entity BLOCK : managed {
-    key ID: UUID; // For standard code, it is long
+    key ID: UUID; 
     CODE: String(50); // Standard Admin code
     PARENT: Association to BLOCK; // In DB, this field will be PARENT_ID
     BLOCK_LEVEL: BLOCK_LEVEL; 
+    LEVEL: String(20); // Tree level 
+    SEQ: Integer; // For Sorting in UI
     RESPONSIBLE: Association to PERSON;
     LAT_LNG: LargeString  // Probably Store geojson
 }
@@ -39,6 +41,7 @@ entity HOSPITAL {
     HOSPITAL_LEVEL: String(10); // 3A, 3B
     BLOCK: Association to BLOCK;
     LAT_LNG: LargeString;
-    CAPACITY: Integer
+    CAPACITY: Integer;
+    TOTAL_CASE: Integer;
 }
 

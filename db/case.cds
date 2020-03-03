@@ -15,7 +15,9 @@ using {
 entity CASES : managed {
     key ID: UUID;
     NUMBER: Integer;
-    NAME: String;
+    NAME: String; // Or title?
+    START_DATE: Date ; //default $now; 
+    CONFIRMED_DATE: Date;
     BLOCK_UNIT: Association to BLOCK_UNIT;
     RELATED_PERSON: Association to PERSON;
     RESPONSIBLE: Association to PERSON;
@@ -25,7 +27,8 @@ entity CASES : managed {
     REMARK: String
 }
 
-entity EVENT : cuid {
+entity EVENT : managed {
+    key ID: UUID;
     TITLE: String(100);
     DESCRIPTION: String;
     START_DATETIME: DateTime;
@@ -69,19 +72,38 @@ entity TASK_ITEMS : cuid{
 entity EVENT_RELATED_CASE : cuid {
     EVENT: Association to EVENT;
     CASES: Association to CASES;
+    IS_SOURCE_CASE: Boolean; // True means this case is the source of infection net
     REMARK: String;
 }
 
 entity CASE_CHANGE_HISTORY: cuid {
     CASES: Association to CASES;
+    CHANGE_TYPE: String(10); // CaseStatus change or CaseType change
     CHANGED_AT: DateTime;
     CHANGED_BY: User;
-    NEW_STATUS: PATIENT_STATUS;
-    OLD_STATUS: PATIENT_STATUS;
+    STATUS: PATIENT_STATUS; // inserted when the status is changed from the cases table
+    CASE_TYPE: CASE_TYPE; // inserted when the case type is changed from the cases table
+    DESCRIPTION: String;
 }
 
 entity EVENT_RELATED_PERSON : cuid {
     EVENT: Association to EVENT;
     PERSON: Association to PERSON;
     REMARK: String;
+}
+
+
+// Aggregation data for cases and prediction result
+
+entity BLOCK_CASE_REPORT : managed {
+    key BLOCK: Association to BLOCK;
+    key CASE_DATE: Date;
+    CONFIRMED: Integer;
+    SUSPECTED: Integer;
+    RECOVERED: Integer;
+    RISK_LEVEL: TASK_PRIORITY; // High, Medium, Low
+    PREDICTED_CONFIRMED: Integer;
+    PREDICTED_SUSPECTED: Integer;
+    PREDICTED_RECOVERED: Integer;
+    PREDICTED_RISK_LEVEL: TASK_PRIORITY;
 }
