@@ -24,12 +24,14 @@ sap.ui.define([
 						oScrollContainer.addContent(new sap.m.GenericTile({
 							header: y.text,
 							ariaLabel: y.key,
-							backgroundImage: y.icon,
-							press: this.onPressTile.bind(this)
+							press: this.onPressTile.bind(this),
+							tileContent: new sap.m.TileContent({
+								content: new sap.m.ImageContent({ src: y.icon })
+							})
 						}));
 					}.bind(this));
 					oPage.addSection(new sap.uxap.ObjectPageSection({
-						title:x.Title,
+						title: x.Title,
 						subSections: [new sap.uxap.ObjectPageSubSection({
 							blocks: [oScrollContainer]
 						})]
