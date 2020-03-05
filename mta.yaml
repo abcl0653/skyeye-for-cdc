@@ -23,6 +23,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: dcp-db-hdi-container
+      - name: dcp-uaa
   ###### UI Module ######
   - name: dcp-ui
     type: nodejs
@@ -38,6 +39,7 @@ modules:
           strictSSL: true
           name: srv-binding
           url: ~{srv-url}
+      - name: dcp-uaa
 resources:
   # 'service-plan' can be configured via 'cds.requires.<name>.vcap.plan'
   - name: dcp-db-hdi-container
@@ -46,3 +48,8 @@ resources:
       hdi-container-name: ${service-name}
     parameters:
       service: hanatrial
+  - name: dcp-uaa
+    parameters:
+      path: ./gen/xs-security.json
+      service-plan: application
+    type: com.sap.xs.uaa

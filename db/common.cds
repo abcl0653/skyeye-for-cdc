@@ -3,49 +3,49 @@ namespace dcp;
 using sap from '@sap/cds/common';
 
 entity BLOCK_LEVELS : sap.common.CodeList {
-    key code: Integer;
+    key CODE: Integer;
 }
 
 entity PERSON_TYPES : sap.common.CodeList {
-    key code: String(5);
+    key CODE: String(5);
 }
 
 entity BLOCK_UNIT_TYPES : sap.common.CodeList {
-    key code: String(5);
+    key CODE: String(5);
 }
 
 entity SOURCE_TYPES : sap.common.CodeList {
-    key code: String(5);
+    key CODE: String(5);
 }
 
 entity CASE_TYPES : sap.common.CodeList {
-    key code: String(5);
+    key CODE: String(5);
 }
 
 entity PATIENT_STATUSES : sap.common.CodeList {
-    key code: String(5);
+    key CODE: String(5);
 }
 
 entity TASK_PRIORITIES : sap.common.CodeList {
-    key code: Integer;
+    key CODE: Integer;
 }
 
 entity TASK_STATUSES : sap.common.CodeList {
-    key code: String(5);
+    key CODE: String(5);
 }
 
 entity EVENT_TYPES : sap.common.CodeList {
-    key code: String(5);
+    key CODE: String(5);
     SUB_TYPES: Composition of many EVENT_SUB_TYPES on SUB_TYPES.EVENT_TYPE = $self;
 }
 
 entity EVENT_SUB_TYPES : sap.common.CodeList {
-    key code: String(5);
+    key CODE: String(5);
     EVENT_TYPE: Association to EVENT_TYPES;
 }
 
 entity TASK_TYPES: sap.common.CodeList {
-    key code: String(5);
+    key CODE: String(5);
 }
 
 type BLOCK_LEVEL: Association to BLOCK_LEVELS;

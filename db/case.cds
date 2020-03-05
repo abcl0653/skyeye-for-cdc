@@ -24,7 +24,8 @@ entity CASES : managed {
     HOSPITAL: Association to HOSPITAL;
     CASE_TYPE: CASE_TYPE;
     STATUS: PATIENT_STATUS;
-    REMARK: String
+    REMARK: String;
+    CASE_CHANGE_HIS: Composition of many CASE_CHANGE_HISTORY on CASE_CHANGE_HIS.CASES = $self;
 }
 
 entity EVENT : managed {

@@ -2,5 +2,19 @@
     "build": {
         "target": ".",
         "tasks": []
+    },
+
+    "auth": {
+        "passport": {
+            "strategy": "mock",
+            "users": {
+                "system": {
+                    "roles": ["admin"],
+                    "ID": "system",
+                    "password": "Sap12345",
+                    "userAttributes": { "block":"310000"}
+                }
+            }
+        }
     }
 }
