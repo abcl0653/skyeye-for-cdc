@@ -8,10 +8,10 @@
 		"description": "{{appDescription}}",
 		"dataSources": {
 			"main": {
-				"uri": "/facility/",
+				"uri": "/v2/facility/",
 				"type": "OData",
 				"settings": {
-					"odataVersion": "4.0"
+					"odataVersion": "2.0"
 				}
 			}
 		}
@@ -33,9 +33,8 @@
 			},
 			"": {
 				"dataSource": "main",
-				"type": "sap.ui.model.odata.v4.ODataModel",
+				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
-					"synchronizationMode": "None",
 					"operationMode": "Server",
 					"autoExpandSelect": true,
 					"earlyRequests": true,
