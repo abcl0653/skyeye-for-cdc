@@ -6,6 +6,14 @@
             "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.component.test",
             "applicationType": "URL",
             "url": "./"
+        },
+        "browse-hospitals": {
+            "title": "Browse Hospitals",
+            "description": "Hospital",
+            "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.component.hospital",
+            "applicationType": "URL",
+            "url": "/webapp/apps/hospitals"
+        
         }
     }
 }
