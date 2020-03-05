@@ -78,6 +78,8 @@
 }
 .box_3 {
 }
+.box_2 {
+}
 .shape {
 }
 .icon {
@@ -88,6 +90,9 @@
   color:#169BD5;
 }
 .connector {
+}
+.marker {
+  color:#FFFFFF;
 }
 .paragraph1 {
   font-family:'72', sans-serif;
