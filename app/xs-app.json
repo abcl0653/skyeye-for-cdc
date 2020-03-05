@@ -1,6 +1,9 @@
 {
     "welcomeFile": "webapp/",
-    "authenticationMethod": "none",
+    "authenticationMethod": "route",
+    "logout": {
+      "logoutEndpoint": "/do/logout"
+    },
     "routes": [{
         "source": "^/webapp/(.*)$",
         "target": "$1",
@@ -8,6 +11,8 @@
     },
     {
         "source": "^(.*)$",
+        "authenticationType": "xsuaa",
+        "csrfProtection": true,
         "destination": "srv-binding"
     }]
 }
