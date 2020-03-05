@@ -43,7 +43,11 @@ sap.ui.define([
 			if (index > 0 && aConfig[index].Content) {
 				this._oNavigationList.destroyItems();
 				aConfig[index].Content.forEach(function (x) {
-					this._oNavigationList.addItem(new sap.tnt.NavigationListItem(x));
+					this._oNavigationList.addItem(new sap.tnt.NavigationListItem({
+						key:x.key,
+						text:x.text,
+						icon:x.icon
+					}));
 				}.bind(this));
 				this.getView().byId("toolPage").setSideContent(this._oSideNavigation);
 			} else {

@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "browse-books": {
+            "title": "Browse Books",
+            "description": "Bookshop",
+            "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.component.test",
+            "applicationType": "URL",
+            "url": "./"
+        }
+    }
+}
