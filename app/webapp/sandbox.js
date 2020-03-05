@@ -7,6 +7,19 @@
 
 this.sap = this.sap || {};
 
+window['sap-ushell-config'] = {
+    "defaultRenderer": "fiori2",
+    renderers: {
+        fiori2: {
+            componentData: {
+                config: {
+                    search: "hidden"
+                }
+            }
+        }
+    }
+};
+
 (function () {
     "use strict";
     /*global jQuery, sap, window */
@@ -211,19 +224,21 @@ this.sap = this.sap || {};
         jQuery.sap.require("sap.ushell.services.Container");
         jQuery.sap.registerModulePath("sap.ushell.renderers.fiorisandbox", getBootstrapScriptPath() + "../renderers/fiorisandbox/");
 
-        // fill first with sandbox base application config
-        applyJsonApplicationConfig(getBootstrapScriptPath() + "../shells/sandbox/fioriSandboxConfig.json");
+        // // fill first with sandbox base application config
+        // applyJsonApplicationConfig(getBootstrapScriptPath() + "../shells/sandbox/fioriSandboxConfig.json");
 
-        // if one or more configuration files are specified explicitly via URL parameter,
-        // we just read these (JSON only); otherwise, we use the fixed path /appconfig/fioriSandboxConfig
-        if (aConfigFiles && aConfigFiles.length > 0) {
-            for (i = 0; i < aConfigFiles.length; i = i + 1) {
-                applyJsonApplicationConfig(aConfigFiles[i]);
-            }
-        } else {
-            // try to read from local appconfig (default convention)
-            applyJsonApplicationConfig("fioriSandboxConfig.json");
-        }
+        // // if one or more configuration files are specified explicitly via URL parameter,
+        // // we just read these (JSON only); otherwise, we use the fixed path /appconfig/fioriSandboxConfig
+        // if (aConfigFiles && aConfigFiles.length > 0) {
+        //     for (i = 0; i < aConfigFiles.length; i = i + 1) {
+        //         applyJsonApplicationConfig(aConfigFiles[i]);
+        //     }
+        // } else {
+        //     // try to read from local appconfig (default convention)
+        //     applyJsonApplicationConfig("/appconfig/fioriSandboxConfig.json");
+        // }
+        // String: Change to Local Config
+        applyJsonApplicationConfig("fioriSandboxConfig.json");  
 
         // the config needs to be adjusted depending on parameter sap-ushell-sandbox-renderer
         evaluateCustomRenderer(sCustomRenderer);

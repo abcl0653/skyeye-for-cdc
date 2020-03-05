@@ -1,19 +1,18 @@
 {
     "applications": {
-        "browse-books": {
-            "title": "Browse Books",
-            "description": "Bookshop",
-            "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.component.test",
+        "Monitoring-display": {
+            "title": "网格化疫情监控与预测",
+            "description": "",
+            "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.apps.Monitoring",
             "applicationType": "URL",
-            "url": "./"
+            "url": "./apps/Monitoring"
         },
-        "browse-hospitals": {
-            "title": "Browse Hospitals",
-            "description": "Hospital",
-            "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.component.hospital",
+        "Hospital-display": {
+            "title": "医疗机构",
+            "description": "",
+            "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.apps.Hospital",
             "applicationType": "URL",
-            "url": "/webapp/apps/hospitals"
-        
+            "url": "./apps/Hospital"
         }
     }
 }

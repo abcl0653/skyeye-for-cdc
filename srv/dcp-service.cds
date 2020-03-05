@@ -9,7 +9,7 @@ service blockService  {
     entity BlockUnit as projection on dcp.BLOCK_UNIT;
 };
 
-service facilityService  {
+service facilityService @(require:'admin') {
     entity Hospital as projection on dcp.HOSPITAL;
 };
 
