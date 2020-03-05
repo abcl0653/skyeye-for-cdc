@@ -1,0 +1,36 @@
+[{
+    "MaterialGroupText":"口罩",
+    "MaterialGroupId":"10002",
+    "Description":"工作人员及志愿者个人防护",
+    "Storage":200,
+    "Requirement":50,
+    "Responsible":"大鹏"
+},{
+    "MaterialGroupText":"消毒液",
+    "MaterialGroupId":"10006",
+    "Description":"工作人员及志愿者个人防护",
+    "Storage":20,
+    "Requirement":20,
+    "Responsible":"大鹏"
+},{
+    "MaterialGroupText":"额温枪",
+    "MaterialGroupId":"10304",
+    "Description":"进出人员登记使用",
+    "Storage":5,
+    "Requirement":2,
+    "Responsible":"大鹏"
+},{
+    "MaterialGroupText":"防护服",
+    "MaterialGroupId":"10008",
+    "Description":"进出人员登记使用",
+    "Storage":18,
+    "Requirement":40,
+    "Responsible":"大鹏"
+},{
+    "MaterialGroupText":"备用出入证",
+    "MaterialGroupId":"20002",
+    "Description":"社区居民出入凭证",
+    "Storage":200,
+    "Requirement":300,
+    "Responsible":"大鹏"
+}]

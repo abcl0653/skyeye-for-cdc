@@ -1,0 +1,101 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "sap.ibso.skyeyeForCdc.apps.Hospital",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"dataSources": {
+			"main": {
+				"uri": "/facility/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0"
+				}
+			}
+		}
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.fe": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"": {
+				"dataSource": "main",
+				"settings": {
+					"synchronizationMode": "None",
+					"operationMode": "Server",
+					"autoExpandSelect": true,
+					"earlyRequests": true,
+					"groupProperties": {
+						"default": {
+							"submit": "Auto"
+						}
+					}
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "List",
+					"target": [
+						"List"
+					]
+				},
+				{
+					"pattern": "Hospital({code})",
+					"name": "Detail",
+					"target": [
+						"List",
+						"Detail"
+					]
+				}
+			],
+			"targets": {
+				"List": {
+					"type": "Component",
+					"id": "HospitalList",
+					"name": "sap.fe.templates.ListReport",
+					"controlAggregation": "beginColumnPages",
+					"options": {
+						"settings": {
+							"entitySet": "Hospital",
+							"navigation": {
+								"Hospital": {
+									"detail": {
+										"route": "Detail"
+									}
+								}
+							}
+						}
+					}
+				},
+				"Detail": {
+					"type": "Component",
+					"id": "Detail",
+					"name": "sap.fe.templates.ObjectPage",
+					"controlAggregation": "midColumnPages",
+					"options": {
+						"settings": {
+							"entitySet": "Hospital"
+						}
+					}
+				}
+			}
+		}
+	}
+}

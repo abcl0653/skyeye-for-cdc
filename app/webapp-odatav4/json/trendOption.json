@@ -1,0 +1,51 @@
+{
+    "grid": {
+        "top": 10,
+        "bottom": 20
+    },
+    "xAxis": {
+        "type": "category",
+        "axisLabel": {
+            "showMaxLabel": true,
+            "showMinLabel": true
+        },
+        "axisTick": {
+            "alignWithLabel": true
+        }
+    },
+    "yAxis": {
+        "show": false,
+        "type": "value",
+        "splitNumber": 1,
+        "axisLine": {
+            "show": false
+        }
+    },
+    "series": [
+        {
+            "name": "confirmed",
+            "type": "line",
+            "label": {
+                "show": true
+            },
+            "encode": {
+                "x": "date",
+                "y": "confirmed"
+            }
+        },
+        {
+            "name": "predict",
+            "type": "line",
+            "lineStyle": {
+                "type": "dashed"
+            },
+            "label": {
+                "show": true
+            },
+            "encode": {
+                "x": "date",
+                "y": "predict"
+            }
+        }
+    ]
+}

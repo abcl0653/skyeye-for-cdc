@@ -1,0 +1,124 @@
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Task" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:fb="sap.ui.comp.filterbar" 
+	xmlns:mc="sap.suite.ui.microchart" 
+	xmlns:core="sap.ui.core">
+	<f:DynamicPage id="dynamicPageId" headerExpanded="true" toggleHeaderOnTitleClick="false" fitContent="false" class="sapUiNoContentPadding myDynamicPage">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="任务管理(上海市/浦东新区/张江镇/光明小区社区)" />
+				</f:heading>
+				<f:content>
+				</f:content>
+				<f:actions>
+					<Button icon="sap-icon://add" press="onAddTask" type="Transparent" />
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="false">
+				<f:content>
+					<HeaderContainer>
+						<VBox width="20rem" >
+							<Label text="今日任务:"/>
+							<Text text="5" class="taskNumber"/>
+
+						</VBox>
+						<VBox width="20rem">
+							<Label text="筛选条件" />
+							<fb:FilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="true" showFilterConfiguration="false">
+
+								<fb:filterGroupItems>
+									<fb:FilterGroupItem name="A" label="优先级" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+										<fb:control>
+											<Select forceSelection="true">
+												<core:Item key="" text="高" />
+												<core:Item key="" text="中" />
+												<core:Item key="" text="低" />
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem name="B" label="任务状态" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+										<fb:control>
+											<Select forceSelection="true">
+												<core:Item key="" text="已完成" />
+												<core:Item key="" text="新建" />
+												<core:Item key="" text="处理中" />
+												<core:Item key="" text="取消" />
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+								</fb:filterGroupItems>
+							</fb:FilterBar>
+							<!-- <Label text="时间范围" />
+							<DatePicker />
+							<Text text="~" />
+							<DatePicker /> -->
+						</VBox>
+						<VBox width="20rem">
+							<Label text="任务状态" />
+							<mc:InteractiveDonutChart selectionChanged="onSelectionChanged">
+								<mc:segments>
+									<mc:InteractiveDonutChartSegment label="已完成" value="40.0" displayedValue="40.0%" />
+									<mc:InteractiveDonutChartSegment label="新建" value="21.5" displayedValue="21.5%" />
+									<mc:InteractiveDonutChartSegment label="进行中" value="38.5" displayedValue="38.5%" />
+								</mc:segments>
+							</mc:InteractiveDonutChart>
+						</VBox>
+					</HeaderContainer>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<Table itemPress="onPressItem" items="{task>/}">
+				<columns>
+					<Column >
+						<Text text="任务标题/编号" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="描述" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="任务类型" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="所属楼栋" />
+					</Column>
+					<Column> 
+						<Text text="负责人" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="优先级" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="创建日期" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="到期日" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="状态" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" type="Navigation">
+						<cells>
+							<ObjectIdentifier title="{task>Title}" text="{task>Id}" />
+							<Text text="{task>Description}" />
+							<Text text="{task>Type}" />
+							<Link text="{task>Block}" />
+							<ObjectIdentifier title="{task>Responsible}" text="{task>ResponsiblePhone}" />
+							<Text text="{task>Priority}" />
+							<Text text="{task>CreatedDate}" />
+							<Text text="{task>DueDate}" />
+							<Text text="{task>Status}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

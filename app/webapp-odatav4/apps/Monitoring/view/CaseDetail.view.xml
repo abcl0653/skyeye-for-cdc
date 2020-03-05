@@ -1,0 +1,115 @@
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.CaseDetail" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns:m="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns="sap.uxap" 
+	xmlns:l="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core">
+	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" >
+		<headerTitle>
+			<ObjectPageHeader objectTitle="{case>Name}" objectSubtitle="{case>ID}" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
+				<breadcrumbs>
+					<m:Breadcrumbs currentLocationText="{case>Name}">
+						<m:Link text="病例列表" press="onPressCaseList" />
+					</m:Breadcrumbs>
+				</breadcrumbs>
+			</ObjectPageHeader>
+		</headerTitle>
+
+		<headerContent>
+			<l:VerticalLayout>
+				<!-- <m:Label text="病例描述:" /> -->
+				<m:VBox width="20rem">
+					<m:Label text="{case>Description}" />
+				</m:VBox>
+			</l:VerticalLayout>
+			<l:VerticalLayout>
+				<l:HorizontalLayout>
+				<core:Icon src="sap-icon://contacts"/><m:Text text="病例联系人：****" />
+			</l:HorizontalLayout>
+				<l:HorizontalLayout>
+				<core:Icon src="sap-icon://call" /><m:Link text="+86 189003223298" />
+			</l:HorizontalLayout>
+			<l:HorizontalLayout>
+			<core:Icon src="sap-icon://email"/><m:Link text="18900322338@qq.com" />
+		</l:HorizontalLayout>	
+		<l:HorizontalLayout>
+			<core:Icon src="sap-icon://map-2"/><m:Link text="{case>Region}" press="onPressBlockDetail" />
+			</l:HorizontalLayout>
+		</l:VerticalLayout>
+
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection title="详细情况">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<form:SimpleForm class="mySimpleForm" xmlns="sap.m" layout="ResponsiveGridLayout" singleContainerFullSize="false" breakpointM="30" columnsM="2" labelSpanM="12" adjustLabelSpan="false">
+								<core:Title />
+								<Label text="病例类型" />
+								<Text text="{case>Type}" />
+								<Label text="确诊日期" />
+								<Text text="{case>ConfirmedDate}" />
+								<Label text="收治状态" />
+								<Text text="{case>Status}" />
+								<core:Title />
+								<Label text="密切接触人数" />
+								<Text text="3" />
+								<Label text="收治医院" />
+								<Text text="{case>Hospital}" />
+								<Label text="户口信息" />
+								<Text text="本地户口" />
+							</form:SimpleForm>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection title="密切接触者">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+			<!-- <m:Table items="{path:'master>/Grids'}"> -->
+			<m:Table items="{case>Contacts}">
+				<m:columns>
+					<m:Column >
+						<m:Text text="接触病例" />
+					</m:Column>
+					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<m:Text text="接触日期" />
+					</m:Column>
+					<m:Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<m:Text text="类型" />
+					</m:Column>
+					<m:Column> 
+						<m:Text text="状态" />
+					</m:Column>
+				</m:columns>
+				<m:items>
+					<m:ColumnListItem vAlign="Middle" type="Navigation">
+						<m:cells>
+							<m:ObjectIdentifier title="{case>Name}" text="{case>ID}" />
+							<m:Text text="{case>Date}" />
+							<m:Text text="{case>Type}" />
+							<m:Text text="{case>Status}" />
+						</m:cells>
+					</m:ColumnListItem>
+				</m:items>
+			</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		<ObjectPageSection title="活动轨迹">
+				<subSections>
+					<ObjectPageSubSection>
+						<!-- <blocks> -->
+							<m:Image src="../webapp/image/trace-map.png" height="15rem" class="smallMap"></m:Image>
+						<!-- </blocks> -->
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

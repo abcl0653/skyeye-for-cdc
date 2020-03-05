@@ -1,0 +1,392 @@
+[
+    {
+        "text": "上海市",
+        "confirmed": 12,
+        "suspects":122,
+        "status": "Warning",
+        "nodes": [
+            {
+                "ID": 310115,
+                "text": "浦东新区",
+                "confirmed": 8,
+                "suspects":72,
+                "status": "Warning",
+                "nodes": [
+                    {
+                        "ID": "310115004",
+                        "text": "潍坊新村街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115005",
+                        "text": "陆家嘴街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115007",
+                        "text": "周家渡街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115008",
+                        "text": "塘桥街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115009",
+                        "text": "上钢新村街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115010",
+                        "text": "南码头路街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115011",
+                        "text": "沪东新村街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115012",
+                        "text": "金杨新村街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115013",
+                        "text": "洋泾街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115014",
+                        "text": "浦兴路街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115015",
+                        "text": "东明路街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115016",
+                        "text": "花木街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115017",
+                        "text": "申港街道",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115103",
+                        "text": "川沙新镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115104",
+                        "text": "高桥镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115105",
+                        "text": "北蔡镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115110",
+                        "text": "合庆镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115114",
+                        "text": "唐镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115117",
+                        "text": "曹路镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115120",
+                        "text": "金桥镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115121",
+                        "text": "高行镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115123",
+                        "text": "高东镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Success"
+                    },
+                    {
+                        "ID": "310115125",
+                        "text": "张江镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning",
+                        "nodes":[
+                            {
+                                "ID":"310115125001",
+                                "text":"光明小区社区",
+                                "confirmed":0,
+                                "status":"Warning",
+                                "nodes":[
+                                    {"ID":310115125001001, "text":"光明小区二期1号楼"},
+                                    {"ID":310115125001002, "text":"光明小区二期2号楼"},
+                                    {"ID":310115125001003, "text":"光明小区二期3号楼"},
+                                    {"ID":310115125001004, "text":"光明小区二期4号楼"},
+                                    {"ID":310115125001005, "text":"光明小区二期5号楼"},
+                                    {"ID":310115125001006, "text":"光明小区二期6号楼"},
+                                    {"ID":310115125001007, "text":"光明小区二期7号楼"},
+                                    {"ID":310115125001008, "text":"光明小区二期8号楼"},
+                                    {"ID":310115125001009, "text":"光明小区二期9号楼"},
+                                    {"ID":310115125001010, "text":"光明小区二期10号楼"},
+                                    {"ID":310115125001011, "text":"光明小区二期11号楼"},
+                                    {"ID":310115125001012, "text":"光明小区二期12号楼"},
+                                    {"ID":310115125001013, "text":"光明小区二期13号楼"},
+                                    {"ID":310115125001014, "text":"光明小区二期14号楼"},
+                                    {"ID":310115125001015, "text":"光明小区二期15号楼"},
+                                    {"ID":310115125001016, "text":"光明小区二期16号楼"},
+                                    {"ID":310115125001017, "text":"光明小区二期17号楼"},
+                                    {"ID":310115125001018, "text":"光明小区二期18号楼"},
+                                    {"ID":310115125001019, "text":"光明小区二期19号楼"},
+                                    {"ID":310115125001020, "text":"光明小区二期20号楼"}
+                                ]
+                            },
+                            {
+                                "ID":"310115125002",
+                                "text":"科苑路社区",
+                                "confirmed":0,
+                                "status":"Warning"
+                            },
+                            {
+                                "ID":"310115125003",
+                                "text":"软件园社区",
+                                "confirmed":0,
+                                "status":"Warning"
+                            },
+                            {
+                                "ID":"310115125004",
+                                "text":"大学社区",
+                                "confirmed":0,
+                                "status":"Warning"
+                            },
+                            {
+                                "ID":"310115125005",
+                                "text":"药谷社区",
+                                "confirmed":0,
+                                "status":"Success"
+                            },
+                            {
+                                "ID":"310115125006",
+                                "text":"张江镇社区",
+                                "confirmed":0,
+                                "status":"Success"
+                            },
+                            {
+                                "ID":"310115125007",
+                                "text":"高斯路北",
+                                "confirmed":0,
+                                "status":"Success"
+                            }
+                        ]
+                    },
+                    {
+                        "ID": "310115130",
+                        "text": "三林镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115131",
+                        "text": "惠南镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Success"
+                    },
+                    {
+                        "ID": "310115132",
+                        "text": "周浦镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Success"
+                    },
+                    {
+                        "ID": "310115133",
+                        "text": "新场镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115134",
+                        "text": "大团镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115135",
+                        "text": "芦潮港镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115136",
+                        "text": "康桥镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115137",
+                        "text": "航头镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115138",
+                        "text": "六灶镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115139",
+                        "text": "祝桥镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115140",
+                        "text": "泥城镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115141",
+                        "text": "宣桥镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115142",
+                        "text": "书院镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115143",
+                        "text": "万祥镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115144",
+                        "text": "老港镇",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115401",
+                        "text": "芦潮港农场",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115402",
+                        "text": "东海农场",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115403",
+                        "text": "朝阳农场",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115501",
+                        "text": "外高桥保税区",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    },
+                    {
+                        "ID": "310115502",
+                        "text": "金桥出口加工区",
+                        "confirmed": 0,
+                        "suspects":0,
+                        "status": "Warning"
+                    }
+                ]
+            },
+            {
+                "text": "黄浦区",
+                "confirmed": 0,
+                "suspects":0,
+                "status": "Success"
+            }
+        ]
+    }
+]

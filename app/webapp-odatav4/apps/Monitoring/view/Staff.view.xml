@@ -1,0 +1,77 @@
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Staff" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:fb="sap.ui.comp.filterbar" 
+	xmlns:mc="sap.suite.ui.microchart" 
+	xmlns:core="sap.ui.core">
+	<f:DynamicPage id="dynamicPageId" headerExpanded="true" toggleHeaderOnTitleClick="false" fitContent="false" class="sapUiNoContentPadding myDynamicPage">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="工作人员与志愿者" />
+				</f:heading>
+				<f:content>
+				</f:content>
+				<f:actions>
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="false">
+				<f:content>
+					<fb:FilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="true" showGoOnFB="false" showFilterConfiguration="false">
+						<fb:filterGroupItems>
+							<fb:FilterGroupItem name="B" label="类型" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+								<fb:control>
+									<Select forceSelection="true">
+										<core:Item key="" text="全部" />
+										<core:Item key="" text="工作人员" />
+										<core:Item key="" text="志愿者" />
+									</Select>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem name="C" label="加入时间" groupName="sap.ui.comp.filterbar.FilterBar.INTERNAL_GROUP" visibleInFilterBar="true">
+								<fb:control>
+									<DateRangeSelection />
+								</fb:control>
+							</fb:FilterGroupItem>
+						</fb:filterGroupItems>
+					</fb:FilterBar>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<Table items="{staff>/}" itemPress="onPressItem">
+				<columns>
+					<Column >
+						<Text text="姓名/联系方式" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="类型" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="加入时间" />
+					</Column>
+					<Column>
+						<Text text="当前工作" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="今日任务完成情况" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" type="Navigation">
+						<cells>
+							<ObjectIdentifier title="{staff>Name}" text="{staff>Contact}" />
+							<Text text="{staff>Type}" />
+							<Text text="{staff>CreatedAt}" />
+							<Text text="{staff>CurrentTask}" />
+							<ProgressIndicator width="20rem" percentValue="{staff>Percentage}" displayValue="{staff>Percentage}%" showValue="true" state="{staff>PercentageStatus}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

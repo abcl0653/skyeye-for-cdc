@@ -1,0 +1,94 @@
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Check" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:fb="sap.ui.comp.filterbar" 
+	xmlns:mc="sap.suite.ui.microchart" 
+	xmlns:core="sap.ui.core">
+	<f:DynamicPage id="dynamicPageId" headerExpanded="true" toggleHeaderOnTitleClick="false" fitContent="false" class="sapUiNoContentPadding myDynamicPage">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="排查任务结果" />
+				</f:heading>
+				<f:content>
+				</f:content>
+				<f:actions>
+					<Button icon="sap-icon://add" press="onAddcheck" type="Transparent" />
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="false">
+				<f:content>
+					<HeaderContainer>
+						<VBox width="20rem">
+							<Label text="任务类型" />
+							<Select forceSelection="true" width="100%">
+								<core:Item key="" text="测温" />
+								<core:Item key="" text="物资发放" />
+								<core:Item key="" text="病史排查" />
+							</Select>
+							<Label text="任务" />
+							<Select forceSelection="true" width="100%">
+								<core:Item key="" text="2月20日 测温" />
+								<core:Item key="" text="2月18日 测温" />
+								<core:Item key="" text="2月16日 测温" />
+							</Select>
+						</VBox>
+						<VBox width="20rem">
+							<Label text="排查结果" />
+							<mc:InteractiveDonutChart selectionChanged="onSelectionChanged">
+								<mc:segments>
+									<mc:InteractiveDonutChartSegment label="正常" value="90.0" displayedValue="90.0%" />
+									<mc:InteractiveDonutChartSegment label="已处理" value="6.7" displayedValue="6.7%" />
+									<mc:InteractiveDonutChartSegment label="待处理" value="3.3" displayedValue="3.3%" />
+								</mc:segments>
+							</mc:InteractiveDonutChart>
+						</VBox>
+					</HeaderContainer>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<Table itemPress="onPressItem" items="{check>/}">
+				<columns>
+					<Column >
+						<Text text="住户" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="所属楼栋" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="任务" />
+					</Column>
+					<Column minScreenWidth="Desktop" >
+						<Text text="任务类型" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="负责人" />
+					</Column>
+					<Column>
+						<Text text="排查结果" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="备注" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" type="Navigation">
+						<cells>
+							<ObjectIdentifier title="{check>Name}" text="" />
+							<Text text="{check>Block}" />
+							<Text text="{check>Task}" />
+							<Text text="{check>Type}" />
+							<Text text="{check>Responsible}" />
+							<ObjectStatus text="{check>Result}" state="{= ${check>Result} === '待处理' ? 'Error' : 'Success'}" />
+							<Text text="{check>Remark}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

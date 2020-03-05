@@ -13,7 +13,8 @@
         "node": "^10"
     },
     "scripts": {
-        "start": "cds serve gen/csn.json"
+        "start": "cds serve gen/csn.json",
+        "v2":"node v2server.js"
     },
     "cds": {
         "requires": {

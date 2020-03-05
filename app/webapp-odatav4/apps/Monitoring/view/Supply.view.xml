@@ -1,0 +1,120 @@
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Supply" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:fb="sap.ui.comp.filterbar" 
+	xmlns:mc="sap.suite.ui.microchart" 
+	xmlns:core="sap.ui.core">
+	<f:DynamicPage id="dynamicPageId" headerExpanded="true" toggleHeaderOnTitleClick="false" fitContent="false" class="sapUiNoContentPadding myDynamicPage">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="物资供给" />
+				</f:heading>
+				<f:content>
+				</f:content>
+				<f:actions>
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="false">
+				<f:content>
+					<HeaderContainer>
+						<VBox width="8rem">
+							<Label text="省/市" />
+							<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
+								<List>
+									<StandardListItem title="全部" />
+									<StandardListItem title="上海" />
+								</List>
+							</ScrollContainer>
+						</VBox>
+						<VBox width="8rem">
+							<Label text="县/区" />
+							<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
+								<List>
+									<StandardListItem title="全部" />
+									<StandardListItem title="浦东新区" />
+									<StandardListItem title="黄浦区" />
+								</List>
+							</ScrollContainer>
+						</VBox>
+						<VBox width="8rem">
+							<Label text="街道" />
+							<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
+								<List>
+									<StandardListItem title="全部" />
+									<StandardListItem title="张江镇" />
+									<StandardListItem title="金桥镇" />
+								</List>
+							</ScrollContainer>
+						</VBox>
+						<VBox width="8rem">
+							<Label text="社区" />
+							<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
+								<List>
+									<StandardListItem title="全部" />
+									<StandardListItem title="光明小区社区" />
+									<StandardListItem title="科苑社区" />
+								</List>
+							</ScrollContainer>
+						</VBox>
+						<VBox width="8rem">
+							<Label text="时间范围" />
+							<DatePicker />
+							<Text text="~" />
+							<DatePicker />
+						</VBox>
+						<VBox width="20rem">
+							<Label text="事件类型" />
+							<mc:InteractiveDonutChart selectionChanged="onSelectionChanged">
+								<mc:segments>
+									<mc:InteractiveDonutChartSegment label="传染病" value="40.0" displayedValue="40.0%" />
+									<mc:InteractiveDonutChartSegment label="食物中毒" value="21.5" displayedValue="21.5%" />
+									<mc:InteractiveDonutChartSegment label="其他" value="38.5" displayedValue="38.5%" />
+								</mc:segments>
+							</mc:InteractiveDonutChart>
+						</VBox>
+					</HeaderContainer>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<Table itemPress="onPressItem" items="{supply>/}">
+				<columns>
+					<Column >
+						<Text text="主题/编号" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="描述" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="区域" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="事件类型" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="病例类型" />
+					</Column>
+					<Column >
+						<Text text="负责人" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" type="Navigation">
+						<cells>
+							<ObjectIdentifier title="{supply>Title}" text="{supply>Id}" />
+							<Text text="{supply>Title}" />
+							<Text text="{supply>Title}" />
+							<Text text="{supply>Title}" />
+							<Text text="{supply>Title}" />
+							<Text text="{supply>Title}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

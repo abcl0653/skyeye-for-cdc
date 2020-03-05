@@ -1,0 +1,416 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zanno4sample_anno_mdl.v1">
+            <Annotations Target="ed303f0bc87a3557104223cc.ed303f0bc87a3557104223cc_Entities/A_SalesOrder">
+                <Annotation Term="Org.OData.Capabilities.V1.SearchRestrictions">
+                    <Record Type="Org.OData.Capabilities.V1.SearchRestrictionsType">
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="Bool" String="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderType">
+                <Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+                    <Collection>
+                        <PropertyPath>ListReport-StandardFilter_0_0_PropertyPath</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="New Page"/>
+                        <PropertyValue Property="TypeNamePlural" String="Sales Order"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="SalesOrder"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="ObjectPage-Header_Description_Value"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High"/>
+                            <PropertyValue Property="Label" String="Code"/>
+                            <PropertyValue Property="Value" Path="ListReport-BoldColumn_0_0_Value"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/Medium"/>
+                            <PropertyValue Property="Label" String="Column 2"/>
+                            <PropertyValue Property="Value" Path="SalesGroup"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High"/>
+                            <PropertyValue Property="Label" String="Column 3"/>
+                            <PropertyValue Property="Value" Path="ListReport-CurrencyColumn_2_2_Value"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticKey">
+                    <Collection>
+                        <PropertyPath>ListReport-BoldColumn_0_0_Value</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderFacets">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.DataPoint#1"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                            <PropertyValue Property="Label" String="My test Contact"/>
+                            <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.Communication.v1.Contact#1"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Header Form"/>
+                            <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#1"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.DataPoint" Qualifier="1">
+                    <Record Type="com.sap.vocabularies.UI.v1.DataPointType">
+                        <PropertyValue Property="Title" String="KPI Title"/>
+                        <PropertyValue Property="Value" Path="ObjectPage-KPI_0_0_Target_0_Value"/>
+                        <PropertyValue Property="Criticality" Path="ObjectPage-KPI_0_0_Target_0_Criticality"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.Communication.v1.Contact" Qualifier="1">
+                    <Record Type="com.sap.vocabularies.Communication.v1.ContactType">
+                        <PropertyValue Property="fn" String="Sally Spring"/>
+                        <PropertyValue Property="photo" String="MyPictureURL"/>
+                        <PropertyValue Property="title" String="Developer"/>
+                        <PropertyValue Property="role" String="Research and Development"/>
+                        <PropertyValue Property="org" String="ITelo"/>
+                        <PropertyValue Property="tel">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Communication.v1.PhoneNumberType">
+                                    <PropertyValue Property="uri" String="+ 1 224 374524"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.PhoneType/work"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Communication.v1.PhoneNumberType">
+                                    <PropertyValue Property="uri" String="+1 224 9211250"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.PhoneType/cell"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Communication.v1.PhoneNumberType">
+                                    <PropertyValue Property="uri" String="+1 224 374525"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.PhoneType/fax"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="email">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Communication.v1.EmailAddressType">
+                                    <PropertyValue Property="address" String="sally.spring@itelo.info"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.ContactInformationType/work"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="1">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="ObjectPage-StandardHeaderFormElement_2_0_Target_0_Data_0_Value"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="ObjectPage-CodeHeaderFormElement_2_1_Target_1_Data_1_Value"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataFieldForAnnotation">
+                                    <PropertyValue Property="Label" String="My test Contact"/>
+                                    <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.Communication.v1.Contact#2"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.Communication.v1.Contact" Qualifier="2">
+                    <Record Type="com.sap.vocabularies.Communication.v1.ContactType">
+                        <PropertyValue Property="fn" String="Sally Spring"/>
+                        <PropertyValue Property="photo" String="MyPictureURL"/>
+                        <PropertyValue Property="title" String="Developer"/>
+                        <PropertyValue Property="role" String="Research and Development"/>
+                        <PropertyValue Property="org" String="ITelo"/>
+                        <PropertyValue Property="tel">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Communication.v1.PhoneNumberType">
+                                    <PropertyValue Property="uri" String="+ 1 224 374524"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.PhoneType/work"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Communication.v1.PhoneNumberType">
+                                    <PropertyValue Property="uri" String="+1 224 9211250"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.PhoneType/cell"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Communication.v1.PhoneNumberType">
+                                    <PropertyValue Property="uri" String="+1 224 374525"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.PhoneType/fax"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="email">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Communication.v1.EmailAddressType">
+                                    <PropertyValue Property="address" String="sally.spring@itelo.info"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.ContactInformationType/work"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Facets">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.CollectionFacet">
+                            <PropertyValue Property="Label" String="First Section"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Group 1"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#2"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Second Section"/>
+                            <PropertyValue Property="Target" AnnotationPath="Items/@com.sap.vocabularies.UI.v1.LineItem#1"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Third Section"/>
+                            <PropertyValue Property="Target" AnnotationPath="Nav_To_Entity_1/@com.sap.vocabularies.Communication.v1.Contact#1"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="2">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="ObjectPage-CodeFormElement_0_0_Facets_0_Target_0_Data_0_Value"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="ObjectPage-StandardFormElement_0_0_Facets_1_Target_1_Data_1_Value"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="OrganizationDivision"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataFieldWithUrl">
+                                    <PropertyValue Property="Value" Path="ObjectPage-UrlFormElement_0_0_Facets_3_Target_3_Data_3_Value"/>
+                                    <PropertyValue Property="Url" Path="ObjectPage-UrlFormElement_0_0_Facets_3_Target_3_Data_3_Url"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Identification">
+                    <Record Type="com.sap.vocabularies.UI.v1.DataFieldAbstract">
+                        <PropertyValue Property="Label" String=""/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderType/ListReport-BoldColumn_0_0_Value">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="SalesOrder"/>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderType/ListReport-CurrencyColumn_2_2_Value">
+                <Annotation Term="Org.OData.Measures.V1.ISOCurrency" Path="ListReport-CurrencyColumn_2_2_Value_ISOCurrency"/>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderType/ObjectPage-KPI_0_0_Target_0_Value">
+                <Annotation Term="Org.OData.Measures.V1.ISOCurrency" Path="ObjectPage-KPI_0_0_Target_0_Value_ISOCurrency"/>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderType/ObjectPage-CodeHeaderFormElement_2_1_Target_1_Data_1_Value">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="ObjectPage-CodeHeaderFormElement_2_1_Target_1_Data_1_Value_Text"/>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderType/ObjectPage-CodeFormElement_0_0_Facets_0_Target_0_Data_0_Value">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="ObjectPage-CodeFormElement_0_0_Facets_0_Target_0_Data_0_Value_Text"/>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.Entity_0">
+                <Annotation Term="com.sap.vocabularies.UI.v1.LineItem" Qualifier="1">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High"/>
+                            <PropertyValue Property="Label" String="Column 1"/>
+                            <PropertyValue Property="Value" Path="ObjectPage-BoldColumn_1_0_Target_0_Value"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/Medium"/>
+                            <PropertyValue Property="Label" String="Column 2"/>
+                            <PropertyValue Property="Value" Path="ObjectPage-StandardColumn_1_1_Target_1_Value"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High"/>
+                            <PropertyValue Property="Label" String="Column 3"/>
+                            <PropertyValue Property="Value" Path="ObjectPage-CurrencyColumn_1_2_Target_2_Value"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="ID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Identification">
+                    <Record Type="com.sap.vocabularies.UI.v1.DataFieldAbstract">
+                        <PropertyValue Property="Label" String=""/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.Entity_0/ObjectPage-BoldColumn_1_0_Target_0_Value">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="ObjectPage-BoldColumn_1_0_Target_0_Value_Text"/>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.Entity_0/ObjectPage-CurrencyColumn_1_2_Target_2_Value">
+                <Annotation Term="Org.OData.Measures.V1.ISOCurrency" Path="ObjectPage-CurrencyColumn_1_2_Target_2_Value_ISOCurrency"/>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.Entity_1">
+                <Annotation Term="com.sap.vocabularies.Communication.v1.Contact" Qualifier="1">
+                    <Record Type="com.sap.vocabularies.Communication.v1.ContactType">
+                        <PropertyValue Property="fn" String="Sally Spring"/>
+                        <PropertyValue Property="title" String="Designer"/>
+                        <PropertyValue Property="role" String="Research and Development"/>
+                        <PropertyValue Property="org" String="ITelo"/>
+                        <PropertyValue Property="tel">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Communication.v1.PhoneNumberType">
+                                    <PropertyValue Property="uri" String="+1 224 374524"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.PhoneType/work"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Communication.v1.PhoneNumberType">
+                                    <PropertyValue Property="uri" String="+1 224 9211250"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.PhoneType/cell"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Communication.v1.PhoneNumberType">
+                                    <PropertyValue Property="uri" String="+1 224 374524"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.PhoneType/fax"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="email">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Communication.v1.EmailAddressType">
+                                    <PropertyValue Property="address" String="sally.spring@itelo.info"/>
+                                    <PropertyValue Property="type" EnumMember="com.sap.vocabularies.Communication.v1.ContactInformationType/work"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="ID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Identification">
+                    <Record Type="com.sap.vocabularies.UI.v1.DataFieldAbstract">
+                        <PropertyValue Property="Label" String=""/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderHeaderPartnerType">
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="ID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Identification">
+                    <Record Type="com.sap.vocabularies.UI.v1.DataFieldAbstract">
+                        <PropertyValue Property="Label" String=""/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderHeaderPrElementType">
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="ID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Identification">
+                    <Record Type="com.sap.vocabularies.UI.v1.DataFieldAbstract">
+                        <PropertyValue Property="Label" String=""/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderItemType">
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="ID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Identification">
+                    <Record Type="com.sap.vocabularies.UI.v1.DataFieldAbstract">
+                        <PropertyValue Property="Label" String=""/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderItemPartnerType">
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="ID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Identification">
+                    <Record Type="com.sap.vocabularies.UI.v1.DataFieldAbstract">
+                        <PropertyValue Property="Label" String=""/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderItemPrElementType">
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="ID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Identification">
+                    <Record Type="com.sap.vocabularies.UI.v1.DataFieldAbstract">
+                        <PropertyValue Property="Label" String=""/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ed303f0bc87a3557104223cc.A_SalesOrderScheduleLineType">
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="ID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Identification">
+                    <Record Type="com.sap.vocabularies.UI.v1.DataFieldAbstract">
+                        <PropertyValue Property="Label" String=""/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
