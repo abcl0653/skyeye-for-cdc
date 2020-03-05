@@ -1,57 +1,29 @@
 using from './dcp-service.cds';
 
-annotate dcpService.BLOCK_LEVELS with @(
+annotate dcpService.Hospital with @(
     UI: {
-        Identification: [ {Value: code} ],
-        SelectionFields: [ code ],
+        Identification: [ {Value: ID} ],
+        SelectionFields: [ HOSPITAL_LEVEL ],
         LineItem: [
-            {Value: code},
-            {Value: name},
-            {Value: descr}
+            {Value: NAME},
+            {Value: HOSPITAL_LEVEL},
+            // {Value: RESPONSIBLE},
+            {Value: CAPACITY},
+            {Value: TOTAL_CASE}
         ],
         HeaderInfo: {
-            TypeName: 'Blocks',
-            TypeNamePlural: 'Block',
-            Title: {Value: name},
-            Description: {Value: descr}
+            TypeName: '医院',
+            TypeNamePlural: '医院',
+            Title: {Value: NAME},
+            Description: {Value: HOSPITAL_LEVEL}
         }
     }
 );
 
-annotate dcpService.BLOCK_LEVELS with {
-    code @title:'ID' @UI.HiddenFilter;
-    name @title:'Title';
-    descr @title:'AuthorID';
+annotate dcpService.Hospital with {
+    NAME @title:'医院名称' @UI.HiddenFilter;
+    HOSPITAL_LEVEL @title:'医院等级';
+    RESPONSIBLE @title:'负责人';
+    CAPACITY @title:'容量';
+    TOTAL_CASE @title:'病例总数';
 }
-
-// annotate CatalogService.Books with @(
-//     UI: {
-//         Identification: [ {Value: title} ],
-//         SelectionFields: [ title ],
-//         LineItem: [
-//             {Value: ID},
-//             {Value: title},
-//             {Value: author.name},
-//             {Value: author_ID},
-//             {Value: stock}
-//         ],
-//         HeaderInfo: {
-//             TypeName: 'Book',
-//             TypeNamePlural: 'Books',
-//             Title: {Value: title},
-//             Description: {Value: author.name}
-//         }
-//     }
-// );
-// 
-// annotate CatalogService.Books with {
-//     ID @title:'ID' @UI.HiddenFilter;
-//     title @title:'Title';
-//     author @title:'AuthorID';
-//     stock @title:'Stock';
-// }
-// 
-// annotate CatalogService.Authors with {
-//     ID @title:'ID' @UI.HiddenFilter;
-//     name @title:'AuthorName';
-// }

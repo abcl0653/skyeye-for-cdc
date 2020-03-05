@@ -50,7 +50,7 @@ sap.ui.define([
 
 		initPopover:function(){
 			Fragment.load({
-				name: "sap.ibso.skyeyeForCdc.view.fragment.Block",
+				name: "sap.ibso.skyeyeForCdc.apps.Monitoring.view.fragment.Block",
 				controller: this
 			}).then(function (oPopover) {
 				this._oBlockPopover = oPopover;
@@ -58,7 +58,7 @@ sap.ui.define([
 			}.bind(this));
 
 			Fragment.load({
-				name: "sap.ibso.skyeyeForCdc.view.fragment.Hospital",
+				name: "sap.ibso.skyeyeForCdc.apps.Monitoring.view.fragment.Hospital",
 				controller: this
 			}).then(function (oPopover) {
 				this._oHospitalPopover = oPopover;
@@ -66,7 +66,7 @@ sap.ui.define([
 			}.bind(this));
 
 			Fragment.load({
-				name: "sap.ibso.skyeyeForCdc.view.fragment.Task",
+				name: "sap.ibso.skyeyeForCdc.apps.Monitoring.view.fragment.Task",
 				controller: this
 			}).then(function (oDialog) {
 				this._oTaskDialog = oDialog;
@@ -74,7 +74,7 @@ sap.ui.define([
 			}.bind(this));
 
 			Fragment.load({
-				name: "sap.ibso.skyeyeForCdc.view.fragment.Event",
+				name: "sap.ibso.skyeyeForCdc.apps.Monitoring.view.fragment.Event",
 				controller: this
 			}).then(function (oPopover) {
 				this._oEventPopover = oPopover;

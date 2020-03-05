@@ -107,7 +107,7 @@ sap.ui.define([
 
 		destroy: function () {
 			var oMap = this.getProperty("_origin");
-			if (oMap) {
+			if (oMap && oMap.dispose) {
 				oMap.dispose();
 			}
 			Control.prototype.destroy.apply(this, arguments);
