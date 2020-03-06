@@ -48,6 +48,10 @@ entity TASK_TYPES: sap.common.CodeList {
     key CODE: String(5);
 }
 
+entity HEALTH_STATUSES: sap.common.CodeList {
+    key CODE: String(5);
+}
+
 type BLOCK_LEVEL: Association to BLOCK_LEVELS;
 type PERSON_TYPE: Association to PERSON_TYPES;
 type BLOCK_UNIT_TYPE: Association to BLOCK_UNIT_TYPES;
@@ -59,3 +63,4 @@ type EVENT_SUB_TYPE: Association to EVENT_SUB_TYPES;
 type TASK_TYPE: Association to TASK_TYPES;
 type TASK_PRIORITY: Association to TASK_PRIORITIES;
 type TASK_STATUS: Association to TASK_STATUSES;
+type HEALTH_STATUS: Association to HEALTH_STATUSES;

@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "0af1c5ad-fa58-4e8e-aeb4-b10c06858c7f",
+		"name": "DCP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "填报健康状况",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"p\": {\n        \"IDENTIFIER\": \"335132199033332347\",\n        \"MOBILE_PHONE\": \"13939213111\",\n        \"LAST_NAME\": \"蔡小绿\",\n        \"BLOCK_ID\": \"a4202bef-ab7e-4806-a131-cee458fe04b9\",\n        \"EXTERNAL_ID\": \"weixin number\",\n        \"HOME_TOWN_1\":\"xx省\",\n        \"HOME_TOWN_2\":\"xx市\",\n        \"HOME_TOWN_3\":\"xx县\",\n        \"ADDRESS\":\"上海市xx区四二路42弄42室\"\n    },\n    \"s\": {\n    \t\"HEALTH_STATUS_CODE\":\"HOME\",\n    \t\"SYMPTOM_1\":false,\n    \t\"SYMPTOM_2\":false,\n    \t\"SYMPTOM_3\":false,\n    \t\"SYMPTOM_4\":true,\n    \t\"SYMPTOM_4_DESC\":\"感冒，拉肚子，流鼻涕\",\n    \t\"IS_OUT\": true,\n    \t\"OUT_DESC\":\"前往菜市场买菜\",\n    \t\"QUESTION_1\":false,\n    \t\"QUESTION_2\":false,\n    \t\"QUESTION_3\":false,\n    \t\"REMARK\": \"没有其他情况了\",\n    \t\"SUBMIT_DATE\":\"2020-03-05\"\n    \t\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4004/dcp/newStatementPerson",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4004",
+					"path": [
+						"dcp",
+						"newStatementPerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据微信号查找人员信息，便于自动补充用户基础信息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4004/dcp/Person?$filter=EXTERNAL_ID eq 'weixin number'",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4004",
+					"path": [
+						"dcp",
+						"Person"
+					],
+					"query": [
+						{
+							"key": "$filter",
+							"value": "EXTERNAL_ID eq 'weixin number'"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取人员信息",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ff9bed5-48c3-4096-af36-2d8de13f6970",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4004/dcp/Person?$expand=TYPE,BLOCK($select=NAME),STATEMENT",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4004",
+					"path": [
+						"dcp",
+						"Person"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "TYPE,BLOCK($select=NAME),STATEMENT"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

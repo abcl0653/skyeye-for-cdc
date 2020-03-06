@@ -1,4 +1,5 @@
 using from './dcp-service.cds';
+using from './dcp-admin-service.cds';
 
 annotate facilityService.Hospital with @(
     UI: {
