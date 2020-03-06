@@ -16,7 +16,7 @@ sap.ui.define([
 
 			var oBlockModel = new sap.ui.model.json.JSONModel();
 			this.loadBlockData(oBlockModel);
-			this.getView().setModel(oBlockModel, "block");
+			// this.getView().setModel(oBlockModel, "block");
 
 			this.getView().setModel(new sap.ui.model.json.JSONModel("json/orgUnit.json"), "orgUnit");
 
@@ -34,7 +34,7 @@ sap.ui.define([
 				EventVisible:false,
 				CaseVisible: false,
 				CaseTraceVisible: false,
-				BlockRiskLevel: "4",
+				BlockRiskLevel: 4,
 				AutoLevel: false,
 				Date: "2月11日",
 				Time: "12:00",
@@ -162,7 +162,7 @@ sap.ui.define([
 
 		onChangeLevel: function (oEvent) {
 			var sLevel = this.getView().byId("levelSelect").getSelectedKey();
-			this.getView().byId("blockRisk").getBinding("layers").filter(new sap.ui.model.Filter("Level", "EQ", sLevel));
+			this.getView().byId("blockRisk").getBinding("layers").filter(new sap.ui.model.Filter("BLOCK_LEVEL_CODE", "EQ", sLevel));
 		},
 
 		onChangeCaseVisible: function (oEvent) {
