@@ -14,7 +14,8 @@
     "deploy:cds": "cds deploy",
     "build:mta": "cds build/all && cds deploy && mbt build -p=cf",
     "deploy:cf": "npm run build:mta && cf deploy mta_archives/${npm_package_name}_${npm_package_version}.mtar",
-    "ui5": "ui5 serve -o index.html"
+    "ui5": "ui5 serve -o index.html",
+    "v2": "node srv/v2server.js"
   },
   "cds": {
     "requires": {
@@ -40,7 +41,8 @@
   "dependencies": {
     "@sap/audit-logging": "^3.1.0",
     "@sap/cds": "^3.31.1",
-    "@sap/hana-client": "file:hana-client-2.4.182.tgz",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.4.21",
+    "@sap/hana-client": "^2.4.182",
     "@sap/xsenv": "^2.2.0",
     "@sap/xssec": "^2.2.5",
     "express": "^4.17.1",

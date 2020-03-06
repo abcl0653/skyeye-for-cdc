@@ -15,13 +15,7 @@
 
 	<script>
 		sap.ui.getCore().attachInit(
-			() => {
-				// sap.ui.getCore().setModel(new sap.ui.model.odata.v4.ODataModel({
-				// 	serviceUrl: "/dcp/", 
-				// 	synchronizationMode: "None"
-				// }));
-				sap.ushell.Container.createRenderer().placeAt('content');
-			}
+			() => sap.ushell.Container.createRenderer().placeAt('content')
 		)
 	</script>
 </head>
