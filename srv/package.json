@@ -14,7 +14,7 @@
     },
     "scripts": {
         "start": "cds serve gen/csn.json",
-        "v2":"node v2server.js"
+        "v2": "node v2server.js"
     },
     "cds": {
         "requires": {

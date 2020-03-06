@@ -13,9 +13,9 @@ module.exports = srv => {
     if (!req.data.p.IDENTIFIER) req.reject(400, "Identifier is mandatory")
     if (!req.data.p.BLOCK_ID) req.reject(400, "Block ID is mandatory")
     if (!req.data.p.EXTERNAL_ID) req.reject(400, "External ID is mandatory")
-    if (!req.data.p.HOME_TOWN_1) req.reject(400, "Hometown is mandatory")
-    if (!req.data.p.HOME_TOWN_2) req.reject(400, "Hometown is mandatory")
-    if (!req.data.p.HOME_TOWN_3) req.reject(400, "Hometown is mandatory")
+    // if (!req.data.p.HOME_TOWN_1) req.reject(400, "Hometown is mandatory")
+    // if (!req.data.p.HOME_TOWN_2) req.reject(400, "Hometown is mandatory")
+    // if (!req.data.p.HOME_TOWN_3) req.reject(400, "Hometown is mandatory")
     if (!req.data.p.ADDRESS) req.reject(400, "Address is mandatory")
 
     const datetime = new Date();

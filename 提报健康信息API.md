@@ -2,23 +2,27 @@
 
 可以将repo拉到本地跑起来，下面的URL都是指本地服务器
 
+2020-03-06已经部署到SCP Trial, 请将下面url替换localhost
+
+<https://i039497trial-dev-dcp-srv.cfapps.eu10.hana.ondemand.com>
+
 ## 获取人员信息
 
-url: <http://localhost:4004/dcp/Person?$expand=TYPE,BLOCK($select=NAME),STATEMENT>
+url: <http://localhost:4004/dcp/Person?$expand=TYPE,BLOCK($select=NAME)>
 
 method: GET
 
 Response body:
 ```json
 {
-    "@odata.context": "$metadata#Person",
+    "@odata.context": "$metadata#Person(TYPE(),BLOCK(NAME,ID))",
     "value": [
         {
-            "createdAt": "2020-03-06T05:15:30.961Z",
+            "createdAt": "2020-03-06T06:07:43.022Z",
             "createdBy": "anonymous",
-            "modifiedAt": "2020-03-06T05:15:30.961Z",
+            "modifiedAt": "2020-03-06T06:07:43.022Z",
             "modifiedBy": "anonymous",
-            "ID": "98e231aa-4ca5-4a07-8827-631c720433d8",
+            "ID": "9df55804-540d-4279-822d-abf368ad732a",
             "IDENTIFIER": "335132199033332347",
             "FIRST_NAME": null,
             "LAST_NAME": "蔡小绿",
@@ -32,7 +36,16 @@ Response body:
             "AGE": null,
             "LAT_LNG": null,
             "TYPE_CODE": "PBLC",
-            "BLOCK_ID": "a4202bef-ab7e-4806-a131-cee458fe04b9"
+            "BLOCK_ID": "a4202bef-ab7e-4806-a131-cee458fe04b9",
+            "TYPE": {
+                "name": "Public",
+                "descr": null,
+                "CODE": "PBLC"
+            },
+            "BLOCK": {
+                "ID": "a4202bef-ab7e-4806-a131-cee458fe04b9",
+                "NAME": "张江镇"
+            }
         }
     ]
 }

@@ -1,6 +1,6 @@
 CODE,NAME
-"MDIS","Material Dispatch"
-"DIS","Disinfect"
-"INV","Investigate"
-"GATE","Gate Check"
-"FR","Foreign Register"
+"MDIS","物资发放"
+"DIS","消毒"
+"INV","流行病调查"
+"GATE","门禁检查"
+"FR","外来人员登记"

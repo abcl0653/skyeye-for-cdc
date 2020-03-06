@@ -1,4 +1,4 @@
 CODE,NAME
-"CMPLT","Completed"
-"INPRO","In Process"
-"NEW","Not Started"
+"CMPLT","已完成"
+"INPRO","处理中"
+"NEW","新建"

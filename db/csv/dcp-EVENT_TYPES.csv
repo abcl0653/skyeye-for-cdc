@@ -1,6 +1,6 @@
 CODE,NAME
-"INF","Infection"
-"FP","Food Posisoning"
-"DIS","Disaster"
-"PL","Pollution"
-"AC","Accident"
+"INF","传染病"
+"FP","食物中毒"
+"DIS","自然灾害"
+"PL","污染"
+"AC","意外事故"
