@@ -37,7 +37,7 @@ sap.ui.define(["./Path"], function (Path) {
 
 		setLatLngs: function (latLngs) {
 			var oPolyline = this.getProperty("_origin");
-			if (oPolyline) {
+			if (oPolyline && latLngs) {
 				oPolyline.setLatLngs(this._formatLatLngs(latLngs));
 			}
 			this.setProperty("latLngs", latLngs, true);

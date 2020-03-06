@@ -26,17 +26,17 @@ You could open the demo page [here](https://string1225.github.io/skyeye-for-cdc/
     npm install
     ```
 
-1. Start a local server and run the application via UI5 Server (<http://localhost:8080/index.html)>
-
-    ```sh
-    npm run ui5
-    ```
-
-    Alternatively, if you want to start a local server via cds (<http://localhost:4004)>
+1. Start a local server and run the application via cds (<http://localhost:4004)>
 
     ```bash
     cds deploy
     cds run
+    ```
+
+    Alternatively, if you want to start a local server via express for OData v2 (<http://localhost:4004/webapp/index.html)>
+
+    ```bash
+    npm run v2
     ```
 
 1. Build mta and deploy to SAP Cloud Platform
