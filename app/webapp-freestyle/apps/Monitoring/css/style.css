@@ -1,0 +1,82 @@
+/* Enter your custom styles here */
+
+.myDynamicPage .sapFDynamicPageTitle{
+    padding-bottom: 0;
+}
+
+.myDynamicPage .sapFDynamicPageHeader.sapFDynamicPageHeaderWithContent{
+    padding-top: 0;
+}
+
+.floatingPanel{
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 0 0 0.0625rem rgba(0,0,0,0.1), 0 0.125rem 0.5rem 0 rgba(0,0,0,0.1);
+    border-radius: 0.25rem;
+    transition: bottom 1 ease 1;
+}
+
+.myAvatar{
+    height: 5rem;
+    width: 5rem;
+    font-size: 2.5rem;
+    border-radius: 50%;
+    background-color: #b00;
+    color:#fff;
+    text-align: center;
+    position: relative;
+}
+
+.myAvatar span{
+    font-family: 'SAP\2dicons';
+    position: absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%);
+}
+
+.mySimpleForm .sapUiFormTitle {
+    display: none;
+}
+
+.myObjectPageLayout.sapUxAPObjectPageLayout-Std-Phone .sapUxAPBlockContainer{
+    padding: 1rem 0rem 2rem 1rem;
+}
+
+.myObjectPageLayout .sapMGT, .myObjectPageLayout .sapMST{
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.myObjectPageLayout{
+    background-image: linear-gradient(to bottom, #a9c4df, #e7ecf0);
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.myObjectPageLayout .sapUxAPObjectPageContainer, .myObjectPageLayout .sapUxAPObjectPageContainer + div, .myObjectPageLayout .sapUxAPObjectPageHeaderDetailsHidden{
+    background: transparent;
+}
+
+.smallMap{
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 0 0 0.0625rem rgba(0,0,0,0.1), 0 0.125rem 0.5rem 0 rgba(0,0,0,0.1);
+    border-radius: 0.25rem;
+    transition: bottom 1 ease 1;
+}
+
+.riskText{
+    color:orange;
+    font-weight: bold ;
+}
+.taskNumber{
+    color:yellowgreen;
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+.sapSuiteUiCommonsNetworkGraphFullScreen{
+    width: 100%!important;
+    height: 100%!important;
+}

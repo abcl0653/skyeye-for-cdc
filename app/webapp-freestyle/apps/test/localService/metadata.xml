@@ -1,0 +1,445 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="dcpService">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="BLOCK_LEVELS" EntityType="dcpService.BLOCK_LEVELS">
+                    <NavigationPropertyBinding Path="texts" Target="BLOCK_LEVELS_texts" />
+                    <NavigationPropertyBinding Path="localized" Target="BLOCK_LEVELS_texts" />
+                </EntitySet>
+                <EntitySet Name="BLOCK_LEVELS_texts" EntityType="dcpService.BLOCK_LEVELS_texts" />
+                <EntitySet Name="Block" EntityType="dcpService.Block">
+                    <NavigationPropertyBinding Path="PARENT" Target="Block" />
+                    <NavigationPropertyBinding Path="BLOCK_LEVEL" Target="BLOCK_LEVELS" />
+                    <NavigationPropertyBinding Path="RESPONSIBLE" Target="Person" />
+                </EntitySet>
+                <EntitySet Name="EVENT_SUB_TYPES" EntityType="dcpService.EVENT_SUB_TYPES">
+                    <NavigationPropertyBinding Path="EVENT_TYPE" Target="EVENT_TYPES" />
+                    <NavigationPropertyBinding Path="texts" Target="EVENT_SUB_TYPES_texts" />
+                    <NavigationPropertyBinding Path="localized" Target="EVENT_SUB_TYPES_texts" />
+                </EntitySet>
+                <EntitySet Name="EVENT_SUB_TYPES_texts" EntityType="dcpService.EVENT_SUB_TYPES_texts" />
+                <EntitySet Name="EVENT_TYPES" EntityType="dcpService.EVENT_TYPES">
+                    <NavigationPropertyBinding Path="SUB_TYPES" Target="EVENT_SUB_TYPES" />
+                    <NavigationPropertyBinding Path="texts" Target="EVENT_TYPES_texts" />
+                    <NavigationPropertyBinding Path="localized" Target="EVENT_TYPES_texts" />
+                </EntitySet>
+                <EntitySet Name="EVENT_TYPES_texts" EntityType="dcpService.EVENT_TYPES_texts" />
+                <EntitySet Name="Event" EntityType="dcpService.Event">
+                    <NavigationPropertyBinding Path="EVENT_TYPE" Target="EVENT_TYPES" />
+                    <NavigationPropertyBinding Path="EVENT_SUB_TYPE" Target="EVENT_SUB_TYPES" />
+                    <NavigationPropertyBinding Path="RESPONSIBLE" Target="Person" />
+                </EntitySet>
+                <EntitySet Name="PERSON_TYPES" EntityType="dcpService.PERSON_TYPES">
+                    <NavigationPropertyBinding Path="texts" Target="PERSON_TYPES_texts" />
+                    <NavigationPropertyBinding Path="localized" Target="PERSON_TYPES_texts" />
+                </EntitySet>
+                <EntitySet Name="PERSON_TYPES_texts" EntityType="dcpService.PERSON_TYPES_texts" />
+                <EntitySet Name="Person" EntityType="dcpService.Person">
+                    <NavigationPropertyBinding Path="TYPE" Target="PERSON_TYPES" />
+                </EntitySet>
+            </EntityContainer>
+            <EntityType Name="BLOCK_LEVELS">
+                <Key>
+                    <PropertyRef Name="code" />
+                </Key>
+                <Property Name="name" Type="Edm.String" MaxLength="255" />
+                <Property Name="descr" Type="Edm.String" MaxLength="1000" />
+                <Property Name="code" Type="Edm.Int32" Nullable="false" />
+                <NavigationProperty Name="texts" Type="Collection(dcpService.BLOCK_LEVELS_texts)">
+                    <OnDelete Action="Cascade" />
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="dcpService.BLOCK_LEVELS_texts">
+                    <ReferentialConstraint Property="code" ReferencedProperty="code" />
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="BLOCK_LEVELS_texts">
+                <Key>
+                    <PropertyRef Name="locale" />
+                    <PropertyRef Name="code" />
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="5" Nullable="false" />
+                <Property Name="name" Type="Edm.String" MaxLength="255" />
+                <Property Name="descr" Type="Edm.String" MaxLength="1000" />
+                <Property Name="code" Type="Edm.Int32" Nullable="false" />
+            </EntityType>
+            <EntityType Name="Block">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" />
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" />
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255" />
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255" />
+                <Property Name="ID" Type="Edm.Int64" Nullable="false" />
+                <NavigationProperty Name="PARENT" Type="dcpService.Block">
+                    <ReferentialConstraint Property="PARENT_ID" ReferencedProperty="ID" />
+                </NavigationProperty>
+                <NavigationProperty Name="BLOCK_LEVEL" Type="dcpService.BLOCK_LEVELS">
+                    <ReferentialConstraint Property="BLOCK_LEVEL_code" ReferencedProperty="code" />
+                </NavigationProperty>
+                <NavigationProperty Name="RESPONSIBLE" Type="dcpService.Person">
+                    <ReferentialConstraint Property="RESPONSIBLE_ID" ReferencedProperty="ID" />
+                </NavigationProperty>
+                <Property Name="LAT_LNG" Type="Edm.String" />
+                <Property Name="PARENT_ID" Type="Edm.Int64" />
+                <Property Name="BLOCK_LEVEL_code" Type="Edm.Int32" />
+                <Property Name="RESPONSIBLE_ID" Type="Edm.Int32" />
+            </EntityType>
+            <EntityType Name="EVENT_SUB_TYPES">
+                <Key>
+                    <PropertyRef Name="code" />
+                </Key>
+                <Property Name="name" Type="Edm.String" MaxLength="255" />
+                <Property Name="descr" Type="Edm.String" MaxLength="1000" />
+                <Property Name="code" Type="Edm.String" MaxLength="5" Nullable="false" />
+                <NavigationProperty Name="EVENT_TYPE" Type="dcpService.EVENT_TYPES" Partner="SUB_TYPES">
+                    <ReferentialConstraint Property="EVENT_TYPE_code" ReferencedProperty="code" />
+                </NavigationProperty>
+                <NavigationProperty Name="texts" Type="Collection(dcpService.EVENT_SUB_TYPES_texts)">
+                    <OnDelete Action="Cascade" />
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="dcpService.EVENT_SUB_TYPES_texts">
+                    <ReferentialConstraint Property="code" ReferencedProperty="code" />
+                </NavigationProperty>
+                <Property Name="EVENT_TYPE_code" Type="Edm.String" MaxLength="5" />
+            </EntityType>
+            <EntityType Name="EVENT_SUB_TYPES_texts">
+                <Key>
+                    <PropertyRef Name="locale" />
+                    <PropertyRef Name="code" />
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="5" Nullable="false" />
+                <Property Name="name" Type="Edm.String" MaxLength="255" />
+                <Property Name="descr" Type="Edm.String" MaxLength="1000" />
+                <Property Name="code" Type="Edm.String" MaxLength="5" Nullable="false" />
+            </EntityType>
+            <EntityType Name="EVENT_TYPES">
+                <Key>
+                    <PropertyRef Name="code" />
+                </Key>
+                <Property Name="name" Type="Edm.String" MaxLength="255" />
+                <Property Name="descr" Type="Edm.String" MaxLength="1000" />
+                <Property Name="code" Type="Edm.String" MaxLength="5" Nullable="false" />
+                <NavigationProperty Name="SUB_TYPES" Type="Collection(dcpService.EVENT_SUB_TYPES)" Partner="EVENT_TYPE">
+                    <OnDelete Action="Cascade" />
+                </NavigationProperty>
+                <NavigationProperty Name="texts" Type="Collection(dcpService.EVENT_TYPES_texts)">
+                    <OnDelete Action="Cascade" />
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="dcpService.EVENT_TYPES_texts">
+                    <ReferentialConstraint Property="code" ReferencedProperty="code" />
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="EVENT_TYPES_texts">
+                <Key>
+                    <PropertyRef Name="locale" />
+                    <PropertyRef Name="code" />
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="5" Nullable="false" />
+                <Property Name="name" Type="Edm.String" MaxLength="255" />
+                <Property Name="descr" Type="Edm.String" MaxLength="1000" />
+                <Property Name="code" Type="Edm.String" MaxLength="5" Nullable="false" />
+            </EntityType>
+            <EntityType Name="Event">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+                <Property Name="TITLE" Type="Edm.String" MaxLength="100" />
+                <Property Name="DESCRIPTION" Type="Edm.String" />
+                <Property Name="START_DATETIME" Type="Edm.DateTimeOffset" />
+                <Property Name="END_DATETIME" Type="Edm.DateTimeOffset" />
+                <Property Name="LAT_LNG" Type="Edm.String" />
+                <Property Name="INFLUENCE" Type="Edm.String" MaxLength="10" />
+                <NavigationProperty Name="EVENT_TYPE" Type="dcpService.EVENT_TYPES">
+                    <ReferentialConstraint Property="EVENT_TYPE_code" ReferencedProperty="code" />
+                </NavigationProperty>
+                <NavigationProperty Name="EVENT_SUB_TYPE" Type="dcpService.EVENT_SUB_TYPES">
+                    <ReferentialConstraint Property="EVENT_SUB_TYPE_code" ReferencedProperty="code" />
+                </NavigationProperty>
+                <NavigationProperty Name="RESPONSIBLE" Type="dcpService.Person">
+                    <ReferentialConstraint Property="RESPONSIBLE_ID" ReferencedProperty="ID" />
+                </NavigationProperty>
+                <Property Name="ADDRESS_ID" Type="Edm.Int32" />
+                <Property Name="EVENT_TYPE_code" Type="Edm.String" MaxLength="5" />
+                <Property Name="EVENT_SUB_TYPE_code" Type="Edm.String" MaxLength="5" />
+                <Property Name="RESPONSIBLE_ID" Type="Edm.Int32" />
+            </EntityType>
+            <EntityType Name="PERSON_TYPES">
+                <Key>
+                    <PropertyRef Name="code" />
+                </Key>
+                <Property Name="name" Type="Edm.String" MaxLength="255" />
+                <Property Name="descr" Type="Edm.String" MaxLength="1000" />
+                <Property Name="code" Type="Edm.String" MaxLength="5" Nullable="false" />
+                <NavigationProperty Name="texts" Type="Collection(dcpService.PERSON_TYPES_texts)">
+                    <OnDelete Action="Cascade" />
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="dcpService.PERSON_TYPES_texts">
+                    <ReferentialConstraint Property="code" ReferencedProperty="code" />
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="PERSON_TYPES_texts">
+                <Key>
+                    <PropertyRef Name="locale" />
+                    <PropertyRef Name="code" />
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="5" Nullable="false" />
+                <Property Name="name" Type="Edm.String" MaxLength="255" />
+                <Property Name="descr" Type="Edm.String" MaxLength="1000" />
+                <Property Name="code" Type="Edm.String" MaxLength="5" Nullable="false" />
+            </EntityType>
+            <EntityType Name="Person">
+                <Key>
+                    <PropertyRef Name="ID" />
+                </Key>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" />
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" />
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255" />
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255" />
+                <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+                <Property Name="FIRST_NAME" Type="Edm.String" />
+                <Property Name="LAST_NAME" Type="Edm.String" />
+                <NavigationProperty Name="TYPE" Type="dcpService.PERSON_TYPES">
+                    <ReferentialConstraint Property="TYPE_code" ReferencedProperty="code" />
+                </NavigationProperty>
+                <Property Name="MOBILE_PHONE" Type="Edm.String" />
+                <Property Name="ADDRESS" Type="Edm.String" />
+                <Property Name="LAT_LNG" Type="Edm.String" />
+                <Property Name="TYPE_code" Type="Edm.String" MaxLength="5" />
+            </EntityType>
+            <Annotations Target="dcpService.BLOCK_LEVELS">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Path>name</Path>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="dcpService.BLOCK_LEVELS/name">
+                <Annotation Term="Common.Label" String="Name" />
+            </Annotations>
+            <Annotations Target="dcpService.BLOCK_LEVELS/descr">
+                <Annotation Term="Common.Label" String="Description" />
+            </Annotations>
+            <Annotations Target="dcpService.BLOCK_LEVELS_texts/name">
+                <Annotation Term="Common.Label" String="Name" />
+            </Annotations>
+            <Annotations Target="dcpService.BLOCK_LEVELS_texts/descr">
+                <Annotation Term="Common.Label" String="Description" />
+            </Annotations>
+            <Annotations Target="dcpService.Block/modifiedAt">
+                <Annotation Term="Common.Label" String="Changed At" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+            </Annotations>
+            <Annotations Target="dcpService.Block/createdAt">
+                <Annotation Term="Common.Label" String="Created At" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+            </Annotations>
+            <Annotations Target="dcpService.Block/createdBy">
+                <Annotation Term="Common.Label" String="Created By" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Description" String="A user's unique ID" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+            </Annotations>
+            <Annotations Target="dcpService.Block/modifiedBy">
+                <Annotation Term="Common.Label" String="Changed By" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Description" String="A user's unique ID" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+            </Annotations>
+            <Annotations Target="dcpService.Block/BLOCK_LEVEL_code">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label" String="BLOCK_LEVELS" />
+                        <PropertyValue Property="CollectionPath" String="BLOCK_LEVELS" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BLOCK_LEVEL_code" />
+                                    <PropertyValue Property="ValueListProperty" String="code" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="name" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_SUB_TYPES">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Path>name</Path>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_SUB_TYPES/name">
+                <Annotation Term="Common.Label" String="Name" />
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_SUB_TYPES/descr">
+                <Annotation Term="Common.Label" String="Description" />
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_SUB_TYPES/EVENT_TYPE_code">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label" String="EVENT_TYPES" />
+                        <PropertyValue Property="CollectionPath" String="EVENT_TYPES" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="EVENT_TYPE_code" />
+                                    <PropertyValue Property="ValueListProperty" String="code" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="name" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_SUB_TYPES_texts/name">
+                <Annotation Term="Common.Label" String="Name" />
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_SUB_TYPES_texts/descr">
+                <Annotation Term="Common.Label" String="Description" />
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_TYPES">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Path>name</Path>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_TYPES/name">
+                <Annotation Term="Common.Label" String="Name" />
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_TYPES/descr">
+                <Annotation Term="Common.Label" String="Description" />
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_TYPES_texts/name">
+                <Annotation Term="Common.Label" String="Name" />
+            </Annotations>
+            <Annotations Target="dcpService.EVENT_TYPES_texts/descr">
+                <Annotation Term="Common.Label" String="Description" />
+            </Annotations>
+            <Annotations Target="dcpService.Event/EVENT_TYPE_code">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label" String="EVENT_TYPES" />
+                        <PropertyValue Property="CollectionPath" String="EVENT_TYPES" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="EVENT_TYPE_code" />
+                                    <PropertyValue Property="ValueListProperty" String="code" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="name" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="dcpService.Event/EVENT_SUB_TYPE_code">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label" String="EVENT_SUB_TYPES" />
+                        <PropertyValue Property="CollectionPath" String="EVENT_SUB_TYPES" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="EVENT_SUB_TYPE_code" />
+                                    <PropertyValue Property="ValueListProperty" String="code" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="name" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="dcpService.PERSON_TYPES">
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Path>name</Path>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="dcpService.PERSON_TYPES/name">
+                <Annotation Term="Common.Label" String="Name" />
+            </Annotations>
+            <Annotations Target="dcpService.PERSON_TYPES/descr">
+                <Annotation Term="Common.Label" String="Description" />
+            </Annotations>
+            <Annotations Target="dcpService.PERSON_TYPES_texts/name">
+                <Annotation Term="Common.Label" String="Name" />
+            </Annotations>
+            <Annotations Target="dcpService.PERSON_TYPES_texts/descr">
+                <Annotation Term="Common.Label" String="Description" />
+            </Annotations>
+            <Annotations Target="dcpService.Person/modifiedAt">
+                <Annotation Term="Common.Label" String="Changed At" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+            </Annotations>
+            <Annotations Target="dcpService.Person/createdAt">
+                <Annotation Term="Common.Label" String="Created At" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+            </Annotations>
+            <Annotations Target="dcpService.Person/createdBy">
+                <Annotation Term="Common.Label" String="Created By" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Description" String="A user's unique ID" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+            </Annotations>
+            <Annotations Target="dcpService.Person/modifiedBy">
+                <Annotation Term="Common.Label" String="Changed By" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Description" String="A user's unique ID" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+            </Annotations>
+            <Annotations Target="dcpService.Person/TYPE_code">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label" String="PERSON_TYPES" />
+                        <PropertyValue Property="CollectionPath" String="PERSON_TYPES" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="TYPE_code" />
+                                    <PropertyValue Property="ValueListProperty" String="code" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="name" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

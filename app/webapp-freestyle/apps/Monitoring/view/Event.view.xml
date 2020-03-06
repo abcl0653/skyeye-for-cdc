@@ -1,0 +1,105 @@
+<mvc:View controllerName="sap.ibso.skyeyeForCdc.controller.Event" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.f" 
+	xmlns:fb="sap.ui.comp.filterbar" 
+	xmlns:mc="sap.suite.ui.microchart" 
+	xmlns:core="sap.ui.core">
+	<f:DynamicPage id="dynamicPageId" headerExpanded="true" toggleHeaderOnTitleClick="false" fitContent="false" class="sapUiNoContentPadding myDynamicPage">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="事件" />
+				</f:heading>
+				<f:content>
+				</f:content>
+				<f:actions>
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="false">
+				<f:content>
+					<HeaderContainer>
+						<VBox width="20rem">
+							<Label text="事件类型" />
+							<mc:InteractiveDonutChart selectionChanged="onSelectionChanged">
+								<mc:segments>
+									<mc:InteractiveDonutChartSegment label="传染病" value="40.0" displayedValue="40.0%" />
+									<mc:InteractiveDonutChartSegment label="食物中毒" value="21.5" displayedValue="21.5%" />
+									<mc:InteractiveDonutChartSegment label="其他" value="38.5" displayedValue="38.5%" />
+								</mc:segments>
+							</mc:InteractiveDonutChart>
+						</VBox>
+						<VBox width="20rem">
+							<Label text="影响范围" />
+							<mc:InteractiveDonutChart selectionChanged="onSelectionChanged">
+								<mc:segments>
+									<mc:InteractiveDonutChartSegment label="小" value="40.0" displayedValue="40.0%" />
+									<mc:InteractiveDonutChartSegment label="中" value="21.5" displayedValue="21.5%" />
+									<mc:InteractiveDonutChartSegment label="大" value="38.5" displayedValue="38.5%" />
+								</mc:segments>
+							</mc:InteractiveDonutChart>
+						</VBox>
+						<VBox width="20rem">
+							<Label text="处理进展" />
+							<mc:InteractiveDonutChart selectionChanged="onSelectionChanged">
+								<mc:segments>
+									<mc:InteractiveDonutChartSegment label="待处理" value="40.0" displayedValue="40.0%" />
+									<mc:InteractiveDonutChartSegment label="处理中" value="21.5" displayedValue="21.5%" />
+									<mc:InteractiveDonutChartSegment label="已处理" value="38.5" displayedValue="38.5%" />
+								</mc:segments>
+							</mc:InteractiveDonutChart>
+						</VBox>
+						<VBox width="8rem">
+							<Label text="发生时间" />
+							<DatePicker />
+							<Text text="~" />
+							<DatePicker />
+						</VBox>
+					</HeaderContainer>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<Table itemPress="onPressItem" items="{event>/}">
+				<columns>
+					<Column >
+						<Text text="主题/编号" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader">
+						<Text text="描述" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="事件类型" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="影响范围" />
+					</Column>
+					<Column>
+						<Text text="处理进展" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="发生地点" />
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline" >
+						<Text text="处理负责人" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" type="Navigation">
+						<cells>
+							<ObjectIdentifier title="{event>Name}" text="{event>Id}" />
+							<Text text="{event>Description}" />
+							<Text text="{event>Type}" />
+							<ObjectStatus text="{event>Influence}" state="{= ${event>Influence} === '小' ? 'Success' : (${event>Influence} === '中' ? 'Warning' : 'Error')}" />
+							<ObjectStatus text="{event>Progress}" state="{= ${event>Progress} === '已处理' ? 'Success' : (${event>Progress} === '处理中' ? 'Warning' : 'Error')}" />
+							<Text text="{event>LatLng}" />
+							<Text text="{event>Responsible}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>
