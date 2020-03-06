@@ -39,6 +39,12 @@ You could open the demo page [here](https://string1225.github.io/skyeye-for-cdc/
     cds run
     ```
 
+    Alternatively, if you want to start a local server via express for OData v2 (<http://localhost:4004)>
+
+    ```bash
+    npm run v2
+    ```
+
 1. Build mta and deploy to SAP Cloud Platform
 
     ```bash
