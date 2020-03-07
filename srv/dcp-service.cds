@@ -16,6 +16,7 @@ service facilityService  {
 
 service dcpService {
     entity Person as projection on dcp.PERSON;
+    entity Activity as projection on dcp.ACTIVITY_RECORD;
     entity Block as projection on dcp.BLOCK;
     entity HealthSelfStatement as projection on dcp.HEALTH_SELF_STATEMENT;
 

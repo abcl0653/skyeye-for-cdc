@@ -13,6 +13,13 @@
             "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.apps.Hospital",
             "applicationType": "URL",
             "url": "./apps/Hospital"
+        },
+        "Activity-display": {
+            "title": "进入网格人员记录",
+            "description": "",
+            "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.apps.Activity",
+            "applicationType": "URL",
+            "url": "./apps/Activity"
         }
     }
 }

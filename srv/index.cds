@@ -28,3 +28,11 @@ annotate facilityService.Hospital with {
     CAPACITY @title:'容量';
     TOTAL_CASE @title:'病例总数';
 }
+
+
+annotate dcpService.Activity with @(
+    UI: {
+        Identification: [{Value: ID}]
+
+    }
+);
