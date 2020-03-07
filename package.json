@@ -10,7 +10,8 @@
   },
   "scripts": {
     "build": "cds build/all --clean",
-    "start": "cds run",
+    "start:v4only": "cds run",
+    "start": "node srv/v2server.js",
     "deploy:cds": "cds deploy",
     "build:mta": "cds build/all && cds deploy && mbt build -p=cf",
     "deploy:cf": "npm run build:mta && cf deploy mta_archives/${npm_package_name}_${npm_package_version}.mtar",
