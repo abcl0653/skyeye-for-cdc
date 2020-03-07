@@ -17,14 +17,15 @@
 			</l:layoutData>
 			<l:flexContent>
 				<ScrollContainer vertical="true" horizontal="false" height="100%" width="100%">
-					<Tree items="{path:'orgUnit>/', parameters: { numberOfExpandedLevels: 4 }}" mode="SingleSelectMaster">
+					<Tree items="{path:'block>/Block'}" mode="SingleSelectMaster">
+						<StandardTreeItem title="{block>NAME}"  />
 						<!-- <StandardTreeItem title="{orgUnit>text}" counter="{orgUnit>confirmed}" highlight="{orgUnit>status}" /> -->
-						<CustomTreeItem highlight="{orgUnit>status}">
+						<!-- <CustomTreeItem highlight="{orgUnit>status}">
 							<HBox justifyContent="SpaceBetween" width="100%">
-								<Text text="{orgUnit>text}" />
+								<Text text="{block>NAME}" />
 								<Text text="{orgUnit>confirmed}/{orgUnit>suspects}" />
 							</HBox>
-						</CustomTreeItem>
+						</CustomTreeItem> -->
 					</Tree>
 				</ScrollContainer>
 			</l:flexContent>
@@ -38,8 +39,8 @@
 		</l:FixFlex>
 		<leaflet:Map id="map" zoom="14" center="[31.19, 121.6]" zoomControl="false" press="onPressMap">
 			<leaflet:layerGroups>
-				<leaflet:LayerGroup id="blockRisk" layers="{block>/}" visible="{pageConfig>/BlockRiskVisible}">
-					<leaflet:Polygon press="onPressBlock" latLngs="{block>LatLngs}" style='\{ "stroke": true, "color": "{= ${block>Status} === "Good" ? "#107e3e" : "#e9730c"}", "opacity": 0.3, "fillOpacity": 0.2 \}' />
+				<leaflet:LayerGroup id="blockRisk" layers="{block>/Block}" visible="{pageConfig>/BlockRiskVisible}">
+					<leaflet:Polygon press="onPressBlock" latLngs="{block>LAT_LNG}" style='\{ "stroke": true, "color": "{= ${block>Status} === "Good" ? "#107e3e" : "#e9730c"}", "opacity": 0.3, "fillOpacity": 0.2 \}' />
 				</leaflet:LayerGroup >
 				<leaflet:LayerGroup id="hospital" layers="{hospital>/}" visible="{pageConfig>/HospitalVisible}">
 					<leaflet:Marker press="onPressHospital" latLng="{hospital>LatLng}">
@@ -126,15 +127,11 @@
 						</headerToolbar>
 						<VBox>
 							<CheckBox text="网格风险" selected="{pageConfig>/BlockRiskVisible}" />
-							<Select id="levelSelect" selectedKey="{pageConfig>/BlockRiskLevel}" change="onChangeLevel" enabled="{pageConfig>/BlockRiskVisible}">
+							<Select id="levelSelect" selectedKey="{pageConfig>/BlockRiskLevel}" change="onChangeLevel" enabled="{pageConfig>/BlockRiskVisible}" items="{block>/BLOCK_LEVELS}">
 								<layoutData>
 									<FlexItemData alignSelf="Center" />
 								</layoutData>
-								<core:Item key="1" text="市" />
-								<core:Item key="2" text="区" />
-								<core:Item key="3" text="街道" />
-								<core:Item key="4" text="社区" />
-								<core:Item key="5" text="楼栋" />
+								<core:Item key="{block>CODE}" text="{block>name}" />
 							</Select>
 							<!-- <CheckBox text="层级地图跟随" selected="{pageConfig>/AutoMapFollow}" enabled="{pageConfig>/BlockRiskVisible}" />
 							<CheckBox text="特殊网格标注" selected="{pageConfig>/SpecialRiskVisible}" enabled="{= ${pageConfig>/BlockRiskVisible} &amp;&amp; (${pageConfig>/BlockRiskLevel} === '5')}" /> -->

@@ -14,11 +14,11 @@
 			"version": "1.40.12"
 		},
 		"dataSources": {
-            "CatalogService": {
-                "uri": "/catalog/",
+            "block": {
+                "uri": "/v2/block/",
                 "type": "OData",
                 "settings": {
-                    "odataVersion": "4.0"
+                    "odataVersion": "2.0"
                 }
             }
         }
@@ -71,11 +71,13 @@
 					"bundleName": "sap.ibso.skyeyeForCdc.apps.Monitoring.i18n.i18n"
 				}
 			},
-			"": {
-                "dataSource": "CatalogService",
+			"block": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+                "dataSource": "block",
                 "settings": {
-                    "synchronizationMode": "None",
                     "operationMode": "Server",
+                    "json" : true,
+                    "useBatch" : true,
                     "autoExpandSelect": true,
                     "earlyRequests": true,
                     "groupProperties": {
