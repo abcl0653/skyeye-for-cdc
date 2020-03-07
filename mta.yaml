@@ -1,6 +1,6 @@
 _schema-version: 2.0.0
 ID: skyeyedcp
-version: 0.0.2
+version: 0.0.3
 modules:
   - name: dcp-db
     type: hdb
@@ -16,7 +16,7 @@ modules:
     parameters:
       memory: 512M
 
-      disk-quota: 256M
+      disk-quota: 512M
     provides:
       - name: srv-binding # required by UI consumer
         properties:
