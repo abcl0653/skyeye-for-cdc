@@ -5,9 +5,10 @@ const cds = require("@sap/cds")
 const { PORT=4004 } = process.env
 const app = express()
 
+app.get('/', (req, res) => res.send('Hello World!'))
 app.use('/webapp', express.static("app/webapp"))
 
-cds.connect("db");
+cds.connect("db")
 cds.serve("all").in(app)
 app.use(odatav2proxy({ port: PORT }))
 
