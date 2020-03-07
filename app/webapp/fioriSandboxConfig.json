@@ -13,6 +13,25 @@
             "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.apps.Hospital",
             "applicationType": "URL",
             "url": "./apps/Hospital"
+        },
+        "Health-apply": {
+            "title": "医疗机构",
+            "description": "",
+            "additionalInformation": "SAPUI5.Component=sap.ibso.skyeyeForCdc.apps.Hospital",
+            "applicationType": "URL",
+            "url": "./apps/Hospital"
         }
-    }
+    },
+    "groups":[
+        {
+            "id": "sap_ushell_generated_group_id",
+            "title": "我的主页",
+            "tiles": ["Monitoring-display","Hospital-display"]
+        },
+        {
+            "id": "1",
+            "title": "健康申报",
+            "tiles": ["Health-apply"]
+        }
+    ]
 }
